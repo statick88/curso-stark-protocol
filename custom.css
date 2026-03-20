@@ -1,0 +1,66 @@
+/* Custom styles for Stark Protocol */
+
+:root {
+  --stark-blue: #3498db;
+  --iron-red: #e74c3c;
+  --jarvis-orange: #f39c12;
+  --dark-bg: #1a1a2e;
+  --light-text: #ecf0f1;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+}
+
+h1, h2, h3 {
+  color: var(--stark-blue);
+}
+
+h1 {
+  border-bottom: 3px solid var(--stark-blue);
+  padding-bottom: 10px;
+}
+
+.stark-quote {
+  background: linear-gradient(135deg, var(--dark-bg), #2c3e50);
+  color: var(--light-text);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 30px 0;
+  font-style: italic;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+blockquote {
+  border-left: 4px solid var(--jarvis-orange);
+  background: #f9f9f9;
+  padding: 15px 20px;
+  margin: 20px 0;
+}
+
+/* Quiz styling */
+details {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+summary::before {
+  content: "▶ ";
+}
+
+details[open] summary::before {
+  content: "▼ ";
+}
+
+summary + * {
+  margin-top: 10px;
+}

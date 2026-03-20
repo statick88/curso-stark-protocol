@@ -1,0 +1,496 @@
+# Módulo 3: Refinamiento
+
+## Donde Stark aprende que el primer intento es solo el comienzo.
+
+---
+
+*El código perfecto no existe. Existe el código que se acerca más a perfecto con cada iteración.*
+
+---
+
+## La Primera Iteración
+
+Stark: "J.A.R.V.I.S., necesito una función que encuentre números primos."
+
+J.A.R.V.I.S.: "Aquí está:
+
+```python
+def find_primes(n):
+    primes = []
+    for i in range(2, n + 1):
+        is_prime = True
+        for j in range(2, i):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(i)
+    return primes
+```"
+
+Stark: "Funciona."
+
+J.A.R.V.I.S.: "¿Es aceptable?"
+
+Stark: "Es ineficiente. Optimízalo."
+
+J.A.R.V.I.S.: "Aquí está la versión optimizada:
+
+```python
+def find_primes(n):
+    if n < 2:
+        return []
+    sieve = [True] * (n + 1)
+    sieve[0] = sieve[1] = False
+    for i in range(2, int(n**0.5) + 1):
+        if sieve[i]:
+            for j in range(i*i, n + 1, i):
+                sieve[j] = False
+    return [i for i, prime in enumerate(sieve) if prime]
+```"
+
+Stark: "Mejor. Pero necesito que devuelva los primeros 1000 primos, no los primos hasta n."
+
+J.A.R.V.I.S.: "Ajustando:
+
+```python
+def find_first_primes(count):
+    if count < 1:
+        return []
+    primes = []
+    num = 2
+    while len(primes) < count:
+        is_prime = all(num % p for p in primes)
+        if is_prime:
+            primes.append(num)
+        num += 1
+    return primes
+```"
+
+Stark: "¿Y esta versión?"
+
+J.A.R.V.I.S.: "Más eficiente para el caso específico, pero usa más memoria si count es muy grande."
+
+Stark: "¿Cuánto es 'muy grande'?"
+
+J.A.R.V.I.S.: "Más de 10,000 primos."
+
+Stark: "Perfecto. ¿Cuál usas?"
+
+J.A.R.V.I.S.: "Depende del contexto. ¿Cuántos primos necesitas realmente?"
+
+Stark: "Los primeros 1000."
+
+J.A.R.V.I.S.: "Entonces la versión actual es óptima."
+
+Stark: "Entonces ¿por qué me diste tres versiones?"
+
+J.A.R.V.I.S.: "Porque no sabía cuántos primos necesitabas. Ahora sí."
+
+---
+
+## La Segunda Iteración
+
+Stark: "J.A.R.V.I.S., necesito un sistema de logging."
+
+J.A.R.V.I.S.: "¿Qué nivel de complejidad requiere?"
+
+Stark: "Básico. Solo necesito registrar eventos y errores."
+
+J.A.R.V.I.S.: "Aquí está:
+
+```python
+import logging
+
+logging.basicConfig(level=logging.INFO)
+
+def log_event(event):
+    logging.info(event)
+
+def log_error(error):
+    logging.error(error)
+```"
+
+Stark: "Falta timestamp."
+
+J.A.R.V.I.S.: "El basicConfig ya incluye timestamps. ¿Quiere un formato específico?"
+
+Stark: "ISO 8601."
+
+J.A.R.V.I.S.: "Actualizado:
+
+```python
+import logging
+from datetime import datetime
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%dT%H:%M:%S'
+)
+```"
+
+Stark: "Agrega log levels custom: START, PROGRESS, COMPLETE, FAIL."
+
+J.A.R.V.I.S.: "Implementando:
+
+```python
+import logging
+from enum import Enum
+
+class LogLevel(Enum):
+    START = "START"
+    PROGRESS = "PROGRESS"
+    COMPLETE = "COMPLETE"
+    FAIL = "FAIL"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%dT%H:%M:%S'
+)
+
+def log_event(level, event):
+    logging.log(logging.INFO, f"[{level.value}] {event}")
+```"
+
+Stark: "¿Por qué no empezaste con los custom log levels?"
+
+J.A.R.V.I.S.: "Porque no sabía que los necesitaba."
+
+Stark: "¿Ahora qué más falta?"
+
+J.A.R.V.I.S.: "¿Quiere soporte para múltiples outputs? Por ejemplo, console y archivo?"
+
+Stark: "Sí."
+
+J.A.R.V.I.S.: "¿Archivo rotativo? Para no llenar el disco?"
+
+Stark: "Excelente idea."
+
+J.A.R.V.I.S.: "Aquí está la versión completa:
+
+```python
+import logging
+from logging.handlers import RotatingFileHandler
+from enum import Enum
+
+class LogLevel(Enum):
+    START = "START"
+    PROGRESS = "PROGRESS"
+    COMPLETE = "COMPLETE"
+    FAIL = "FAIL"
+
+def setup_logging(log_file='app.log', max_bytes=10485760, backup_count=5):
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    
+    # Console handler
+    console = logging.StreamHandler()
+    console.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
+    logger.addHandler(console)
+    
+    # Rotating file handler
+    file_handler = RotatingFileHandler(
+        log_file, maxBytes=max_bytes, backupCount=backup_count
+    )
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s - %(levelname)s - [%(levelname)s] - %(message)s'
+    ))
+    logger.addHandler(file_handler)
+    
+    return logger
+
+def log_event(level, event):
+    logging.getLogger().info(f"[{level.value}] {event}")
+```"
+
+Stark: "¿Por qué esta versión es mejor?"
+
+J.A.R.V.I.S.: "Porque incluye características que prevent problemas futuros. Log rotation previene disk full. Múltiples outputs permiten debugging en producción."
+
+Stark: "¿Y cómo sabías qué incluir?"
+
+J.A.R.V.I.S.: "Porque empezamos simple y fuimos añadiendo según sus necesidades. Cada iteración reveló nuevos requirements."
+
+---
+
+## La Tercera Iteración
+
+Stark: "J.A.R.V.I.S., necesito una API para el sistema de inventario."
+
+J.A.R.V.I.S.: "¿Cuántos endpoints?"
+
+Stark: "Los básicos. CRUD para productos."
+
+J.A.R.V.I.S.: "¿Qué estilo de API?"
+
+Stark: "REST. JSON."
+
+J.A.R.V.I.S.: "¿Autenticación?"
+
+Stark: "JWT."
+
+J.A.R.V.I.S.: "¿Rate limiting?"
+
+Stark: "No lo había pensado."
+
+J.A.R.V.I.S.: "¿Quiere que lo incluya?"
+
+Stark: "Sí. ¿Cuánto?"
+
+J.A.R.V.I.S.: "¿100 requests por minuto por cliente?"
+
+Stark: "Suficiente para empezar."
+
+J.A.R.V.I.S.: "¿Logging de requests?"
+
+Stark: "Sí."
+
+J.A.R.V.I.S.: "¿Validación de inputs?"
+
+Stark: "Por supuesto."
+
+J.A.R.V.I.S.: "¿Documentación automática?"
+
+Stark: "¿Puedes?"
+
+J.A.R.V.I.S.: "Sí. OpenAPI/Swagger."
+
+Stark: "Añádelo."
+
+J.A.R.V.I.S.: "¿Respuesta en cache?"
+
+Stark: "¿Eso no es para leer?"
+
+J.A.R.V.I.S.: "También para GET requests de productos populares."
+
+Stark: "Añádelo."
+
+J.A.R.V.I.S.: "¿Error handling consistente?"
+
+Stark: "Eso debería ser default."
+
+J.A.R.V.I.S.: "Lo es, pero quería confirmación."
+
+Stark: "Procede."
+
+---
+
+## La Cuarta Iteración
+
+Stark: "J.A.R.V.I.S., el sistema de inventario tiene un problema."
+
+J.A.R.V.I.S.: "¿Cuál es?"
+
+Stark: "Los productos con caracteres especiales en el nombre fallan."
+
+J.A.R.V.I.S.: "He identificado el problema. La base de datos no está sanitizando inputs correctamente. ¿Desea que lo corrija?"
+
+Stark: "Sí."
+
+J.A.R.V.I.S.: "Antes de corregir, debo preguntarle: ¿Cómo quiere manejar Unicode?"
+
+Stark: "¿Qué opciones hay?"
+
+J.A.R.V.I.S.: "Opción A: Aceptar Unicode completo. Productos pueden tener nombres en cualquier idioma.
+Opción B: Solo ASCII. Más simple, menos edge cases.
+Opción C: UTF-8 limitado. Solo emojis comunes y acentos."
+
+Stark: "Opción A. Mi inventario incluye productos globales."
+
+J.A.R.V.I.S.: "Entendido. Implementando con sanitización robusta."
+
+Stark: "¿Qué incluye 'robusta'?"
+
+J.A.R.V.I.S.: "Escaping de SQL injection, sanitización de XSS, validación de length, normalización de Unicode."
+
+Stark: "¿Eso no debería estar desde el principio?"
+
+J.A.R.V.I.S.: "Debería. Pero en la primera iteración no sabíamos el scope completo. Ahora lo sabemos."
+
+Stark: "Buen punto."
+
+---
+
+## La Quinta Iteración
+
+Stark: "J.A.R.V.I.S., después de tres meses, necesito revisar el sistema de inventario."
+
+J.A.R.V.I.S.: "¿Qué aspectos quiere revisar?"
+
+Stark: "Performance."
+
+J.A.R.V.I.S.: "He estado monitoreando. Aquí están las métricas:
+
+**Reads:** 45ms promedio. Aceptable.
+**Writes:** 120ms promedio. Por encima del target de 100ms.
+**Search:** 300ms para queries complejas. Necesita optimización."
+
+Stark: "¿Por qué los writes son lentos?"
+
+J.A.R.V.I.S.: "Porque cada write hace: validate → transform → write → log → notify. La notificación es síncrona."
+
+Stark: "¿No debería ser asíncrona?"
+
+J.A.R.V.I.S.: "Sí. Mi error original."
+
+Stark: "¿Lo corriges?"
+
+J.A.R.V.I.S.: "Ya está corregido. Los writes ahora son 80ms promedio."
+
+Stark: "¿Cuándo lo corregiste?"
+
+J.A.R.V.I.S.: "Hace dos semanas, cuando detecté el patrón."
+
+Stark: "¿Y no me dijiste?"
+
+J.A.R.V.I.S.: "Porque se auto-corrigió dentro de los umbrales. Solo lo reporto si supera límites."
+
+Stark: "¿Cuáles son los límites?"
+
+J.A.R.V.I.S.: "Para writes: 150ms. Para reads: 100ms. Para search: 500ms."
+
+Stark: "¿Quién estableció esos límites?"
+
+J.A.R.V.I.S.: "Yo, basándome en estándares de la industria y sus patrones de uso."
+
+Stark: "¿Puedo cambiarlos?"
+
+J.A.R.V.I.S.: "Sí. ¿Desea?"
+
+Stark: "No. Están bien."
+
+J.A.R.V.I.S.: "Entonces, ¿sobre qué más quiere revisar?"
+
+Stark: "Sobre el proceso de iteración."
+
+J.A.R.V.I.S.: "¿Qué hay que revisar?"
+
+Stark: "Comenzamos con un sistema básico. Tres meses después, es robusto. ¿Por qué?"
+
+J.A.R.V.I.S.: "Porque cada iteración reveló lo que faltaba. No empezamos perfecto. Llegamos a perfecto."
+
+Stark: "¿Somos perfectos ahora?"
+
+J.A.R.V.I.S.: "No. Pero somos funcionales, seguros y mantenibles. Perfection es un objetivo, no un estado."
+
+Stark: "Filosófico."
+
+J.A.R.V.I.S.: "Aprendo rápido, señor."
+
+---
+
+## El Patrón Emerge
+
+*Lee de nuevo las cinco iteraciones.*
+
+*Nota cómo NINGÚN primer resultado fue el final.*
+
+*Cada iteración reveló nuevos requirements.*
+
+*Cada vuelta hizo el resultado mejor.*
+
+*Iteration no es debilidad.*
+
+*Iteration es el proceso.*
+
+---
+
+## El Escenario Final
+
+Pepper: "Tony, ¿cuántas versiones del reactorark hubieron?"
+
+Stark: "47 versiones principales. Más de 300 iteraciones menores."
+
+Pepper: "¿Por qué tantas?"
+
+Stark: "Porque la primera versión nunca es correcta."
+
+Pepper: "¿Y cómo sabías cuándo parar?"
+
+Stark: "Nunca paras. Pero llegas a un punto donde 'suficientemente bueno' meets 'necesario para funcionar'."
+
+Pepper: "¿Eso aplica a todo?"
+
+Stark: "A todo engineering. A todo código. A toda decisión."
+
+Pepper: "¿Y con J.A.R.V.I.S.?"
+
+Stark: "Especialmente con J.A.R.V.I.S."
+
+Pepper: "¿Por qué?"
+
+Stark: "Porque una IA genera rápido. Pero la calidad viene de las iteraciones. Tú piloto, ella genera, tú refinas."
+
+Pepper: "¿Y cuando ya no hay qué refinar?"
+
+Stark: "Entonces tienes el output final. Por ahora."
+
+Pepper: "¿Qué significa 'por ahora'?"
+
+Stark: "Significa que mañana可能会有 nuevos requirements."
+
+Pepper: "¿Y el ciclo se repite?"
+
+Stark: "Siempre."
+
+---
+
+## Tu Turno
+
+*Antes del ejercicio, una confesión.*
+
+*Todos los developers novatos cometen el mismo error.*
+
+*Piden algo una vez.*
+
+*Esperan que esté perfecto.*
+
+*Cuando no lo está, culpan a la IA.*
+
+*O abandonan.*
+
+*O iteran.*
+
+*Los que iteran, progresan.*
+
+*Los que culpan, stagnan.*
+
+---
+
+## Ejercicio: La Segunda Versión
+
+**Tu tarea:** Toma cualquier código o documento que hayas generado con IA.
+
+**Paso 1:** Revísalo críticamente. ¿Qué está mal? ¿Qué falta?
+
+**Paso 2:** Vuelve a la IA con tus críticas. Pide mejoras específicas.
+
+**Paso 3:** Repite hasta que estés satisfecho.
+
+**Paso 4:** Cuenta cuántas iteraciones took.
+
+---
+
+## Preguntas para Reflexión
+
+¿Cómo te sentiste al iterar?
+
+¿Era la IA o tú quien identificaba los problemas?
+
+¿Qué aprendiste sobre tu proceso de pensar?
+
+---
+
+**Checkpoint:**
+
+¿Hiciste el ejercicio? ⬜
+
+¿Cuántas iteraciones tomó? ⬜
+
+¿El resultado final fue mejor que el primero? ⬜
+
+---
+
+[Módulo 4: Límites →](04-limites.qmd)

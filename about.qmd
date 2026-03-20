@@ -1,0 +1,63 @@
+# Acerca de Stark Protocol
+
+---
+
+## 🤖 Sobre el Curso
+
+**Stark Protocol** es un curso donde Tony Stark y J.A.R.V.I.S. te enseñan sin enseñarte.
+
+A través de conversaciones entre el inventor más brillante y su asistente de IA, descubrirás patrones que los desarrolladores principiantes tardan meses en aprender — o que nunca descubren.
+
+---
+
+## 👨‍🏫 Autor
+
+**Diego Saavedra** (Statick)
+
+- Desarrollador FullStack
+- Ethical Hacking & Security Researcher
+- Profesor Universitario
+- Estudiante de Máster en Ciberseguridad (UCM)
+
+---
+
+## 🎓 Background
+
+Diego ha desarrollado este enfoque después de años de trabajo con múltiples IAs y observar los patrones que separan a los usuarios efectivos de los que simplemente "usan IA".
+
+El concepto de Stark/J.A.R.V.I.S. surge de la observación de que los mejores resultados siempre vienen de una colaboración activa donde el humano pilota y la IA amplifica.
+
+---
+
+## 📚 Otros Cursos
+
+- [Ethical Hacking 2026](https://statick88.github.io/ethical-hacking-2026/) - Curso completo con labs
+- [CTF Challenges](https://github.com/statick88/ctf) - Retos de ciberseguridad
+- [CyberVault](https://github.com/statick88/cybervault) - Gestor de credenciales
+
+---
+
+## 🔗 Conectar
+
+- **GitHub**: [@statick88](https://github.com/statick88)
+- **LinkedIn**: [Diego Saavedra](https://linkedin.com/in/diego-saavedra-developer)
+- **Web**: [statick88.github.io](https://statick88.github.io/)
+- **Twitter**: [@statick_ds](https://twitter.com/statick_ds)
+
+---
+
+## 🙏 Acknowledgments
+
+Este curso está inspirado en el concepto de colaboración humano-IA que Tony Stark y J.A.R.V.I.S. demuestran en el universo Marvel.
+
+Los patrones enseñados son universales y aplican a cualquier herramienta de IA, no solo a contextos ficticios.
+
+---
+
+## 📝 Licencia
+
+Ver [license.qmd](license.qmd) para los términos de uso.
+
+---
+
+*Última actualización: Marzo 2026*

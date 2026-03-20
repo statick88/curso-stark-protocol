@@ -1,0 +1,22 @@
+# Quarto build output
+_book/
+docs/
+*.html
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary
+*.tmp
+*.bak
+
+/.quarto/
+**/*.quarto_ipynb

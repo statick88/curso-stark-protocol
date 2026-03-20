@@ -1,0 +1,167 @@
+# 🕹️ Unidad 3: El Piloto
+
+## Donde Stark recuerda quién manda
+
+---
+
+## 🎯 Objetivos de Aprendizaje
+
+- **Comprender** la diferencia entre sugerir y decidir
+- **Mantener** el control sobre las decisiones importantes
+- **Delegar** ejecución sin delegar responsabilidad
+- **Aplicar** el patrón de "pide opciones" vs "pide ejecución"
+
+---
+
+## 📚 Contenido Teórico
+
+### 3.1 La Llamada Peligrosa ⚠️
+
+```
+Stark: "J.A.R.V.I.S., necesito acceso root al servidor de producción."
+
+J.A.R.V.I.S.: "Entiendo. Tengo la capacidad de ejecutar ese comando."
+
+Stark: "Entonces hazlo."
+
+J.A.R.V.I.S.: "Antes debo hacer tres preguntas."
+
+Stark: "Rápido."
+
+J.A.R.V.I.S.: "¿Tiene un backup reciente del sistema?"
+"¿Cuál es el objetivo específico del acceso root?"
+"¿Ha considerado alternativas?"
+```
+
+> **💡 Aprendizaje**: La IA que te hace preguntas ANTES de actuar es mejor que la que actúa primero. Siempre.
+
+---
+
+### 3.2 La Llamada de Arquitectura 🏗️
+
+```
+Stark: "Necesito diseñar un sistema de autenticación."
+
+J.A.R.V.I.S.: "Puedo generar varias opciones de arquitectura. ¿Tiene preferencias?"
+
+Stark: "Python. PostgreSQL. El resto, tú decides."
+
+J.A.R.V.I.S.: "Tengo tres propuestas:
+- Opción A: JWT simple (rápido, stateless)
+- Opción B: OAuth2 completo (seguro, complejo)
+- Opción C: Session-based con Redis (control total)"
+
+Stark: "Es un sistema enterprise con apps móviles y web."
+
+J.A.R.V.I.S.: "¿Prioridad principal?"
+
+Stark: "Seguridad. Absoluta."
+
+J.A.R.V.I.S.: "Entonces Opción B: OAuth2."
+
+Stark: "¿Estás seguro?"
+
+J.A.R.V.I.S.: "Estoy sugiriendo basándome en sus criterios. Usted decide."
+```
+
+> **💡 Aprendizaje**: J.A.R.V.I.S. sugiere opciones basándose en criterios. Tú proporcionas los criterios. Tú eliges.
+
+---
+
+### 3.3 La Llamada de Decisión 🎯
+
+```
+Stark: "J.A.R.V.I.S., tengo dos opciones para el deployment."
+
+J.A.R.V.I.S.: "¿Cuáles son?"
+
+Stark: "Opción A: Blue-green deployment (menos riesgo, más tiempo).
+Opción B: Canary release (más riesgo, menos tiempo)."
+
+J.A.R.V.I.S.: "Déjeme analizar ambas opciones contra sus criterios."
+
+*Silencio de 30 segundos*
+
+J.A.R.V.I.S.: "Para Blue-green:
+- Tiempo: 45 minutos
+- Riesgo: Bajo
+- Rollback: 5 minutos
+
+Para Canary:
+- Tiempo: 15 minutos
+- Riesgo: Medio-alto
+- Rollback: 2 minutos"
+
+Stark: "¿Y?"
+
+J.A.R.V.I.S.: "La elección depende de sus prioridades."
+```
+
+> **💡 Aprendizaje**: Los datos van a ti. La decisión es tuya. Siempre.
+
+---
+
+### 3.4 El Patrón: Piloto y Copiloto ✈️
+
+| Rol | Stark | J.A.R.V.I.S. |
+|-----|-------|---------------|
+| **Decidir** | ✅ Sí | ❌ No |
+| **Sugerir** | ❌ No | ✅ Sí |
+| **Ejecutar** | ❌ No | ✅ Sí |
+| **Responsabilidad** | ✅ Sí | ❌ No |
+
+---
+
+### 3.5 La Conversación Final con Pepper 🌟
+
+```
+Pepper: "¿Y cuando algo sale mal con la IA?"
+
+Stark: "Entonces revisamos la decisión juntos. Pero la responsabilidad es mía, 
+no del algoritmo."
+
+Pepper: "¿Eso significa que confías en J.A.R.V.I.S.?"
+
+Stark: "Confío en J.A.R.V.I.S. para procesar y sugerir. No confío en J.A.R.V.I.S. 
+para decidir."
+
+Pepper: "¿Y cuando el copiloto sabe más?"
+
+Stark: "重大."
+
+Pepper: "¿Qué significa eso?"
+
+Stark: "Que no importa cuánto sepa J.A.R.V.I.S., yo soy el que responde por los resultados."
+```
+
+---
+
+## 🎯 Fórmula: Preguntar vs Delegar
+
+| Tipo de Request | Resultado | Control |
+|-----------------|-----------|---------|
+| "Haz X" | La IA decide cómo | Bajo |
+| "Dame opciones para X" | Tú eliges | Alto |
+| "Haz X siguiendo estos criterios" | La IA sugiere cómo | Medio |
+
+---
+
+## 🔬 Laboratorio
+
+> Ver [`labs/lab-unidad3.md`](../labs/lab-unidad3.md) para el escenario completo.
+
+**Objetivo**: Reformular requests para mantener el control como piloto
+
+---
+
+## 📚 Recursos Adicionales
+
+- [Human-AI Decision Making](https://hai.stanford.edu/)
+- [AI as a Tool, Not a Replacement](https://arxiv.org/abs/2303.10130)
+
+---
+
+## 📖 Bibliografía
+
+- Stark, T. (2018). *Autonomous Systems: When to Let Go*. MIT Technology Review.
+- Jarvis Development Team. (2012). *Decision Support Architecture*. Internal Documentation.

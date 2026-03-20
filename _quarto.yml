@@ -1,0 +1,63 @@
+# Stark Protocol - AI Usage Course
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Stark Protocol"
+  author: "Diego Saavedra"
+  site-url: "https://statick88.github.io/curso-stark-protocol/"
+  favicon: images/stark-protocol.png
+  downloads: [pdf]
+  sidebar:
+    style: docked
+    search: true
+  page-footer:
+    left: |
+      Stark Protocol por Diego Saavedra
+    right: |
+      [Acerca de](about.qmd) | [Licencia](license.qmd)
+  chapters:
+    - index.qmd
+    - part: "Contenido Teórico"
+      chapters:
+        - contenido/unidad1.qmd
+        - contenido/unidad2.qmd
+        - contenido/unidad3.qmd
+        - contenido/unidad4.qmd
+        - contenido/unidad5.qmd
+        - contenido/unidad6.qmd
+    - part: "Laboratorios"
+      chapters:
+        - labs/lab-unidad1.md
+        - labs/lab-unidad2.md
+        - labs/lab-unidad3.md
+        - labs/lab-unidad4.md
+        - labs/lab-unidad5.md
+        - labs/lab-unidad6.md
+    - part: "Evaluación"
+      chapters:
+        - quizzes/unidad1.md
+        - quizzes/unidad2.md
+        - quizzes/unidad3.md
+        - quizzes/unidad4.md
+        - quizzes/unidad5.md
+        - quizzes/unidad6.md
+    - part: "Información"
+      chapters:
+        - about.qmd
+        - license.qmd
+
+format:
+  html:
+    theme:
+      - solar
+      - custom.scss
+    css:
+      - css/styles.css
+      - custom.css
+  pdf:
+    documentclass: scrbook
+
+execute:
+  echo: false

@@ -1,0 +1,85 @@
+---
+title: "Stark Protocol"
+author: "Diego Saavedra"
+---
+
+# 🤖 Stark Protocol
+
+**Uso Efectivo de Inteligencia Artificial**
+
+**Duración**: 20 horas | **Modalidad**: Autoestudio | **Nivel**: Principiante-Intermedio
+
+---
+
+## 🎯 ¿Qué es Stark Protocol?
+
+Stark Protocol es un curso donde **Tony Stark y J.A.R.V.I.S. te enseñan sin enseñarte**.
+
+A través de conversaciones entre el inventor más brillante de Marvel y su asistente de IA, descubrirás patrones que los desarrolladores principiantes tardan meses en aprender — o que nunca descubren y permanecen en el nivel de "le copio el código y espero que funcione".
+
+**El enfoque es 100% implícito**: las lecciones emergen de las situaciones, no de explicaciones directas.
+
+---
+
+## 📚 Estructura del Curso
+
+| Unidad | Título | Concepto Central |
+|--------|--------|------------------|
+| 1 | El Despertar | Configuración inicial y setup |
+| 2 | Contexto es Rey | Dar información específica |
+| 3 | El Piloto | Tú decides, la IA sugiere |
+| 4 | Refinamiento | Iterar hasta acertar |
+| 5 | Límites | Qué compartir, qué guardar |
+| 6 | Síntesis | El poder de la combinación |
+
+---
+
+## 🧠 Metodología
+
+### El Principio Fundamental
+
+> "La armadura me hace más fuerte. J.A.R.V.I.S. me hace más inteligente. Juntos, somos imparables."
+> — Tony Stark
+
+**Tú pilotas. J.A.R.V.I.S. amplifica.**
+
+No es ciencia ficción. Es un framework mental para cualquier interacción con IA.
+
+---
+
+## 🛠️ Labs Prácticos
+
+Cada unidad incluye un laboratorio práctico donde aplicarás los conceptos observados en las conversaciones entre Stark y J.A.R.V.I.S.
+
+| Lab | Habilidad |
+|-----|-----------|
+| 1 | Tu Primera Sesión |
+| 2 | El Request Perfecto |
+| 3 | Piloto y Copiloto |
+| 4 | Iteración Mortal |
+| 5 | El Filtro Mental |
+| 6 | El Proyecto Final |
+
+---
+
+## 🎓 Lo que Aprenderás
+
+- **Dar contexto** → Mejor output
+- **Pilota** → Mantén control
+- **Itera** → Mejora continua
+- **Limita** → Protege lo sensitive
+- **Sintetiza** → Combina todo
+
+---
+
+## 📋 Requisitos
+
+- Cualquier herramienta de IA (ChatGPT, Claude, Gemini, Copilot, etc.)
+- Ganas de aprender haciendo
+- Disposición a reflexionar sobre tus propios patrones
+
+---
+
+## 🚀 Comienza Ahora
+
+[→ Unidad 1: El Despertar](contenido/unidad1.qmd)

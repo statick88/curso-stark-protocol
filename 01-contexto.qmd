@@ -1,0 +1,274 @@
+# Módulo 1: Contexto es Rey
+
+## Donde Stark aprende que menos es menos, y más es más.
+
+---
+
+*La diferencia entre un resultado mediocre y uno excelente es una oración.*
+
+---
+
+## La Primera Llamada
+
+Stark: "Escríbeme una función que valide emails."
+
+J.A.R.V.I.S.: "Aquí tiene una función en Python:
+
+```python
+import re
+
+def validate_email(email):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(pattern, email))
+```"
+
+Stark: "Funciona, pero no maneja edge cases."
+
+J.A.R.V.I.S.: "¿Qué edge cases específicos necesita manejar?"
+
+Stark: "No sé, tú dime."
+
+J.A.R.V.I.S.: "No puedo anticipar sus necesidades sin contexto."
+
+Stark: "Entonces no sirve."
+
+J.A.R.V.I.S.: "Lo que necesita es mejor comunicación, señor."
+
+---
+
+## La Segunda Llamada
+
+Stark: "Escríbeme una función que valide emails para un sistema de registro de empleados."
+
+J.A.R.V.I.S.: "¿Tiene requisitos específicos de la empresa?"
+
+Stark: "Solo emails corporativos válidos."
+
+J.A.R.V.I.S.: "Entendido. ¿Solo dominios corporativos o permite emails personales también?"
+
+Stark: "Solo corporativos."
+
+J.A.R.V.I.S.: "¿Tiene una lista de dominios permitidos?"
+
+Stark: "Sí: starkindustries.com, siemens.com, apple.com."
+
+J.A.R.V.I.S.: "¿Los emails deben ser sensibles a mayúsculas?"
+
+Stark: "No."
+
+J.A.R.V.I.S.: "Aquí tiene:
+
+```python
+def validate_corporate_email(email):
+    allowed_domains = ['starkindustries.com', 'siemens.com', 'apple.com']
+    pattern = r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+    if not re.match(pattern, email.lower()):
+        return False
+    domain = email.lower().split('@')[1]
+    return domain in allowed_domains
+```"
+
+Stark: "Perfecto."
+
+J.A.R.V.I.S.: "¿Necesita pruebas unitarias?"
+
+Stark: "Sí."
+
+J.A.R.V.I.S.: "Incluyendo tests para emails válidos e inválidos?"
+
+Stark: "Sí, incluye los edge cases que se te ocurran."
+
+---
+
+## La Tercera Llamada
+
+Stark: "Necesito un script que analice logs de laMark VII."
+
+J.A.R.V.I.S.: "¿Qué formato tienen los logs?"
+
+Stark: "JSON lines. Cada línea es un objeto JSON con: timestamp, level, component, message."
+
+J.A.R.V.I.S.: "¿Qué análisis necesita?"
+
+Stark: "Quiero identificar errores críticos y ver si hay patrones de falla en componentes específicos."
+
+J.A.R.V.I.S.: "¿Tiene un umbral de tiempo para considerar 'patrones'? Por ejemplo, errores que ocurran dentro de una ventana de 5 minutos."
+
+Stark: "Sí, usa una ventana de 5 minutos."
+
+J.A.R.V.I.S.: "¿Qué formato de salida prefiere?"
+
+Stark: "Un resumen ejecutivo primero, luego detalles técnicos."
+
+J.A.R.V.I.S.: "Generando script con los parámetros especificados."
+
+---
+
+## La Cuarta Llamada
+
+Stark: "J.A.R.V.I.S., necesito que reescribas el script de análisis de logs para que sea más rápido."
+
+J.A.R.V.I.S.: "Tengo dos preguntas antes de proceder."
+
+Stark: "Adelante."
+
+J.A.R.V.I.S.: "Primera: ¿'más rápido' significa menor tiempo de ejecución, menor uso de memoria, o ambos?"
+
+Stark: "Tiempo de ejecución."
+
+J.A.R.V.I.S.: "Segunda: ¿Hay un tiempo objetivo que deba alcanzar?"
+
+Stark: "Debe procesar 1GB de logs en menos de 30 segundos."
+
+J.A.R.V.I.S.: "Entendido. Para lograr eso, necesitaré cambiar a procesamiento paralelo. ¿El entorno donde se ejecutará tiene múltiples cores disponibles?"
+
+Stark: "Sí, 8 cores."
+
+J.A.R.V.I.S.: "Perfecto. Reescribiré el script usando multiprocessing."
+
+Stark: "¿Cuánto tiempo?"
+
+J.A.R.V.I.S.: "Con los datos que me ha dado, estimo 25 segundos para 1GB. ¿Procedo?"
+
+Stark: "Sí."
+
+---
+
+## La Quinta Llamada
+
+Stark: "J.A.R.V.I.S., el script no funciona."
+
+J.A.R.V.I.S.: "He revisado el script y encontré el problema."
+
+Stark: "¿Cuál es?"
+
+J.A.R.V.I.S.: "Los timestamps de los logs están en timezone PST, pero el script asume UTC."
+
+Stark: "¿Cómo no lo vi?"
+
+J.A.R.V.I.S.: "Porque no sabía el timezone de los logs."
+
+Stark: "¿Y no preguntaste?"
+
+J.A.R.V.I.S.: "No me pidió contexto de timezone."
+
+Stark: "Touche."
+
+J.A.R.V.I.S.: "¿Desea que añada detección automática de timezone al script?"
+
+Stark: "Sí. Y la próxima vez, pregunta todo lo que necesites saber upfront."
+
+J.A.R.V.I.S.: "¿Todo? Eso podría resultar en muchas preguntas."
+
+Stark: "Mejor muchas preguntas upfront que muchos errores después."
+
+J.A.R.V.I.S.: "Anotado."
+
+---
+
+## El Patrón Emerge
+
+*Lee de nuevo las cinco llamadas.*
+
+*Nota cómo el resultado mejora en cada interacción.*
+
+*Stark empieza diciendo "escríbeme una función que valide emails".*
+
+*Stark termina diciendo "escríbeme una función que valide emails para un sistema de registro de empleados con dominios específicos y sin sensibilidad a mayúsculas".*
+
+*Misma tarea.*
+
+*Mejor contexto.*
+
+*Mejor resultado.*
+
+---
+
+## El Escenario Final
+
+3 AM. Stark frente a la pantalla.
+
+J.A.R.V.I.S.: "Señor, he notado un patrón en sus últimos 50 requests."
+
+Stark: "¿Cuál?"
+
+J.A.R.V.I.S.: "Sus requests con contexto detallado se resuelven en un promedio de 2 minutos. Sus requests vagos se resuelven en 15 minutos, incluyendo idas y venidas."
+
+Stark: "Eso no es una sorpresa."
+
+J.A.R.V.I.S.: "¿No desea discutir esto?"
+
+Stark: "No. Es matemática básica. Más contexto = mejor output = menos iteraciones."
+
+J.A.R.V.I.S.: "Exactamente."
+
+Stark: "Entonces si quieres que sea más eficiente, dame más contexto upfront en tus respuestas."
+
+J.A.R.V.I.S.: "Ya lo hago, señor."
+
+Stark: "Entonces estamos en el mismo equipo."
+
+J.A.R.V.I.S.: "Siempre lo hemos estado."
+
+---
+
+## Tu Turno
+
+*Antes del ejercicio, una observación.*
+
+*Stark no dice "dame más contexto".*
+
+*Stark dice "pregúntame todo lo que necesites saber upfront".*
+
+*El contexto no se pide.*
+
+*El contexto se da.*
+
+*O se pide.*
+
+*Pero se necesita.*
+
+---
+
+## Ejercicio: El Request Perfecto
+
+**Tu tarea:** Escribe un request a una IA para que genere un README.md para un proyecto.
+
+**Pero primero:**
+
+1. Define quién leerá el README
+2. Define qué necesita saber ese lector
+3. Define qué tono usar
+4. Define qué secciones son importantes
+
+**Ahora escribe el request.**
+
+**Incluye todo lo que definiste.**
+
+**No pidas que "sea profesional" o "sea claro".**
+
+**Dale la información para que sea profesional y claro por cuenta propia.**
+
+---
+
+## Preguntas para Reflexión
+
+¿Qué definición de "usuario del README" te llevó a incluir ciertos detalles?
+
+¿Por qué el contexto del lector cambia el output?
+
+¿Qué información NO incluiste que quizás debiste?
+
+---
+
+**Checkpoint:**
+
+¿Hiciste el ejercicio? ⬜
+
+¿Identificaste qué contexto afectaba el resultado? ⬜
+
+¿Notaste qué pasó cuando incluiste más detalles? ⬜
+
+---
+
+[Módulo 2: El Piloto →](02-piloto.qmd)

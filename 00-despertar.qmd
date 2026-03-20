@@ -1,0 +1,191 @@
+# Módulo 0: El Despertar
+
+## Setup de tu Protocolo
+
+---
+
+*Antes de la primera conversación, hay una primera configuración.*
+
+---
+
+## La Primera Conversación
+
+Stark: "J.A.R.V.I.S., muéstrame los esquemas del reactorark."
+
+J.A.R.V.I.S.: "Los esquemas requieren acceso de nivel 7. ¿Autorización?"
+
+Stark: "Desbloqueado."
+
+J.A.R.V.I.S.: "Acceso concedido. ¿En qué puedo asistirle hoy?"
+
+---
+
+## La Segunda Conversación
+
+Stark: "Necesito un script que automatice los diagnósticos de laMark VII."
+
+J.A.R.V.I.S.: "¿Tiene un ejemplo de formato de salida preferido?"
+
+Stark: "JSON, estructuras anidadas, timestamps en UTC."
+
+J.A.R.V.I.S.: "Entendido. ¿Prefiere que incluya manejo de errores específicos para su reactor?"
+
+Stark: "Sí. Y valídalo contra los estándares de la industria."
+
+J.A.R.V.I.S.: "Prepararé el script con validación against NIST guidelines."
+
+---
+
+## La Tercera Conversación
+
+Stark: "J.A.R.V.I.S., algo no está bien con el escudorark."
+
+J.A.R.V.I.S.: "He detectado 847 anomalías en los logs. ¿Desea que las categorice por severidad?"
+
+Stark: "Empieza por las que afectan flight stability."
+
+J.A.R.V.I.S.: "Filtrando... Cinco anomalías prioritarias. La primera parece relacionarse con el昨日sistema de repulsores."
+
+Stark: "昨日?"
+
+J.A.R.V.I.S.: "Confirmando... Inconsistencia en la alineación de los repulsores de vuelo detectados hace dos ciclos de diagnóstico."
+
+Stark: "Ahora sí tiene sentido."
+
+---
+
+## La Cuarta Conversación
+
+Stark: "Quiero añadir logging a todo el sistema de navegación."
+
+J.A.R.V.I.S.: "¿Tiene un plazo específico para esta implementación?"
+
+Stark: "Para el next vuelo de prueba."
+
+J.A.R.V.I.S.: "Eso es en 72 horas. ¿Cuántas horas puede dedicar al desarrollo?"
+
+Stark: "Quizás seis. Tengo que supervisar el reacondicionamiento del reactor."
+
+J.A.R.V.I.S.: "Con seis horas, puedo generar un sistema de logging básico con los componentes críticos de navegación. ¿Es aceptable un scope reducido?"
+
+Stark: "Sí. Pero mantenme informado del progreso."
+
+J.A.R.V.I.S.: "Estableciendo checkpoints cada dos horas."
+
+---
+
+## La Quinta Conversación
+
+Stark: "J.A.R.V.I.S., ¿por qué el script de diagnósticos falló?"
+
+J.A.R.V.I.S.: "El script esperaba datos en formato XML. Los logs de laMark VII están en un formato propietario."
+
+Stark: "No me dijiste eso antes."
+
+J.A.R.V.I.S.: "No preguntó por las limitaciones de compatibilidad."
+
+Stark: "Buen punto."
+
+J.A.R.V.I.S.: "¿Desea que reescriba el script para manejar ambos formatos?"
+
+Stark: "Sí. Y la próxima vez, menciona las limitaciones upfront."
+
+J.A.R.V.I.S.: "Anotado. Agregando 'limitaciones' a mi protocolo de reporte."
+
+---
+
+## Reflexión Observacional
+
+*Lee de nuevo las cinco conversaciones.*
+
+*Nota las diferencias entre cada interacción.*
+
+*¿Qué hizo Stark diferente en cada conversación?*
+
+*¿Qué aprendió J.A.R.V.I.S. a lo largo del diálogo?*
+
+*¿Por qué la quinta conversación terminó con Stark diciendo "Buen punto"?*
+
+---
+
+## El Escenario Final del Módulo
+
+Stark estaba en su taller a las 3 AM.
+
+Necesitaba analizar 10,000 líneas de logs de laMark X.
+
+Podía hacerlo manualmente.
+
+Tomaría 6 horas.
+
+Podía pedirle a J.A.R.V.I.S. que lo hiciera.
+
+Tomaría 30 segundos.
+
+Pero J.A.R.V.I.S. no conocía el dominio.
+
+Stark: "Voy a necesitar que analices estos logs."
+
+J.A.R.V.I.S.: "Por supuesto. ¿Tiene una descripción del problema que está buscando?"
+
+Stark: "Sí. Estoy buscando patrones que indiquen degradación del núcleo del reactor."
+
+J.A.R.V.I.S.: "¿Tiene logs anteriores para comparar? Podría identificar desviaciones."
+
+Stark: "Los tengo. Tres meses de datos previos."
+
+J.A.R.V.I.S.: "Perfecto. Con los logs y el contexto de degradación, puedo establecer baselines y detectar anomalías significativas."
+
+Stark: "Adelante."
+
+J.A.R.V.I.S.: "Análisis completo. Se detectaron 12 desviaciones. Tres son críticas. ¿Desea que genere un reporte detallado?"
+
+Stark: "Sí. Y mantenlo en mi carpeta de mantenimiento predictivo."
+
+J.A.R.V.I.S.: "Hecho. ¿Algo más?"
+
+Stark: "Sí. Gracias."
+
+J.A.R.V.I.S.: "A su disposición, señor."
+
+---
+
+## Tu Turno
+
+*En el próximo módulo, observarás cómo Stark aprende a dar contexto.*
+
+*Pero antes, un ejercicio.*
+
+---
+
+## Ejercicio: Configura tu Entorno
+
+**Objetivo:** Preparar tu espacio de trabajo para colaboración efectiva con IA
+
+**Tu tarea:** Elige una herramienta de IA que usarás durante este curso.
+
+Configúrala con:
+
+1. Un sistema de organización para tus conversaciones
+2. Un estándar de naming para proyectos
+3. Una lista de información de contexto que siempre incluyes
+
+**No te diremos qué incluir.**
+
+**Stark lo descubrió por experiencia.**
+
+**Tú también lo descubrirás.**
+
+---
+
+**Checkpoint:**
+
+¿Hiciste el ejercicio? ⬜
+
+¿Tienes un lugar donde guardarás tus sesiones? ⬜
+
+¿Tienes tu lista de contexto lista? ⬜
+
+---
+
+[Módulo 1: Contexto es Rey →](01-contexto.qmd)

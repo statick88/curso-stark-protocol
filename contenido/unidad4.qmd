@@ -1,0 +1,185 @@
+# 🔄 Unidad 4: Refinamiento
+
+## Donde Stark aprende que el primer intento es solo el comienzo
+
+---
+
+## 🎯 Objetivos de Aprendizaje
+
+- **Comprender** que el primer output nunca es el final
+- **Aplicar** técnicas de iteración efectiva
+- **Identificar** qué criticar en cada iteración
+- **Desarrollar** tolerancia a la imperfección inicial
+
+---
+
+## 📚 Contenido Teórico
+
+### 4.1 La Primera Iteración - El Código Perfecto No Existe 🔧
+
+```
+Stark: "J.A.R.V.I.S., necesito una función que encuentre números primos."
+
+J.A.R.V.I.S.: "Aquí está: [código básico]"
+
+Stark: "Funciona."
+
+J.A.R.V.I.S.: "¿Es aceptable?"
+
+Stark: "Es ineficiente. Optimízalo."
+```
+
+> **💡 Aprendizaje**: El primer output es el起点 (punto de partida), no el punto final.
+
+---
+
+### 4.2 Tres Versiones Después 📈
+
+**Versión 1**: "Encuentra primos hasta n"
+
+**Versión 2**: "Usa Sieve of Eratosthenes" (más eficiente)
+
+**Versión 3**: "Los primeros 1000 primos" (específico)
+
+```
+Stark: "¿Y esta versión?"
+
+J.A.R.V.I.S.: "Más eficiente para el caso específico, pero usa más memoria 
+si count es muy grande."
+
+Stark: "¿Cuánto es 'muy grande'?"
+
+J.A.R.V.I.S.: "Más de 10,000 primos."
+
+Stark: "Perfecto. ¿Cuál usas?"
+
+J.A.R.V.I.S.: "Depende del contexto. ¿Cuántos primos necesitas realmente?"
+
+Stark: "Los primeros 1000."
+
+J.A.R.V.I.S.: "Entonces la versión actual es óptima."
+```
+
+> **💡 Aprendizaje**: Cada iteración revela información nueva. El contexto evolve con el output.
+
+---
+
+### 4.3 La Segunda Iteración - El Sistema de Logging 📝
+
+```
+Stark: "J.A.R.V.I.S., necesito un sistema de logging."
+
+J.A.R.V.I.S.: "¿Qué nivel de complejidad requiere?"
+
+Stark: "Básico. Solo necesito registrar eventos y errores."
+
+J.A.R.V.I.S.: "Aquí está: [código básico]"
+
+Stark: "Falta timestamp."
+
+J.A.R.V.I.S.: "¿Quiere un formato específico?"
+
+Stark: "ISO 8601."
+
+J.A.R.V.I.S.: "Actualizado."
+
+Stark: "Agrega log levels custom: START, PROGRESS, COMPLETE, FAIL."
+
+J.A.R.V.I.S.: "Implementando..."
+
+Stark: "¿Por qué no empezaste con los custom log levels?"
+
+J.A.R.V.I.S.: "Porque no sabía que los necesitaba."
+```
+
+> **💡 Aprendizaje**: La IA no sabe lo que necesitas hasta que ve lo que generó.
+
+---
+
+### 4.4 La Quinta Iteración - Tres Meses Después ⏰
+
+```
+Stark: "J.A.R.V.I.S., después de tres meses, necesito revisar el sistema."
+
+J.A.R.V.I.S.: "¿Qué aspectos quiere revisar?"
+
+Stark: "Performance."
+
+J.A.R.V.I.S.: "He estado monitoreando. Aquí están las métricas:
+- Reads: 45ms promedio. Aceptable.
+- Writes: 120ms promedio. Por encima del target.
+- Search: 300ms para queries complejas. Necesita optimización."
+
+Stark: "¿Por qué los writes son lentos?"
+
+J.A.R.V.I.S.: "Porque cada write hace: validate → transform → write → log → notify. 
+La notificación es síncrona."
+
+Stark: "¿No debería ser asíncrona?"
+
+J.A.R.V.I.S.: "Sí. Mi error original."
+```
+
+> **💡 Aprendizaje**: Iteration no es debilidad. Iteration es el proceso. Siempre.
+
+---
+
+### 4.5 El Escenario Final 🌟
+
+```
+Pepper: "¿Cómo sabías cuándo parar?"
+
+Stark: "Nunca paras. Pero llegas a un punto donde 'suficientemente bueno' 
+meets 'necesario para funcionar'."
+
+Pepper: "¿Y con J.A.R.V.I.S.?"
+
+Stark: "Especialmente con J.A.R.V.I.S. Porque una IA genera rápido. 
+Pero la calidad viene de las iteraciones."
+
+Pepper: "¿Y cuando ya no hay qué refinar?"
+
+Stark: "Entonces tienes el output final. Por ahora."
+
+Pepper: "¿Qué significa 'por ahora'?"
+
+Stark: "Significa que mañana可能会有 nuevos requirements."
+```
+
+---
+
+## 🎯 Fórmula de Iteración
+
+```
+Iteración = Output Actual + Tu Crítica + Nuevos Requirements
+          ↓
+Output Mejor = Output Anterior + Contexto Adicional
+```
+
+| Iteración | Qué hacer | Ejemplo |
+|-----------|-----------|---------|
+| 1 | Pedir código | "Haz X" |
+| 2 | Criticar | "Esto no maneja Y" |
+| 3 | Especificar | "Ahora hazlo con Y" |
+| 4 | Optimizar | "Pero más rápido" |
+
+---
+
+## 🔬 Laboratorio
+
+> Ver [`labs/lab-unidad4.md`](../labs/lab-unidad4.md) para el escenario completo.
+
+**Objetivo**: Iterar sobre código hasta obtener el resultado deseado
+
+---
+
+## 📚 Recursos Adicionales
+
+- [Iterative Prompt Development](https://www.promptingguide.ai/)
+- [Learning from AI Outputs](https://platform.openai.com/docs/guides/gpt-best-practices)
+
+---
+
+## 📖 Bibliografía
+
+- Stark Industries Engineering. (2019). *The Art of Iteration*. Internal Best Practices.

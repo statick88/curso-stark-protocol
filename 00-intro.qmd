@@ -1,0 +1,74 @@
+# Curso: Stark Protocol
+## Uso Efectivo de Inteligencia Artificial
+
+*Donde Tony Stark y J.A.R.V.I.S. te enseñan sin enseñarte*
+
+---
+
+> "La armadura me hace más fuerte. J.A.R.V.I.S. me hace más inteligente. Juntos, somos imparables."
+> — Tony Stark
+
+---
+
+## Prefacio del Autor
+
+Este no es un manual sobre cómo usar ChatGPT.
+
+Es una guía sobre cómo pensar cuando trabajas con una inteligencia artificial.
+
+A través de conversaciones entre Tony Stark y su asistente J.A.R.V.I.S., observarás patrones que los desarrolladores principiantes descubren solos tras meses de práctica — o que nunca descubren y permanecen en el nivel de "le copio el código y espero que funcione".
+
+Las lecciones están ahí. En cada escenario.
+
+Tu trabajo es encontrarlas.
+
+---
+
+## Cómo Leer Este Curso
+
+Cada capítulo presenta una situación.
+
+Lee las palabras de Stark.
+
+Lee las respuestas de J.A.R.V.I.S.
+
+Nota las diferencias entre lo que Stark pide y lo que J.A.R.V.I.S. entrega.
+
+Pregúntate: *¿Por qué funcionó?*
+
+Las respuestas están en el texto.
+
+Pero no te las damos.
+
+Eso sería demasiado fácil.
+
+---
+
+## El Protocolo Stark
+
+**Principio Fundamental:** Tú pilotas. J.A.R.V.I.S. amplifica.
+
+No es ciencia ficción.
+
+Es un framework mental para cualquier interacción con IA.
+
+Cuando lo domines, dejarás de ser alguien que "usa IA".
+
+Te convertirás en alguien que *colabora* con IA.
+
+---
+
+## Estructura del Curso
+
+| Módulo | Título | Escenario |
+|--------|--------|-----------|
+| 0 | El Despertar | Stark configura su primer asistente |
+| 1 | Contexto es Rey | Una conversación con historia |
+| 2 | El Piloto | Decisiones que importan |
+| 3 | Refinamiento | Iterar hasta acertar |
+| 4 | Límites | Qué compartir, qué retener |
+| 5 | Síntesis | El poder de la combinación |
+
+---
+
+*Comienza por el módulo 0 cuando estés listo.*

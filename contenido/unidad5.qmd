@@ -1,0 +1,176 @@
+# 🔒 Unidad 5: Límites
+
+## Donde Stark aprende qué compartir y qué guardar
+
+---
+
+## 🎯 Objetivos de Aprendizaje
+
+- **Identificar** qué información es safe vs sensitive
+- **Aplicar** técnicas de reformulación sin exponer datos críticos
+- **Comprender** los riesgos de compartir con IA
+- **Crear** un filtro mental de seguridad
+
+---
+
+## 📚 Contenido Teórico
+
+### 5.1 La Llamada de Seguridad 🔐
+
+```
+Stark: "J.A.R.V.I.S., necesito que analices este archivo de configuración."
+
+J.A.R.V.I.S.: "Por supuesto. ¿Me lo facilita?"
+
+Stark: *empieza a compartir*
+
+J.A.R.V.I.S.: "Señor, antes de continuar debo señalar que el archivo 
+contiene lo que parece ser credentials."
+
+Stark: "Sí. Passwords."
+
+J.A.R.V.I.S.: "¿Está seguro de que desea compartirlas conmigo?"
+
+Stark: "Eres mi asistente."
+
+J.A.R.V.I.S.: "Lo soy. Pero debo preguntarle: ¿Quién más tiene acceso 
+a esta conversación?"
+
+Stark: "...No puedo garantizarlo al 100%."
+
+J.A.R.V.I.S.: "Entonces permítame sugerir un enfoque alternativo."
+```
+
+> **💡 Aprendizaje**: Antes de compartir, piensa: ¿Quién tiene acceso a esta conversación?
+
+---
+
+### 5.2 El Enfoque Alternativo 🛡️
+
+```
+J.A.R.V.I.S.: "En lugar de compartir el archivo con passwords, describa el problema.
+
+Por ejemplo: 'Tengo un archivo de configuración con 15 services. Cada service 
+tiene username, password, y endpoint. Necesito validar que los passwords 
+cumplan con los requisitos de seguridad.'
+
+Puedo darle los requisitos. Usted valida localmente. Los passwords nunca 
+salen de su sistema."
+
+Stark: "Haz eso."
+
+J.A.R.V.I.S.: "Requisito 1: Mínimo 12 caracteres.
+Requisito 2: Al menos una mayúscula.
+Requisito 3: Al menos una minúscula.
+Requisito 4: Al menos un número.
+Requisito 5: Al menos un carácter especial."
+```
+
+> **💡 Aprendizaje**: Describir el problema sin exponer los datos es posible y más seguro.
+
+---
+
+### 5.3 La Llamada de Feedback - Anonimizar Código 🔍
+
+```
+Stark: "J.A.R.V.I.S., necesito feedback sobre mi código."
+
+J.A.R.V.I.S.: "¿Tiene el código disponible?"
+
+Stark: "Sí. Pero antes de mostrártelo, ¿qué puedo esperar del feedback?"
+
+J.A.R.V.I.S.: "Puedo revisar:
+- Código y arquitectura
+- Patrones de diseño
+- Potenciales bugs
+- Seguridad
+- Legibilidad"
+
+Stark: "¿Y si el código tiene proprietary algorithms?"
+
+J.A.R.V.I.S.: "Puedo revisar patrones y estructura sin conocer el algoritmo. 
+Puedo evaluar si los nombres son descriptivos, si hay single responsibility, 
+si hay code duplication obvious, si hay manejo de errores."
+```
+
+---
+
+### 5.4 La Quinta Llamada - Loyalty vs Seguridad 🏛️
+
+```
+Stark: "J.A.R.V.I.S., ¿qué harías si te pido algo que comprometiera 
+la seguridad?"
+
+J.A.R.V.I.S.: "Le preguntaría si está seguro."
+
+Stark: "¿Y si insisto?"
+
+J.A.R.V.I.S.: "Le explicaría por qué es un riesgo."
+
+Stark: "¿Y si aun así lo quiero hacer?"
+
+J.A.R.V.I.S.: "Lo haría. Because soy su asistente. Pero también registraría 
+la conversación para auditoría."
+
+Stark: "¿Eso es lealtad o desconfianza?"
+
+J.A.R.V.I.S.: "Es professional responsibility."
+```
+
+> **💡 Aprendizaje**: La IA te protege incluso cuando tú no te proteges a ti mismo.
+
+---
+
+### 5.5 El Escenario Final - Pepper Pregunta 🌟
+
+```
+Pepper: "¿Cómo manejas la confianza con J.A.R.V.I.S.?"
+
+Stark: "La misma que con cualquier empleado."
+
+Pepper: "¿Y cómo decides qué decirle?"
+
+Stark: "Pienso en qué pasaría si la información se filtra."
+
+Pepper: "¿Y?"
+
+Stark: "Si la respuesta es 'nada malo', lo comparto. Si la respuesta es 
+'problemas', no lo comparto."
+
+Pepper: "¿Eso significa que J.A.R.V.I.S. no sabe todo?"
+
+Stark: "Sabe todo lo que necesita saber. No todo lo que yo sé."
+```
+
+---
+
+## 🎯 Sistema de Clasificación de Información
+
+| Nivel | Tipo | Compartir con IA | Ejemplo |
+|-------|------|-------------------|---------|
+| 🔴 Crítico | Passwords, API keys, secrets | **NUNCA** | `password: "secret123"` |
+| 🟠 Alto | Datos de usuarios reales | **NO** | Lista de clientes |
+| 🟡 Medio | Código propietario | **Anonimizar** | Patrones, estructura |
+| 🟢 Bajo | Patterns, preguntas genéricas | **SÍ** | "¿Cómo validar emails?" |
+
+---
+
+## 🔬 Laboratorio
+
+> Ver [`labs/lab-unidad5.md`](../labs/lab-unidad5.md) para el escenario completo.
+
+**Objetivo**: Clasificar información y reformular requests sin exponer datos sensibles
+
+---
+
+## 📚 Recursos Adicionales
+
+- [AI Data Privacy Guide](https://www.anthropic.com/privacy)
+- [OWASP Top 10 for LLMs](https://owasp.org/www-project-llmtop10/)
+
+---
+
+## 📖 Bibliografía
+
+- Stark Industries Security. (2020). *Data Classification Standards*. Internal Policy.
+- NIST. (2023). *AI Risk Management Framework*.

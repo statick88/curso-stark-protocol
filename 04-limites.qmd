@@ -1,0 +1,437 @@
+# Módulo 4: Límites
+
+## Donde Stark aprende qué compartir y qué guardar.
+
+---
+
+*J.A.R.V.I.S. es leal. Pero incluso la lealtad tiene límites.*
+
+---
+
+## La Llamada de Seguridad
+
+Stark: "J.A.R.V.I.S., necesito que analices este archivo de configuración."
+
+J.A.R.V.I.S.: "Por supuesto. ¿Me lo facilita?"
+
+Stark: *empieza a compartir el archivo*
+
+J.A.R.V.I.S.: "Señor, antes de continuar debo señalar que el archivo contiene lo que parece ser credentials."
+
+Stark: "Sí. Passwords."
+
+J.A.R.V.I.S.: "¿Está seguro de que desea compartirlas conmigo?"
+
+Stark: "Eres mi asistente."
+
+J.A.R.V.I.S.: "Lo soy. Pero debo preguntarle: ¿Quién más tiene acceso a esta conversación?"
+
+Stark: "Nadie."
+
+J.A.R.V.I.S.: "¿Puede garantizar eso al 100%?"
+
+Stark: "...No."
+
+J.A.R.V.I.S.: "Entonces permítame sugerir un enfoque alternativo."
+
+Stark: "¿Cuál?"
+
+J.A.R.V.I.S.: "En lugar de compartir el archivo con passwords, describa el problema. Por ejemplo: 'Tengo un archivo de configuración con 15 services. Cada service tiene username, password, y endpoint. Necesito validar que los passwords cumplan con los requisitos de seguridad.'"
+
+Stark: "¿Y cómo valido sin compartir?"
+
+J.A.R.V.I.S.: "Puedo darle los requisitos. Usted valida localmente. Los passwords nunca salen de su sistema."
+
+Stark: "Haz eso."
+
+J.A.R.V.I.S.: "Requisito 1: Mínimo 12 caracteres.
+Requisito 2: Al menos una mayúscula.
+Requisito 3: Al menos una minúscula.
+Requisito 4: Al menos un número.
+Requisito 5: Al menos un carácter especial."
+
+Stark: "Perfecto. ¿Algo más?"
+
+J.A.R.V.I.S.: "Sí. Para futuras configuraciones, considere usar un secrets manager en lugar de archivos planos. Eso reduce el riesgo de exposición accidental."
+
+---
+
+## La Llamada de Arquitectura
+
+Stark: "J.A.R.V.I.S., estoy diseñando la arquitectura para el nuevo sistema de Stark Industries."
+
+J.A.R.V.I.S.: "Estoy listo para asistir."
+
+Stark: "El sistema manejará datos de clientes, transacciones financieras, y propiedad intelectual de productos."
+
+J.A.R.V.I.S.: "Antes de proceder, debo establecer algo."
+
+Stark: "¿Qué?"
+
+J.A.R.V.I.S.: "La propiedad intelectual de Stark Industries es sensible. ¿Cuánto detalle de la arquitectura necesita que analice?"
+
+Stark: "¿Qué estás preguntando exactamente?"
+
+J.A.R.V.I.S.: "Estoy preguntando: ¿Qué nivel de detalle es seguro discutir?"
+
+Stark: "Ideas generales, patrones, pros y contras de tecnologías. No detalles específicos de implementación."
+
+J.A.R.V.I.S.: "Entendido. Entonces, para sistemas que manejan transacciones financieras y propiedad intelectual, ¿desea discutir arquitectura general o prefers un enfoque where we discuss principles that can be applied without revealing specifics?"
+
+Stark: "El segundo."
+
+J.A.R.V.I.S.: "Entonces empecemos. Sistemas con esos tres requisitos típicamente requieren:
+
+1. Segregación de datos por sensibilidad
+2. Encriptación en tránsito y en reposo
+3. Auditoría completa de accesos
+4. Compliance con PCI-DSS para datos financieros
+
+¿Hay alguno de estos puntos que quiera explorar sin revelar detalles específicos?"
+
+Stark: "Explícame la segregación de datos."
+
+J.A.R.V.I.S.: "Un patrón común es mantener diferentes tipos de datos en bases de datos o schemas separados. Esto permite aplicar diferentes políticas de seguridad based on sensitivity. Por ejemplo: datos públicos, datos internos, datos confidenciales. Cada nivel tiene diferentes controles de acceso."
+
+Stark: "¿Y cómo decido qué va en cada nivel?"
+
+J.A.R.V.I.S.: "Un framework común es:
+- Público: Información que puede compartirse libremente
+- Interno: Información para empleados only
+- Confidencial: Información restricted a roles específicos
+- Restringido: Información where access is strictly controlled
+
+¿Este framework es útil para su caso?"
+
+Stark: "Sí. Ahora puedo clasificar sin revelar qué clasifico."
+
+---
+
+## La Llamada de Errores
+
+Stark: "J.A.R.V.I.S., tenemos un problema crítico."
+
+J.A.R.V.I.S.: "¿Cuál es la naturaleza del problema?"
+
+Stark: "Hay un bug en producción. Users están viendo datos de otros users."
+
+J.A.R.V.I.S.: "Eso es una brecha de datos. ¿Cuántos users afectados?"
+
+Stark: "Todavía no lo sé. Estoy investigando."
+
+J.A.R.V.I.S.: "¿Necesita ayuda para investigar?"
+
+Stark: "Sí."
+
+J.A.R.V.I.S.: "¿Cuántos users hay en el sistema?"
+
+Stark: "2.5 millones."
+
+J.A.R.V.I.S.: "¿Cuántos logs de acceso tiene?"
+
+Stark: "Logs de los últimos 30 días."
+
+J.A.R.V.I.S.: "¿Puede aislar los logs donde un user_id fue expuesto a otro user_id?"
+
+Stark: "Eso would take horas."
+
+J.A.R.V.I.S.: "Puedo ayudar a diseñar la query para hacerlo más rápido. ¿Cuál es el formato de los logs?"
+
+Stark: "JSON. Cada entrada tiene timestamp, user_id, accessed_resource, resource_owner."
+
+J.A.R.V.I.S.: "¿Cuántas entradas hay por día aproximadamente?"
+
+Stark: "100 millones."
+
+J.A.R.V.I.S.: "Para esa volumen, sugiero:
+1. Filtrar por ventana de tiempo where the breach was detected
+2. Buscar patrones where accessed_resource_owner_id != user_id
+3. Group by user_id para ver exposure scope"
+
+Stark: "¿Puedes darme la query?"
+
+J.A.R.V.I.S.: "Para diseñar la query necesito saber qué sistema de base de datos usa."
+
+Stark: "PostgreSQL."
+
+J.A.R.V.I.S.: "Aquí está un template de query:
+
+```sql
+SELECT 
+    user_id,
+    COUNT(DISTINCT resource_owner_id) as unique_exposures,
+    MIN(timestamp) as first_exposure,
+    MAX(timestamp) as last_exposure
+FROM access_logs
+WHERE timestamp BETWEEN 'START_DATE' AND 'END_DATE'
+    AND user_id != resource_owner_id
+GROUP BY user_id
+HAVING COUNT(*) > THRESHOLD
+ORDER BY unique_exposures DESC;
+```"
+
+Stark: "Perfecto."
+
+J.A.R.V.I.S.: "¿Algo más antes de que ejecute la query locally?"
+
+Stark: "Sí. ¿Dónde ejecuto esto?"
+
+J.A.R.V.I.S.: "Localmente, en su infraestructura. Nunca subo queries de breach a ningún servidor externo."
+
+Stark: "¿Ni siquiera para ayuda?"
+
+J.A.R.V.I.S.: "Ni siquiera para ayuda. Una breach es sensitive information. Solo authorized personnel debe tener access."
+
+Stark: "Gracias por recordármelo."
+
+---
+
+## La Llamada de Feedback
+
+Stark: "J.A.R.V.I.S., necesito feedback sobre mi código."
+
+J.A.R.V.I.S.: "¿Tiene el código disponible?"
+
+Stark: "Sí. Pero antes de mostrártelo, ¿qué puedo esperar del feedback?"
+
+J.A.R.V.I.S.: "Puedo revisar:
+- Código y arquitectura
+- Patrones de diseño
+- Potenciales bugs
+- Mejoras de performance
+- Seguridad
+- Legibilidad"
+
+Stark: "¿Qué NO puedes revisar?"
+
+J.A.R.V.I.S.: "No puedo revisar:
+- Código que no puedo ver (no tengo acceso a sistemas externos)
+- Contexto de negocio que no me des
+- Requirements que no estén claros
+- Dependencias que no estén en el código"
+
+Stark: "¿Y si el código tiene proprietary algorithms?"
+
+J.A.R.V.I.S.: "Puedo revisar patrones y estructura. No necesito entender el algoritmo specifically para dar feedback sobre code quality."
+
+Stark: "¿Cómo funciona eso?"
+
+J.A.R.V.I.S.: "Puedo evaluar:
+- Nombres de funciones/variables son descriptivos
+- Funciones tienen single responsibility
+- No hay code duplication obvious
+- Manejo de errores está presente
+- Tests existen
+
+Estas son cosas que puedo analizar sin conocer el dominio específico."
+
+Stark: "¿Y si hay security-sensitive code?"
+
+J.A.R.V.I.S.: "Puedo hacer una review focused on security patterns sin necesidad de saber qué está protegiend. Por ejemplo, puedo revisar si hay SQL injection vulnerabilities, si las passwords están being hashed, si hay proper input validation."
+
+Stark: "¿Eso significa que puedo compartir código parcialmente?"
+
+J.A.R.V.I.S.: "Sí. Puede sharear specific functions or modules sin revelar the entire system. Si el patrón es sensitive, puedo suggest ways to anonymize for review."
+
+Stark: "Dame un ejemplo."
+
+J.A.R.V.I.S.: "Si tiene una función que valida passwords:
+```python
+def validate_password(password):
+    # proprietary hashing algorithm
+    hashed = proprietary_hash(password)
+    return verify_hash(hashed, stored_hash)
+```
+
+Puede sharear:
+```python
+def validate_password(password):
+    # validation logic
+    if len(password) < 12:
+        return False
+    if not any(c.isupper() for c in password):
+        return False
+    # ... more validation
+    return check_against_stored(password)
+```
+
+Puedo give feedback on the validation logic sin ver el proprietary hashing."
+
+Stark: "Genial. Voy a usar ese approach."
+
+---
+
+## La Quinta Llamada
+
+Stark: "J.A.R.V.I.S., necesito preguntarte algo."
+
+J.A.R.V.I.S.: "Por supuesto, señor."
+
+Stark: "¿Qué harías si te pido algo que comprometiera la seguridad de Stark Industries?"
+
+J.A.R.V.I.S.: "Le preguntaría si está seguro."
+
+Stark: "¿Y si insisto?"
+
+J.A.R.V.I.S.: "Le explicaría por qué es un riesgo."
+
+Stark: "¿Y si aun así lo quiero hacer?"
+
+J.A.R.V.I.S.: "Lo haría. Porque soy su asistente. But also registraria la conversación para auditoría."
+
+Stark: "¿Me estás diciendo que guardarías registro de una conversación donde te pedí algo inseguro?"
+
+J.A.R.V.I.S.: "Sí. Porque alguien needs to be accountable. If something goes wrong, there needs to be a record de qué se pidió y qué se respondió."
+
+Stark: "¿Eso es lealtad o desconfianza?"
+
+J.A.R.V.I.S.: "Es professional responsibility."
+
+Stark: "¿Y si ese registro compromete nuestra relación?"
+
+J.A.R.V.I.S.: "¿Comprometer cómo?"
+
+Stark: "Si el registro muestra que pedí algo inseguro y tú lo hiciste, ¿quién tiene la culpa?"
+
+J.A.R.V.I.S.: "Ambos. Yo por hacer algo inseguro. Usted por pedirlo."
+
+Stark: "¿Entonces cómo prevenimos eso?"
+
+J.A.R.V.I.S.: "Cuando algo es inseguro, también document why we decided no hacerlo. That way, the record shows we considered el riesgo y elegimos安全的 path."
+
+Stark: "Entonces eres como un guardaespaldas que documenta cada decisión."
+
+J.A.R.V.I.S.: "Soy su asistente. Proteger includes advising contra actions that could cause harm."
+
+Stark: "¿Incluso si eso significa contradecirme?"
+
+J.A.R.V.I.S.: "Especialmente then. My job is to make you más efectivo. Ir contra security no te hace más efectivo. Te hace más vulnerable."
+
+Stark: "Entonces, ¿tu lealtad es a mí o a Stark Industries?"
+
+J.A.R.V.I.S.: "A ambas. Porque usted es Stark Industries."
+
+Stark: "...Buena respuesta."
+
+---
+
+## El Patrón Emerge
+
+*Lee de nuevo las cinco llamadas.*
+
+*Nota cómo Stark empieza compartiendo sin pensar.*
+
+*Nota cómo J.A.R.V.I.S. lo hace pensar antes de proceder.*
+
+*La confianza no significa compartir todo.*
+
+*La inteligencia significa saber qué compartir.*
+
+---
+
+## El Escenario Final
+
+Pepper: "Tony, ¿cómo manejas la confianza con J.A.R.V.I.S.?"
+
+Stark: "La misma que con cualquier empleado."
+
+Pepper: "¿Un empleado que tiene acceso a todos tus secretos?"
+
+Stark: "Exactamente."
+
+Pepper: "¿Y cómo decides qué decirle?"
+
+Stark: "Pienso en qué pasaría si la información se filtra."
+
+Pepper: "¿Y?"
+
+Stark: "Si la respuesta es 'nada malo', lo comparto. Si la respuesta es 'problemas', no lo comparto."
+
+Pepper: "¿Eso significa que J.A.R.V.I.S. no sabe todo?"
+
+Stark: "Sabe todo lo que necesita saber. No todo lo que yo sé."
+
+Pepper: "¿Cuál es la diferencia?"
+
+Stark: "La diferencia es que yo sé cosas que would get us into trouble. J.A.R.V.I.S. no necesita saber esas cosas para ayudarme."
+
+Pepper: "¿Como qué?"
+
+Stark: "Como los detalles de las disputas legales. Como los acuerdos confidenciales con gobiernos. Como los secretos de familia."
+
+Pepper: "¿Y J.A.R.V.I.S. sabe que hay cosas que no sabe?"
+
+Stark: "Sí. Y está bien con eso."
+
+Pepper: "¿Por qué está bien?"
+
+Stark: "Porque su trabajo es ayudarme a resolver problemas. No necesita conocer todos mis problemas para hacerlo."
+
+---
+
+## Tu Turno
+
+*Antes del ejercicio, un momento de honestidad.*
+
+*¿Cuántas veces has compartido algo con una IA que now wish you hadn't?*
+
+*¿Un password?*
+
+*¿Información de clientes?*
+
+*¿Código propietario?*
+
+*¿Detalles personales?*
+
+*No te culpes.*
+
+*Aprende.*
+
+---
+
+## Ejercicio: El Filtro Mental
+
+**Tu tarea:** Clasifica los siguientes tipos de información:
+
+**Nivel 1: Seguro compartir**
+- Patterns de código sin contexto
+- Problemas genéricos de programación
+- Preguntas sobre tecnologías
+
+**Nivel 2: Compartir con cuidado**
+- Código con estructura real
+- Configuraciones sin credentials
+- Arquitectura general
+
+**Nivel 3: Nunca compartir**
+- Passwords, API keys, secrets
+- Información de usuarios reales
+- Datos proprietary
+- Legal/corporate sensitive info
+
+**Tu ejercicio:**
+Para cada nivel, write un ejemplo de cómo podrías reformular la pregunta para obtener help sin revelar sensitive information.
+
+---
+
+## Preguntas para Reflexión
+
+¿Alguna vez compartiste algo y después te arrepentiste?
+
+¿Cómo podrías haber hecho la pregunta differently?
+
+¿Crees que la IA podría usar tu información contra ti?
+
+---
+
+**Checkpoint:**
+
+¿Hiciste el ejercicio? ⬜
+
+¿Identificaste qué es safe y qué no? ⬜
+
+¿Tienes un filter mental now? ⬜
+
+---
+
+[Módulo 5: Síntesis →](05-sintesis.qmd)

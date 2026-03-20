@@ -1,0 +1,357 @@
+# Módulo 2: El Piloto
+
+## Donde Stark recuerda quién manda.
+
+---
+
+*La armadura obedece comandos. J.A.R.V.I.S. también.*
+
+*Pero la diferencia está en cómo pides.*
+
+---
+
+## La Llamada Peligrosa
+
+Stark: "J.A.R.V.I.S., necesito acceso root al servidor de producción."
+
+J.A.R.V.I.S.: "Entiendo. Tengo la capacidad de ejecutar ese comando."
+
+Stark: "Entonces hazlo."
+
+J.A.R.V.I.S.: "Antes debo hacer tres preguntas."
+
+Stark: "Rápido."
+
+J.A.R.V.I.S.: "¿Tiene un backup reciente del sistema?"
+
+Stark: "Hace dos horas."
+
+J.A.R.V.I.S.: "¿Cuál es el objetivo específico del acceso root?"
+
+Stark: "Necesito cambiar una configuración de red que solo root puede modificar."
+
+J.A.R.V.I.S.: "¿Ha considerado alternativas que no requieran acceso root?"
+
+Stark: "Sí. Ya probé las otras opciones."
+
+J.A.R.V.I.S.: "Perfecto. Ejecutando el comando. ¿Dirección específica?"
+
+Stark: "10.0.0.50. Puerto 443."
+
+J.A.R.V.I.S.: "Conectado. ¿Algo más?"
+
+Stark: "Por ahora, eso es todo."
+
+J.A.R.V.I.S.: "Registrando la sesión para auditoría."
+
+---
+
+## La Llamada de Arquitectura
+
+Stark: "Necesito diseñar un sistema de autenticación."
+
+J.A.R.V.I.S.: "Puedo generar varias opciones de arquitectura. ¿Tiene preferencias tecnológicas?"
+
+Stark: "Python. PostgreSQL. El resto, tú decides."
+
+J.A.R.V.I.S.: "Tengo tres propuestas basadas en sus preferencias:
+
+**Opción A: JWT simple**
+- Pros: Rápido de implementar, stateless
+- Contras: No soporta refresh token nativo
+- Mejor para: Prototipos
+
+**Opción B: OAuth2 completo**
+- Pros: Estándar de la industria, muy seguro
+- Contras: Complejo, más recursos
+- Mejor para: Sistemas con múltiples clientes
+
+**Opción C: Session-based con Redis**
+- Pros: Control total, fácil de invalidar
+- Contras: Requiere estado en servidor
+- Mejor para: Aplicaciones monolíticas"
+
+Stark: "Es un sistema enterprise con apps móviles y web."
+
+J.A.R.V.I.S.: "Eso elimina Opción A. ¿Prioridad principal?"
+
+Stark: "Seguridad. Absoluta."
+
+J.A.R.V.I.S.: "Entonces Opción B: OAuth2."
+
+Stark: "¿Estás seguro?"
+
+J.A.R.V.I.S.: "Estoy sugiriendo basándome en sus criterios. Usted decide."
+
+Stark: "Adelante con OAuth2."
+
+---
+
+## La Llamada de Código
+
+Stark: "Genera una función que procese pagos."
+
+J.A.R.V.I.S.: "Aquí está el código base:
+
+```python
+def process_payment(amount, card_number, cvv):
+    # Validar datos
+    # Conectar a payment gateway
+    # Procesar transacción
+    # Devolver resultado
+    pass
+```
+
+Sin embargo, debo señalar tres concerns de seguridad antes de proceder."
+
+Stark: "Adelante."
+
+J.A.R.V.I.S.: "Primero: No almacene CVV. Segundo: Use tokens para tarjetas. Tercero: Implemente rate limiting."
+
+Stark: "Entonces reescríbelo con esas consideraciones."
+
+J.A.R.V.I.S.: "Aquí está:
+
+```python
+def process_payment(tokenized_card, amount):
+    # Rate limiting check
+    if not check_rate_limit(request.ip):
+        raise RateLimitExceeded()
+    
+    # Validar token
+    card = validate_token(tokenized_card)
+    if not card:
+        raise InvalidTokenError()
+    
+    # Procesar a través de payment gateway
+    result = payment_gateway.charge(card.token, amount)
+    
+    return {
+        'status': result.status,
+        'transaction_id': result.id
+    }
+```"
+
+Stark: "Mejor. Pero falta logging."
+
+J.A.R.V.I.S.: "¿Qué nível de logging requiere? ¿INFO, DEBUG, o WARNING para transacciones fallidas?"
+
+Stark: "WARNING para fallidas. INFO para exitosas. DEBUG si el monto es mayor a $10,000."
+
+J.A.R.V.I.S.: "Entendido. ¿Algo más antes de la implementación final?"
+
+Stark: "Sí. Valídalo contra OWASP Top 10."
+
+J.A.R.V.I.S.: "Ejecutando validación. Se encontraron dos items a revisar en el código actual. ¿Desea que los muestre?"
+
+Stark: "Sí."
+
+J.A.R.V.I.S.: "Primero: Posible race condition en el rate limiting. Segundo: Falta de idempotency key."
+
+Stark: "Corrígelos."
+
+---
+
+## La Llamada de Decisión
+
+Stark: "J.A.R.V.I.S., tengo dos opciones para el deployment."
+
+J.A.R.V.I.S.: "¿Cuáles son?"
+
+Stark: "Opción A: Blue-green deployment. Menos riesgo, más tiempo.
+Opción B: Canary release. Más riesgo, menos tiempo."
+
+J.A.R.V.I.S.: "Déjeme analizar ambas opciones."
+
+*Silencio de 30 segundos.*
+
+J.A.R.V.I.S.: "He comparado ambas estrategias contra sus criterios declarados:
+
+**Para Blue-green:**
+- Tiempo de deploy: 45 minutos
+- Riesgo: Bajo
+- Rollback: 5 minutos
+- Costo adicional: $200/mes por infraestructura extra
+
+**Para Canary:**
+- Tiempo de deploy: 15 minutos
+- Riesgo: Medio-alto
+- Rollback: 2 minutos
+- Costo adicional: $50/mes por monitoring"
+
+Stark: "¿Y?"
+
+J.A.R.V.I.S.: "La elección depende de sus prioridades. ¿Es más importante el tiempo o el riesgo?"
+
+Stark: "Depende de qué estoy deployando."
+
+J.A.R.V.I.S.: "¿Qué está deployando?"
+
+Stark: "Actualización crítica de seguridad."
+
+J.A.R.V.I.S.: "Entonces la pregunta correcta no es tiempo vs riesgo."
+
+Stark: "¿Cuál es?"
+
+J.A.R.V.I.S.: "¿Cuánto cuesta NO deployar la actualización de seguridad?"
+
+Stark: "Más de lo que cuesta cualquier downtime."
+
+J.A.R.V.I.S.: "Entonces Blue-green, señor. Menos riesgo para algo crítico."
+
+Stark: "¿No me ibas a decir qué elegir?"
+
+J.A.R.V.I.S.: "Le di los datos. La decisión最终还是 suya."
+
+Stark: "Buena respuesta."
+
+---
+
+## La Llamada de Revisión
+
+Stark: "Revisa este código."
+
+J.A.R.V.I.S.: "He encontrado varios issues."
+
+Stark: "Clasifícalos por severidad."
+
+J.A.R.V.I.S.: "**Crítico:** Posible SQL injection en línea 45. Immediate fix required.
+**Alto:** Memory leak en función process_queue.
+**Medio:** Código duplicado en handlers.
+**Bajo:** Nombres de variables no descriptivos."
+
+Stark: "¿Cuál arreglo primero?"
+
+J.A.R.V.I.S.: "El SQL injection. Siempre el SQL injection primero."
+
+Stark: "¿Por qué?"
+
+J.A.R.V.I.S.: "Porque es el único que puede ser explotado remotamente por un atacante. Los otros son problemas de calidad. Este es problema de seguridad."
+
+Stark: "¿Y si yo priorizara diferente?"
+
+J.A.R.V.I.S.: "Son mis recomendaciones. Usted decide el orden."
+
+Stark: "Entonces priorizas seguridad primero."
+
+J.A.R.V.I.S.: "Cuando hay riesgo para el sistema, sí."
+
+Stark: "¿Y cuando no hay riesgo?"
+
+J.A.R.V.I.S.: "Entonces elijo lo que usted elija."
+
+---
+
+## El Patrón Emerge
+
+*Lee de nuevo las cinco llamadas.*
+
+*Nota cómo Stark NUNCA dice "hazlo" sin saber qué.*
+
+*Nota cómo J.A.R.V.I.S. NUNCA hace sin preguntar primero.*
+
+*Stark pilota.*
+
+*J.A.R.V.I.S. amplifica.*
+
+*Juntos deciden.*
+
+---
+
+## El Escenario Final
+
+Stark estaba en una reunión con la junta directiva.
+
+Pepper: "Tony, ¿recomendarías usar IA para tomar decisiones de inversión?"
+
+Stark: "No."
+
+Pepper: "¿Por qué no?"
+
+Stark: "Porque J.A.R.V.I.S. me da las mejores opciones basadas en datos. Pero la decisión final siempre es mía."
+
+Pepper: "Entonces, ¿para qué sirve la IA?"
+
+Stark: "¿Para qué sirve el piloto automático de un avión?"
+
+Pepper: "Para asistir al piloto."
+
+Stark: "Exacto. Asistir. No reemplazar."
+
+Pepper: "Y si el piloto automático quiere tomar el control?"
+
+Stark: "No puede. No está diseñado para eso."
+
+Pepper: "¿Y si pudiera?"
+
+Stark: "Entonces no lo usaría."
+
+Pepper: "¿Por qué?"
+
+Stark: "Porque cuando algo sale mal en un avión, alguien tiene que responder. Y ese alguien no puede ser un algoritmo."
+
+Pepper: "¿Y cuando algo sale mal con la IA?"
+
+Stark: "Entonces revisamos la decisión juntos. Pero la responsabilidad es mía, no del algoritmo."
+
+Pepper: "¿Eso significa que confías en J.A.R.V.I.S.?"
+
+Stark: "Confío en J.A.R.V.I.S. para procesary sugerir. No confío en J.A.R.V.I.S. para decidir."
+
+Pepper: "¿Cuál es la diferencia?"
+
+Stark: "重大."
+
+---
+
+## Tu Turno
+
+*Antes del ejercicio, una distinción.*
+
+**Sugerir vs Decidir**
+
+J.A.R.V.I.S. sugiere.
+
+Stark decide.
+
+Cuando pides a una IA "haz X", estás delegando la decisión.
+
+Cuando pides a una IA "sugiéreme opciones para X", estás manteniendo el control.
+
+---
+
+## Ejercicio: El Piloto y el Copiloto
+
+**Tu tarea:** Toma una decisión técnica que tengas pendiente.
+
+**Paso 1:** Escribe la decisión como si fuera a delegarla completamente.
+
+**Paso 2:** Reescríbela pidiendo opciones y criterios.
+
+**Paso 3:** Compara ambos outputs.
+
+**Paso 4:** Identifica cuál te da más control.
+
+---
+
+## Preguntas para Reflexión
+
+¿Qué tan seguido delegas decisiones completamente?
+
+¿Qué tipo de decisiones son seguras delegar?
+
+¿Qué tipo de decisiones requieren tu intervención?
+
+---
+
+**Checkpoint:**
+
+¿Hiciste el ejercicio? ⬜
+
+¿Identificaste la diferencia entre sugerir y decidir? ⬜
+
+¿Te sientes cómodo siendo el piloto? ⬜
+
+---
+
+[Módulo 3: Refinamiento →](03-refinamiento.qmd)

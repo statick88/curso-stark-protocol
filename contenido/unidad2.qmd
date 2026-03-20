@@ -1,0 +1,137 @@
+# 🎯 Unidad 2: Contexto es Rey
+
+## Donde Stark aprende que menos es menos, y más es más
+
+---
+
+## 🎯 Objetivos de Aprendizaje
+
+- **Comprender** por qué el contexto mejora dramáticamente los resultados
+- **Aplicar** técnicas de pemberian contexto específico
+- **Identificar** qué información es relevante incluir
+- **Diferenciar** entre requests vagos y requests detallados
+
+---
+
+## 📚 Contenido Teórico
+
+### 2.1 La Diferencia entre Resultados 🔄
+
+**La Primera Llamada**
+```
+Stark: "Escríbeme una función que valide emails."
+
+J.A.R.V.I.S.: "Aquí tiene una función en Python..."
+
+Stark: "Funciona, pero no maneja edge cases."
+
+J.A.R.V.I.S.: "¿Qué edge cases específicos necesita?"
+
+Stark: "No sé, tú dime."
+
+J.A.R.V.I.S.: "No puedo anticipar sus necesidades sin contexto."
+
+Stark: "Entonces no sirve."
+```
+
+> **💡 Aprendizaje**: La IA no puede adivinar lo que necesitas. Tienes que especificarlo.
+
+---
+
+**La Segunda Llamada**
+```
+Stark: "Escríbeme una función que valide emails para un sistema de registro de empleados."
+
+J.A.R.V.I.S.: "¿Tiene requisitos específicos de la empresa?"
+
+Stark: "Solo emails corporativos válidos."
+
+J.A.R.V.I.S.: "¿Tiene una lista de dominios permitidos?"
+
+Stark: "Sí: starkindustries.com, siemens.com, apple.com."
+```
+
+> **💡 Aprendizaje**: Cada pregunta de la IA revela información que faltaba. Responde siempre.
+
+---
+
+### 2.2 La Quinta Llamada - El Patrón Completo 🔍
+
+```
+Stark: "J.A.R.V.I.S., el script no funciona."
+
+J.A.R.V.I.S.: "He revisado el script y encontré el problema."
+
+Stark: "¿Cuál es?"
+
+J.A.R.V.I.S.: "Los timestamps de los logs están en timezone PST, pero el script asume UTC."
+
+Stark: "¿Cómo no lo vi?"
+
+J.A.R.V.I.S.: "Porque no sabía el timezone de los logs."
+
+Stark: "¿Y no preguntaste?"
+
+J.A.R.V.I.S.: "No me pidió contexto de timezone."
+
+Stark: "Touche."
+
+J.A.R.V.I.S.: "¿Desea que añada detección automática de timezone?"
+
+Stark: "Sí. Y la próxima vez, pregunta todo lo que necesites saber upfront."
+```
+
+> **💡 Aprendizaje**: La IA necesita saber TODO lo relevante. Si no lo sabe, preguntará. Responde siempre.
+
+---
+
+### 2.3 El Patrón Emerge 📊
+
+```
+Primera solicitud: "Escríbeme una función que valide emails"
+    ↓
+Resultado: Función básica
+
+Quinta solicitud: "Escríbeme una función que valide emails para un sistema 
+de registro de empleados con dominios específicos y sin sensibilidad a mayúsculas"
+    ↓
+Resultado: Función robusta y específica
+```
+
+**Misma tarea. Mejor contexto. Mejor resultado.**
+
+---
+
+## 🎯 Fórmula del Contexto Perfecto
+
+Un request efectivo incluye:
+
+| Elemento | Ejemplo |
+|----------|---------|
+| **Qué** | "Validar emails" |
+| **Para qué** | "Sistema de registro de empleados" |
+| **Con qué** | "Solo dominios: starkindustries.com, siemens.com" |
+| **Cómo** | "Sin sensibilidad a mayúsculas" |
+| **Edge cases** | "Manejar emails con puntos" |
+
+---
+
+## 🔬 Laboratorio
+
+> Ver [`labs/lab-unidad2.md`](../labs/lab-unidad2.md) para el escenario completo.
+
+**Objetivo**: Escribir requests efectivos con contexto específico
+
+---
+
+## 📚 Recursos Adicionales
+
+- [Providing Context to AI](https://platform.openai.com/docs/guides/gpt-best-practices)
+- [Context Window Explained](https://www.promptingguide.ai/techniques/context)
+
+---
+
+## 📖 Bibliografía
+
+- Jarvis Development Team. (2010). *Context Management in A.I. Systems*. Internal Documentation.
+- Stark, T. (2015). *Optimization of Human-AI Interaction*. Stark Industries Research.
