@@ -1,85 +1,312 @@
 ---
-title: "Stark Protocol"
-author: "Diego Saavedra"
+title: "Iron Man Evolution: De la Cueva al Nanotech"
+author: "Diego Saavedra García"
+description: "Curso de desarrollo con Inteligencia Artificial como Tony Stark: desde scripts básicos hasta Software Driver Development"
+image: images/iron-man-evolution.jpg
 ---
 
-# 🤖 Stark Protocol
+# 🦾 Iron Man Evolution
 
-**Uso Efectivo de Inteligencia Artificial**
+## **Desarrollo con IA: De la Cueva al Nanotech**
 
-**Duración**: 20 horas | **Modalidad**: Autoestudio | **Nivel**: Principiante-Intermedio
-
----
-
-## 🎯 ¿Qué es Stark Protocol?
-
-Stark Protocol es un curso donde **Tony Stark y J.A.R.V.I.S. te enseñan sin enseñarte**.
-
-A través de conversaciones entre el inventor más brillante de Marvel y su asistente de IA, descubrirás patrones que los desarrolladores principiantes tardan meses en aprender — o que nunca descubren y permanecen en el nivel de "le copio el código y espero que funcione".
-
-**El enfoque es 100% implícito**: las lecciones emergen de las situaciones, no de explicaciones directas.
+**Duración**: 20 horas | **Modalidad**: Autoestudio | **Nivel**: Principiante a Experto  
+**Metodología**: Aprendizaje por niveles como un videojuego  
+**Inspiración**: La saga completa de Iron Man (2008-2019)
 
 ---
 
-## 📚 Estructura del Curso
+## 🎬 **La Trama Completa**
 
-| Unidad | Título | Concepto Central |
-|--------|--------|------------------|
-| 1 | El Despertar | Configuración inicial y setup |
-| 2 | Contexto es Rey | Dar información específica |
-| 3 | El Piloto | Tú decides, la IA sugiere |
-| 4 | Refinamiento | Iterar hasta acertar |
-| 5 | Límites | Qué compartir, qué guardar |
-| 6 | Síntesis | El poder de la combinación |
+> *"Siempre supe que moriría en paz, sabiendo que mis hijos estarían bien. Pero sabes... ahora, quiero hacer lo que tengo que hacer, sin que ellos sepan que soy el único capaz de hacerlo."*
+> — Tony Stark, Avengers: Endgame
+
+**Iron Man Evolution** no es solo un curso. Es una **experiencia narrativa** donde cada nivel corresponde a un momento crucial en la evolución de Tony Stark desde un genio millonario atrapado en una cueva hasta el hombre que salvó el universo con tecnología nanotech.
 
 ---
 
-## 🧠 Metodología
+## 🎮 **Sistema de Progresión (Gamificación)**
 
-### El Principio Fundamental
+### **Niveles del Juego**
+Cada nivel tiene:
+- 🎬 **Escena de Iron Man** — La película que inspires
+- 🎯 **Objetivos** — Qué aprenderás
+- 🔬 **Laboratorio** — Ejercicios prácticos
+- 🏆 **Logro** — Algo que desbloquear
+- 💀 **Boss Fight** — Reto final del nivel
 
-> "La armadura me hace más fuerte. J.A.R.V.I.S. me hace más inteligente. Juntos, somos imparables."
-> — Tony Stark
-
-**Tú pilotas. J.A.R.V.I.S. amplifica.**
-
-No es ciencia ficción. Es un framework mental para cualquier interacción con IA.
-
----
-
-## 🛠️ Labs Prácticos
-
-Cada unidad incluye un laboratorio práctico donde aplicarás los conceptos observados en las conversaciones entre Stark y J.A.R.V.I.S.
-
-| Lab | Habilidad |
-|-----|-----------|
-| 1 | Tu Primera Sesión |
-| 2 | El Request Perfecto |
-| 3 | Piloto y Copiloto |
-| 4 | Iteración Mortal |
-| 5 | El Filtro Mental |
-| 6 | El Proyecto Final |
+| Nivel | Iron Man | Habilidad Técnica | Tecnologías |
+|-------|----------|-------------------|-------------|
+| **1** | 🕳️ **El Demo en la Cueva** | Fundamentos de IA | Prompts, tokens, context window |
+| **2** | ⚙️ **El Mark I** | Context Engineering | AGENTS.md, convenciones, reglas |
+| **3** | 🦾 **El Mark III** | Agentes Básicos | Claude Code, loops, subagentes |
+| **4** | 🤖 **JARVIS Avanzado** | Memoria & Herramientas | Engram, MCP, Skills |
+| **5** | 🔴 **Ultron** | Orquestación Multi-Agente | SDD, ética, control humano |
+| **6** | ✨ **El Nanotech** | Producción Enterprise | Gentle AI Stack, CI/CD, seguridad |
 
 ---
 
-## 🎓 Lo que Aprenderás
+## 🧠 **Metodología: Aprender como Tony Stark**
 
-- **Dar contexto** → Mejor output
-- **Pilota** → Mantén control
-- **Itera** → Mejora continua
-- **Limita** → Protege lo sensitive
-- **Sintetiza** → Combina todo
+### **Principio Fundamental**
+> *"La armadura me hace más fuerte. J.A.R.V.I.S. me hace más inteligente. Juntos, somos imparables."*
+
+**Tu eres Tony Stark.** La IA es tu J.A.R.V.I.S.  
+**Tú construyes.** La IA amplifica.  
+**Tú decides.** La IA ejecuta.
+
+### **Filosofía de Enseñanza**
+1. **Aprender Haciendo** — 70% práctica, 30% teoría
+2. **Progresión Natural** — De lo simple a lo complejo
+3. **Contexto Real** — Proyectos que importan
+4. **Reflexión Constante** — ¿Por qué funciona esto?
 
 ---
 
-## 📋 Requisitos
+## 🔧 **Stack Tecnológico (Gentle AI Stack)**
 
-- Cualquier herramienta de IA (ChatGPT, Claude, Gemini, Copilot, etc.)
-- Ganas de aprender haciendo
-- Disposición a reflexionar sobre tus propios patrones
+### **⚠️ Distinción Importante: Asistentes vs Agentes**
+
+| Tipo | Ejemplos | Capacidad |
+|------|----------|-----------|
+| **Asistentes** | Claude Chat, ChatGPT, Gemini | Conversación, sugerencias, análisis |
+| **Agentes** | Claude Code, OpenCode, Cursor | Acción directa: escribir código, crear archivos, ejecutar comandos |
+
+> 💡 **Un asistente te dice QUÉ hacer. Un agente LO HACE por ti.**
+
+### **Arquitectura del Gentle AI Stack**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          🖥️  TU COMPUTADORA                                 │
+│                                 │                                           │
+│                                 ▼                                           │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │                        ⚡ GENTLE AI STACK                              │ │
+│  │                                                                        │ │
+│  │   🤖 AGENTES       🧠 MEMORIA        🔗 MCP           📋 SDD         │ │
+│  │   (Acción)         (Engram)       (Conexión)       (Método)          │ │
+│  │   ─────────        ─────────      ─────────        ─────────         │ │
+│  │   • Claude Code    • Engram       • GitHub         • Spec            │ │
+│  │   • OpenCode       • SQLite       • Notion         • Design          │ │
+│  │   • Cursor         • Patterns     • Slack          • Tasks           │ │
+│  │                                                    • Code            │ │
+│  │                                                                        │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │  📖 SKILLS (Conocimiento Modular)                                     │ │
+│  │   • SKILL.md + Scripts    • 50+ patterns    • Carga automática        │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### **Componentes del Stack**
+
+| Componente | Tecnología | Función |
+|------------|------------|---------|
+| **Agentes** | Claude Code, OpenCode, Cursor | Ejecutan acciones en tu código |
+| **Memoria** | Engram (SQLite + FTS5) | Recuerdan decisiones y patrones |
+| **Conexión** | MCP Protocol | Conectan con GitHub, Notion, Slack |
+| **Método** | SDD (Spec-Driven Dev) | Estructuran el desarrollo |
+| **Skills** | SKILL.md + Scripts | Modularizan conocimiento |
+- **Calidad**: TDD, Clean Code, Clean Architecture
 
 ---
 
-## 🚀 Comienza Ahora
+## 📊 **Sistema de XP y Logros**
 
-[→ Unidad 1: El Despertar](contenido/unidad1.qmd)
+### **Experiencia (XP)**
+| Actividad | XP |
+|-----------|----|
+| Completar un lab | 100 XP |
+| Boss Fight superado | 250 XP |
+| Proyecto final | 1000 XP |
+| Comunidad (ayudar a otros) | 50 XP |
+
+### **Logros Desbloqueables**
+| Logro | Nombre | Requisito |
+|-------|--------|-----------|
+| 🥉 | **Survivor** | Completar Nivel 1 |
+| 🥈 | **Architect** | Crear tu primer AGENTS.md |
+| 🥇 | **Pilot** | Ejecutar tu primer agente |
+| 💎 | **Genius** | Implementar Engram |
+| 🔥 | **Director** | Orquestar 3+ agentes |
+| 👑 | **Innovator** | Completar todos los niveles |
+
+---
+
+## 🛠️ **Laboratorios Prácticos**
+
+### **Cada Nivel Incluye**
+1. **Training Lab** — Ejercicios guiados paso a paso
+2. **Challenge Lab** — Reto práctico con solución disponible
+3. **Boss Fight** — Proyecto integrador del nivel
+4. **Side Quests** — Ejercicios opcionales para avanzados
+
+### **Proyecto Final**
+
+Crearás **"The Iron Legion"** — un sistema multi-agente que:
+
+- ✅ Tiene memoria persistente (Engram)
+
+- ✅ Usa múltiples agentes especializados
+
+- ✅ Se conecta a herramientas externas vía MCP
+
+- ✅ Sigue metodología SDD
+
+- ✅ Tiene CI/CD pipeline
+
+- ✅ Implementa seguridad por diseño
+
+---
+
+## 📋 **Requisitos Previos (¡Menos de lo que Crees!)**
+
+### **✅ Prerrequisitos Mínimos (¡Seguro que los tienes!)**
+- ✅ Saber encender una computadora
+- ✅ Saber usar un navegador web (Chrome, Firefox, etc.)
+- ✅ Saber copiar y pegar texto
+- ✅ Saber crear una cuenta de email
+- ✅ Saber leer y escribir en español
+
+### **🤔 ¿No sabes programar? ¡No importa!**
+
+Este curso está diseñado **desde cero absoluto**. No asumimos que sepas:
+
+- ❌ Programación (te enseñamos desde lo básico)
+
+- ❌ Terminal/consola (te guiamos paso a paso)
+
+- ❌ Git o control de versiones (lo explicamos cuando lo necesites)
+
+### **¿Ya sabes programar?**
+Salta al [Nivel 2](contenido/nivel2.qmd) después de revisar los prerrequisitos.
+
+### **🔍 Verifica si Estás Listo**
+Antes de empezar, completa el **[Test de Prerrequisitos](contenido/prerrequisitos.qmd)** — ¡toma solo 5 minutos!
+
+### **Herramientas Necesarias (Gratis)**
+- 🌐 **Navegador web** (Chrome, Firefox, etc.) — ¡ya lo tienes!
+- 📧 **Cuenta de email** (Gmail, Outlook, etc.) — ¡ya la tienes!
+- 📝 **Editor de código**: VS Code (recomendado, gratuito)
+- 🤖 **Cuenta en al menos una IA**: Claude, ChatGPT, Gemini, etc.
+
+### **Asistentes de IA que Dominarás**
+En este curso aprenderás a usar múltiples asistentes de IA para desarrollo:
+
+| Herramienta | Tipo | Mejor para | ¿Necesitas experiencia previa? |
+|-------------|------|------------|--------------------------------|
+| **OpenCode** | Terminal Agent | Flexibilidad, 75+ proveedores | ❌ No |
+| **KiloCode** | IDE + CLI | Multi-modelo (500+), orquestación | ❌ No |
+| **Claude Code** | Terminal Agent | Debugging complejo, 1M contexto | ❌ No |
+| **Gemini CLI** | Terminal Agent | Coste cero, 1M contexto | ❌ No |
+| **Kiro** | Spec-Driven IDE | Desarrollo dirigido por especificaciones | ❌ No |
+| **Amp** | Terminal Agent | Tareas rápidas, ligero | ❌ No |
+| **GitHub Copilot** | IDE Plugin | Integración GitHub, Enterprise | ❌ No |
+| **Codex CLI** | Terminal Agent | Código OpenAI, agente local | ❌ No |
+
+> 💡 **No necesitas experiencia previa** — te enseñamos desde cómo abrir la terminal hasta orquestar sistemas multi-agente.
+
+### **Herramientas que Instalarás (guiado)**
+```bash
+# Gentle AI Stack (instalador automático)
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+
+# Agentes
+- Claude Code
+- OpenCode
+- Cursor
+
+# Memoria
+- Engram (Go binary)
+
+# Herramientas de desarrollo
+- Git
+- Docker (opcional, Nivel 6)
+```
+
+---
+
+## 🚀 **Comienza tu Evolución**
+
+### **Ruta de Aprendizaje**
+```
+1️⃣  El Demo en la Cueva ──── 2️⃣  El Mark I ──── 3️⃣  El Mark III
+    │                           │                   │
+    ▼                           ▼                   ▼
+[Supervivencia]           [Prototipo]         [Combate Real]
+    │                           │                   │
+    └───────────────────────────┴───────────────────┘
+                                │
+4️⃣  JARVIS Avanzado ──── 5️⃣  Ultron ──── 6️⃣  El Nanotech
+    │                       │               │
+    ▼                       ▼               ▼
+[Memoria]              [Poder]         [Producción]
+    │                       │               │
+    └───────────────────────┴───────────────┘
+                                │
+                         👑 Innovator
+                    (Proyecto Final Completado)
+```
+
+### **Tu Primer Paso**
+[→ **Nivel 1: El Demo en la Cueva**](contenido/nivel1.qmd)
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Comunidad**
+- 💬 Discord: Stark Industries Dev Community
+- 🐦 Twitter: #IronManEvolution
+- 📧 Soporte: tony@starkindustries.dev
+
+### **Referencias**
+- [Gentle AI Stack](https://github.com/Gentleman-Programming/gentle-ai)
+- [Gentleman Skills](https://github.com/Gentleman-Programming/Gentleman-Skills)
+- [Cómo ser Tony Stark con IA](https://www.youtube.com/watch?v=SOxuW5K2FFY)
+- [Especificación MCP](https://modelcontextprotocol.io)
+- [Spec-Driven Development](https://spec-driven.dev)
+
+---
+
+## 📖 **Acerca del Autor**
+
+**Diego Saavedra García**
+
+Profesor universitario (ESPE, UIDE, Abacom, Codings Academy) con experiencia en:
+
+- Desarrollo FullStack
+
+- Ethical Hacking y Seguridad Ofensiva
+
+- Inteligencia Artificial aplicada
+
+- Arquitectura de Software
+
+> *"No enseño tecnología. Enseño a pensar como un ingeniero que usa IA para amplificar su intelecto."*
+
+---
+
+## 🎯 **Objetivo Final**
+
+Al completar **Iron Man Evolution**, serás capaz de:
+
+1. ✅ **Diseñar** sistemas multi-agente desde cero
+2. ✅ **Implementar** memoria persistente para IA
+3. ✅ **Orquestar** múltiples agentes especializados
+4. ✅ **Conectar** IA con herramientas externas vía MCP
+5. ✅ **Aplicar** metodología SDD en proyectos reales
+6. ✅ **Desplegar** sistemas de producción robustos
+7. ✅ **Pensar** como Tony Stark: creativo, sistemático, innovador
+
+---
+
+**¿Estás listo para construir tu primera armadura?**  
+[→ **Comienza el Nivel 1**](contenido/nivel1.qmd)
+
+---
+
+*"Un hombre puede hacer lo que otro hombre puede hacer. Si no puedes hacerlo, es porque no has aprendido cómo hacerlo todavía."*  
+— Howard Stark

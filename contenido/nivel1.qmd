@@ -1,0 +1,797 @@
+---
+title: "Nivel 1: El Demo en la Cueva"
+author: "Diego Saavedra García"
+description: "De CERO a tu primer script con IA - Diseñado para principiantes ABSOLUTOS"
+image: images/nivel1-cueva.jpg
+---
+
+# 🕳️ Nivel 1: El Demo en la Cueva
+
+## **De CERO Absoluto a tu Primer Script con IA**
+
+---
+
+## ⚠️ **¿Eres Principiante Absoluto? ¡PERFECTO!**
+
+Si nunca has:
+- ✅ **Escrito una línea de código** → Estás en el lugar correcto
+- ✅ **Usado una terminal/consola** → Te guiaremos paso a paso
+- ✅ **Interactuado con IA** → Empezaremos desde lo más básico
+- ✅ **Instalado herramientas de programación** → Lo haremos juntos
+
+**Este nivel está diseñado ESPECÍALMENTE para ti.**
+
+---
+
+## 🔍 **Verificación Rápida (1 minuto)**
+
+Antes de empezar, responde ESTAS preguntas:
+
+| # | Pregunta | Sí | No |
+|---|----------|----|----|
+| 1 | ¿Puedes abrir este enlace en tu navegador? | ⬜ | ⬜ |
+| 2 | ¿Puedes copiar este texto: "Hola mundo" | ⬜ | ⬜ |
+| 3 | ¿Puedes crear un archivo de texto nuevo? | ⬜ | ⬜ |
+
+**Si respondiste Sí a las 3**: ¡Perfecto! Tienes lo mínimo necesario.
+**Si respondiste No a alguna**: No te preocupes. Te enseñaremos.
+
+> 💡 **Nota para instructores**: Si algún estudiante marca "No" en todas, sugieran el [Curso de Prerrequisitos](prerrequisitos.qmd) antes de continuar.
+
+---
+
+## 🎬 **La Escena de Iron Man (2008)**
+
+> *"Para crear esto, necesitaba fuego. Mucho fuego."*
+> — Tony Stark
+
+Tony Stark despierta en una cueva en Afganistán. Herido, cautivo, sin recursos. Su única salida: construir un reactor arc en miniatura para mantener vivo el shrapnel cerca de su corazón, y luego usar esa energía para crear un arma de escape.
+
+**El Mark I no era perfecto.** Era desordenado, ruidoso, limitado. Pero **funcionaba**. Y eso era todo lo que importaba.
+
+**En este nivel, tú eres Tony Stark en esa cueva.** No tienes toda la información. No tienes todas las herramientas. Pero tienes algo más poderoso: **la capacidad de crear algo desde nada usando IA.**
+
+---
+
+## 🎯 **Objetivos de Aprendizaje (Desde CERO)**
+
+### **Si vienes de CERO absoluto, al final de este nivel podrás:**
+1. ✅ **Explicar** qué es una IA en tus propias palabras
+2. ✅ **Escribir** tu primer prompt (instrucción a una IA)
+3. ✅ **Crear** tu primer "programa" usando IA (¡sin escribir código!)
+4. ✅ **Entender** los conceptos básicos: tokens, contexto, IA
+5. ✅ **Sentirte** cómodo interactuando con IA
+
+### **Si ya tienes algo de experiencia, también aprenderás:**
+1. ✅ **Profundizar** en cómo funcionan los LLMs
+2. ✅ **Optimizar** tus prompts para mejores resultados
+3. ✅ **Configurar** un entorno profesional de desarrollo
+4. ✅ **Crear** scripts funcionales con ayuda de IA
+5. ✅ **Organizar** tu espacio de trabajo
+
+---
+
+## 🧠 **Conceptos Técnicos**
+
+### **1.1 ¿Qué es un LLM? (El Reactor Arc de la IA)**
+
+Un **Large Language Model** (Modelo de Lenguaje Grande) es como el reactor arc que Tony construyó en la cueva:
+
+#### **Analogía del Reactor Arc**
+| Reactor Arc | LLM |
+|-------------|-----|
+| **Energía** | Parámetros (pesos del modelo) |
+| **Combustible** | Datos de entrenamiento |
+| **Estabilidad** | Fine-tuning y ajustes |
+| **Aplicaciones** | Prompts y tareas |
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     CÓMO FUNCIONA UN LLM                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   ┌─────────────────┐         ┌─────────────────┐               │
+│   │ 📚 DATOS DE     │         │ 🤖 LLM          │               │
+│   │ ENTRENAMIENTO   │ ──────► │ (Modelo)        │               │
+│   │                 │         │                 │               │
+│   │ • Libros        │         │ • Parámetros    │               │
+│   │ • webs          │         │ • Pesos         │               │
+│   │ • código        │         │ • Tokens        │               │
+│   └─────────────────┘         └────────┬────────┘               │
+│                                        │                        │
+│   ┌─────────────────┐                  │                        │
+│   │ 💬 TU PROMPT    │                  ▼                        │
+│   │ (Instrucción)   │ ─────────►┌─────────────────┐             │
+│   │                 │           │ 📤 RESPUESTA    │             │
+│   │ • Rol           │           │                 │             │
+│   │ • Contexto      │           │ • Código        │             │
+│   │ • Tarea         │           │ • Texto         │             │
+│   │ • Restricciones │           │ • Solución      │             │
+│   └─────────────────┘           └─────────────────┘             │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### **Parámetros Clave**
+```python
+# Conceptuales (no los configurarás directamente)
+model_size = "billions"  # Parámetros: 7B, 13B, 70B+
+training_data = "terabytes"  # Datos de entrenamiento
+context_window = "tokens"  # Ventana de contexto
+
+# Prácticos (que sí usarás)
+temperature = 0.7  # Creatividad (0.0-1.0)
+max_tokens = 4096  # Longitud máxima de respuesta
+top_p = 0.9  # Diversidad de respuestas
+```
+
+### **1.2 Tokens: La Moneda de la IA (Energía del Reactor)**
+
+Los **tokens** son las unidades básicas que procesa un LLM. No son palabras exactamente, sino fragmentos de texto.
+
+#### **Ejemplo de Tokenización**
+```
+Texto original: "Iron Man es genial"
+Tokens: ["Iron", " Man", " es", " genial"]
+Count: 4 tokens
+```
+
+#### **Costos de Tokens**
+| Modelo | Costo por 1M tokens |
+|--------|---------------------|
+| GPT-4 | $30-60 |
+| Claude 3 Opus | $15-75 |
+| Gemini Pro | $0.5-5 |
+| Llama 3 (local) | $0 (gratis) |
+
+### **1.3 Ventana de Contexto (Memoria de Corto Plazo)**
+
+La **ventana de contexto** es la memoria que tiene el LLM sobre la conversación actual.
+
+#### **Ejemplo Visual**
+```
+Tu conversación actual:     [──────────────────────────────────────]
+Ventana de contexto GPT-4:  [──────────────────────────────────────] 128K tokens
+Ventana de contexto Claude: [──────────────────────────────────────] 200K tokens
+Tu prompt + historia:       [─────────────────] 15K tokens
+Espacio restante:           [──────────────────────────────────────] ~85K tokens
+```
+
+#### **Regla de Oro**
+> **"El contexto es limitado. Úsalo sabiamente."**
+> 
+> — J.A.R.V.I.S.
+
+---
+
+### **1.3.5 Verifica Antes de Usar (Security First Básico)**
+
+> *"Con gran poder viene gran responsabilidad."*
+> — Tío Ben (y Tony Stark estaría de acuerdo)
+
+Tony Stark **nunca** lanza un arma sin probarla primero.
+
+En la cueva, probó el reactor arc **múltiples veces** antes de instalarlo en su pecho.
+
+**Tú también debes verificar antes de usar código generado por IA.**
+
+---
+
+#### **El Problema de la IA Generativa**
+
+La IA puede generar código que:
+- ❌ **Funciona mal** — bugs sutiles que pasan desapercibidos
+- ❌ **Es inseguro** — inyecciones SQL, XSS, contraseñas hardcodeadas
+- ❌ **Es ineficiente** — O(n²) cuando debería ser O(n)
+- ❌ **Inventa librerías** — paquetes que no existen
+
+---
+
+#### **Tu Checklist de Verificación (30 segundos)**
+
+Antes de ejecutar CUALQUIER código generado:
+
+| # | Verificar | Ejemplo | Tiempo |
+|---|-----------|---------|--------|
+| **1** | **¿Existe la librería?** | `pip search paquete` o `npm search paquete` | 5 seg |
+| **2** | **¿Las funciones son reales?** | Busca la doc oficial | 10 seg |
+| **3** | **¿Hay secrets hardcodeados?** | Busca `password`, `api_key`, `secret` | 5 seg |
+| **4** | **¿Maneja errores?** | ¿Tiene try/except o .catch()? | 5 seg |
+| **5** | **¿Funciona localmente?** | Ejecuta en modo dry-run si es posible | 5 seg |
+
+---
+
+#### **Ejemplo: Código Inseguro vs Seguro**
+
+**❌ PELIGROSO (IA inventó):**
+```python
+# La IA inventó esta función
+import security_lib  # ¡NO EXISTE!
+
+def authenticate(user, password):
+    if security_lib.check(user, password):  # ¡CRASH! Librería ficticia
+        return True
+    return False
+```
+
+**✅ SEGURO (Verificado):**
+```python
+# Usamos librerías reales y verificadas
+import hashlib
+import secrets
+
+def authenticate(user, password, stored_hash):
+    """Verifica credenciales de forma segura."""
+    # Hash de la contraseña con salt
+    password_hash = hashlib.sha256(
+        (password + secrets.token_hex(16)).encode()
+    ).hexdigest()
+    
+    # Comparación segura (timing-safe)
+    return secrets.compare_digest(password_hash, stored_hash)
+```
+
+---
+
+#### **La Regla del "Código Humano"**
+
+> **"Si no lo entenderías, no lo ejecutes."**
+
+| Situación | Acción |
+|-----------|--------|
+| Código confuso | Pide explicación paso a paso |
+| Librería desconocida | Investiga antes de instalar |
+| Error inesperado | No copies errores ciegamente |
+| Resultado sorprendente | Verifica con datos reales |
+
+---
+
+#### **Herramientas de Verificación Rápida**
+
+```bash
+# Verificar si un paquete existe (Python)
+pip search nombre-paquete  # O busca en pypi.org
+
+# Verificar si un paquete existe (Node)
+npm search nombre-paquete  # O busca en npmjs.com
+
+# Buscar secrets en código
+grep -rn "password\|secret\|api_key\|token" .
+
+# Ejecutar en modo seguro (sin efectos secundarios)
+python -c "import modulo; print(dir(modulo))"  # Solo inspeccionar
+```
+
+---
+
+> 💡 **Recuerda**: Tony Stark verificaba tres veces antes de lanzar. Tú verifica el código de la IA antes de ejecutarlo. Es tu **primera línea de defensa**.
+
+### **1.4 Tu Primer Prompt (La Primera Válvula)**
+
+Un **prompt** es la instrucción que le das a la IA. En este nivel, aprenderás la estructura básica:
+
+#### **Fórmula del Prompt Efectivo**
+
+```
+[ROL] + [CONTEXTO] + [TAREA] + [RESTRICCIONES] + [FORMATO]
+```
+
+---
+
+#### **Ejemplo Malo vs Bueno**
+
+**❌ MALO:**
+```
+Escribe código
+```
+
+> **Problema**: Sin contexto tecnológico, sin reglas de seguridad, la IA debe "adivinar" lo que necesitas.
+
+**✅ BUENO:**
+```
+[ROL]: Actúa como un desarrollador backend Senior especializado en ciberseguridad
+
+[CONTEXTO]: Estoy construyendo una API REST para un e-commerce usando Python 3.10
+
+[TAREA]: Necesito que escribas un endpoint para el login de usuarios
+
+[RESTRICCIONES]: 
+- Framework: FastAPI
+- Recibir email y contraseña
+- Validar credenciales (simular consulta PostgreSQL)
+- Devolver token JWT
+- Manejo de errores (401 si credenciales fallan)
+- Contraseñas hasheadas con bcrypt
+
+[FORMATO]: Devuélveme únicamente el bloque de código bien comentado, sin explicaciones previas
+```
+
+---
+
+### **📚 Ejemplos Prácticos por Categoría**
+
+#### **1. Para Debugging (Cuando algo falla)**
+
+**Ejemplo 1 - Debugging Sistemático:**
+```
+Eres un experto en depuración. Para este código con error, proporciona:
+
+1. Calificación del código (1-10)
+2. Lista de problemas identificados
+3. Pasos específicos para depurar sin cambiar funcionalidad
+4. Explicación de por qué ocurre el error
+
+Código: [pega tu código aquí]
+Error: [copia el error exacto]
+```
+
+**Ejemplo 2 - Diagnóstico Senior:**
+```
+Actúa como desarrollador senior con 20+ años de experiencia.
+
+Analiza:
+- Lenguaje: [Python/JavaScript/etc]
+- Framework: [FastAPI/Express/etc]
+- Error: '[mensaje exacto del error]'
+- Archivo: [archivo.py] línea [42]
+- Código: [código problemático]
+
+Proporciona:
+1. Diagnóstico del problema raíz
+2. Solución paso a paso
+3. Cómo prevenirlo en el futuro
+4. Mejores prácticas relacionadas
+```
+
+---
+
+#### **2. Para Arquitectura (Cuando diseñas sistemas)**
+
+**Ejemplo 1 - Selección de Patrones:**
+```
+Actúa como un arquitecto de software experimentado.
+
+Estoy enfrentando el siguiente problema de diseño:
+[describe tu problema - ej: "necesito que múltiples servicios 
+notifiquen eventos entre sí sin acoplamiento directo"]
+
+Sugiere 2 o 3 patrones de diseño que podrían ser adecuados.
+
+Para cada patrón, proporciona:
+1. Breve explicación
+2. Por qué es buena opción para ESTE problema
+3. Lista de pros y contras
+```
+
+**Ejemplo 2 - Especificación Técnica:**
+```
+Eres ingeniero de software de clase mundial.
+
+Redacta la especificación técnica para:
+[nombre del sistema - ej: "Sistema de inventario con notificaciones"]
+
+Incluye las siguientes secciones:
+1. Resumen ejecutivo
+2. Arquitectura general
+3. Componentes principales
+4. APIs (endpoints, métodos, schemas)
+5. Modelo de datos
+6. Consideraciones de seguridad
+7. Plan de implementación
+8. Riesgos y mitigaciones
+```
+
+---
+
+#### **3. Para Testing (Cuando verificas calidad)**
+
+**Ejemplo 1 - Suite Completa:**
+```
+Actúa como ingeniero de testing senior.
+
+Función a testear:
+[pega la función aquí]
+
+Framework: pytest (o el que uses)
+
+Genera una suite completa de tests que incluya:
+1. Tests unitarios básicos (happy path)
+2. Casos límite (boundary cases)
+3. Manejo de errores y excepciones
+4. Tests de integración (si aplica)
+
+Para cada test:
+- Nombre descriptivo
+- Qué caso prueba
+- Arrange-Act-Assert claro
+```
+
+**Ejemplo 2 - QA y Happy Path:**
+```
+Actúa como un ingeniero de QA riguroso.
+
+Genera tests unitarios para la siguiente función:
+[pega la función]
+
+Los tests DEBEN cubrir:
+1. El "happy path" (flujo normal exitoso)
+2. Casos límite:
+   - Arrays vacíos
+   - Valores cero
+   - Números negativos
+   - Strings vacíos
+3. Entradas inválidas y manejo de errores
+```
+
+---
+
+#### **4. La Cláusula Mágica 🪄**
+
+> **Pro tip**: Añade esto al FINAL de tus prompts para mejores resultados:
+
+```
+Si necesitas más datos para dar una respuesta precisa, 
+pregúntame ANTES de asumir.
+```
+
+Esta cláusula transforma la interacción en un diálogo colaborativo y evita que la IA invente información.
+
+---
+
+## 📖 **Los 10 Principios de Prompt Engineering**
+
+Estos principios te ayudarán a comunicarte mejor con cualquier IA:
+
+| # | Principio | Aplicación |
+|---|-----------|------------|
+| **1** | **Define el objetivo primero** | Claridad mental antes de escribir. ¿Qué quiero lograr EXACTAMENTE? |
+| **2** | **Especificidad vence a la ambigüedad** | Evita "algunas funciones". Di "3 funciones con type hints y docstrings" |
+| **3** | **Divide y vencerás** | Problemas grandes → subtareas pequeñas. Un prompt por cada subtarea |
+| **4** | **Itera y refina** | Trata la IA como diálogo, no transacción. Itera hasta obtener lo que quieres |
+| **5** | **Instrucciones positivas** | Di "usa snake_case" en vez de "no uses camelCase" |
+| **6** | **Pide "paso a paso"** | Activa Chain-of-Thought: "Explica paso a paso cómo llegarías a esta conclusión" |
+| **7** | **Verifica siempre** | La IA puede "alucinar". Pide fuentes, revisa el código, prueba antes de confiar |
+| **8** | **Crea tu biblioteca** | Guarda los prompts que funcionan. Crea templates reutilizables |
+| **9** | **Entiende las limitaciones** | La IA reconoce patrones, no "entiende". No sabe de eventos post-2024 |
+| **10** | **Experimenta constantemente** | Varía roles, formatos, formulaciones. No hay un prompt "perfecto" universal |
+
+---
+
+## 🔬 **Laboratorio 1: Tu Primera Sesión**
+
+### **Configuración del Espacio de Trabajo**
+
+#### **Paso 1: Elige tu Arma (Herramienta de IA)**
+Como Tony necesitaba elegir entre diferentes armas, tú eliges tu herramienta de IA:
+
+| Herramienta | Ventajas | Desventajas | Recomendado para |
+|-------------|----------|-------------|------------------|
+| **Claude** | Mejor para código, largos contextos | Menos plugins | Desarrollo serio |
+| **ChatGPT** | Ecosistema grande, plugins | Contexto limitado | Uso general |
+| **Gemini** | Integración Google, gratis | Menos preciso | Integración GCP |
+| **Copilot** | En el editor, autocompletado | Pago, GitHub only | Coding directo |
+
+**Tu elección:** ____________________
+
+#### **Paso 2: Configura tu Base de Operaciones**
+Crea esta estructura de carpetas:
+```bash
+mkdir -p ~/iron-man-project/{prompts,scripts,context,logs}
+cd ~/iron-man-project
+```
+
+**Resultado esperado:**
+```
+iron-man-project/
+├── prompts/     # Tus mejores prompts
+├── scripts/     # Código generado
+├── context/     # Información de contexto
+└── logs/        # Registro de sesiones
+```
+
+#### **Paso 3: Tu Primer Prompt de Configuración**
+Guarda esto como `prompts/config.txt`:
+```
+SISTEMA DE CONFIGURACIÓN - IRON MAN EVOLUTION
+=============================================
+
+Desarrollador: [Tu nombre]
+Fecha inicio: 2026-03-22
+Herramienta IA: [Tu elección]
+Objetivo: Aprender desarrollo con IA desde cero
+
+CONTEXTO DEFAULT SIEMPRE INCLUIR:
+1. Soy principiante en desarrollo con IA
+2. Prefiero explicaciones paso a paso
+3. Quiero entender el POR QUÉ, no solo el CÓMO
+4. Responde en español
+5. Incluye comentarios explicativos en el código
+
+TECNOLOGÍAS QUE APRENDERÉ:
+- Python (lenguaje principal)
+- Git (control de versiones)
+- Prompt Engineering
+- Agentes de IA
+- MCP y Engram (niveles avanzados)
+```
+
+---
+
+### **Ejercicio 1: El Reactor Arc (Tu Primer Script)**
+
+#### **Objetivo**
+Crear un script Python simple con ayuda de IA que funcione como "tu primer reactor arc" — algo básico pero funcional.
+
+#### **Instrucciones**
+1. Abre tu herramienta de IA preferida
+2. Copia y pega este prompt:
+```
+Actúa como un profesor de programación para principiantes.
+
+Necesito crear mi "primer reactor arc" — un script Python simple que:
+1. Muestra un mensaje de bienvenida al curso Iron Man Evolution
+2. Pide mi nombre
+3. Me da una "medida de energía" aleatoria (1-100)
+4. Muestra un mensaje motivacional basado en mi energía
+
+Ejemplo de salida esperada:
+---
+🦾 ¡Bienvenido a Iron Man Evolution!
+Tu nombre: Tony
+Tu energía: 87/100
+💪 ¡Energía alta! Estás listo para construir armaduras.
+
+Incluye:
+- Código comentado en español
+- Explicación de cada línea
+- Instrucciones para ejecutarlo
+```
+
+3. **EJECUTA** el código que te da la IA
+4. **GUARDA** el script como `scripts/reactor-arc.py`
+
+#### **Verificación**
+```bash
+python scripts/reactor-arc.py
+```
+
+Deberías ver algo como:
+```
+🦾 ¡Bienvenido a Iron Man Evolution!
+Ingresa tu nombre: Tony
+Tu energía: 87/100
+💪 ¡Energía alta! Estás listo para construir armaduras.
+```
+
+---
+
+### **Ejercicio 2: La Caja de Herramientas (Funciones Útiles)**
+
+#### **Objetivo**
+Crear un módulo con funciones reutilizables para tus futuros scripts.
+
+#### **Prompt**
+```
+Necesito crear un módulo Python llamado "stark_tools.py" con estas funciones:
+
+1. `limpiar_pantalla()`: Limpia la terminal
+2. `mostrar_logo()`: Muestra un logo ASCII de Iron Man
+3. `energia_aleatoria()`: Retorna un número 1-100
+4. `mensaje_motivacional(nivel_energia)`: Según el nivel:
+   - 0-30: "🔋 Necesitas cargar energía"
+   - 31-70: "Energía estable, pero podemos mejorar"
+   - 71-100: "¡Listo para volar!"
+
+5. `guardar_log(mensaje, archivo="logs/session.log")`: 
+   Agrega timestamp + mensaje al log
+
+Incluye docstrings y type hints.
+Ejemplo de uso al final.
+```
+
+#### **Resultado Esperado**
+```python
+# stark_tools.py
+"""
+Herramientas básicas para Iron Man Evolution
+Autor: [Tu nombre]
+Fecha: 2026-03-22
+"""
+
+import os
+import random
+from datetime import datetime
+
+def limpiar_pantalla():
+    """Limpia la pantalla de la terminal."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def mostrar_logo():
+    """Muestra logo ASCII de Iron Man."""
+    logo = """
+    ███╗   ███╗███████╗███████╗███████╗
+    ████╗ ████║██╔════╝██╔════╝██╔════╝
+    ██╔████╔██║█████╗  ███████╗███████╗
+    ██║╚██╔╝██║██╔══╝  ╚════██║╚════██║
+    ██║ ╚═╝ ██║███████╗███████║███████║
+    ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+    
+    ⚡ Iron Man Evolution - Nivel 1 ⚡
+    """
+    print(logo)
+
+def energia_aleatoria() -> int:
+    """Retorna energía aleatoria entre 1 y 100."""
+    return random.randint(1, 100)
+
+def mensaje_motivacional(nivel_energia: int) -> str:
+    """Retorna mensaje según nivel de energía."""
+    if nivel_energia <= 30:
+        return "🔋 Necesitas cargar energía"
+    elif nivel_energia <= 70:
+        return "⚡ Energía estable, pero podemos mejorar"
+    else:
+        return "🚀 ¡Listo para volar!"
+
+def guardar_log(mensaje: str, archivo: str = "logs/session.log"):
+    """Agrega mensaje con timestamp al log."""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(archivo, "a", encoding="utf-8") as f:
+        f.write(f"[{timestamp}] {mensaje}\n")
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    limpiar_pantalla()
+    mostrar_logo()
+    energia = energia_aleatoria()
+    print(f"Tu energía: {energia}/100")
+    print(mensaje_motivacional(energia))
+    guardar_log(f"Sesión iniciada - Energía: {energia}")
+```
+
+---
+
+### **Ejercicio 3: La Primera Prueba de Vuelo (Script Integrado)**
+
+#### **Objetivo**
+Crear un script que combine todo lo aprendido en un "demo funcional".
+
+#### **Prompt**
+```
+Crea un script principal "demo.py" que:
+
+1. Importe las funciones de stark_tools.py
+2. Muestre el logo
+3. Pida nombre del "piloto"
+4. Simule un "diagnóstico de sistemas":
+   - Reactor Arc: [estado]
+   - Armadura: [estado]
+   - Sensores: [estado]
+   - IA J.A.R.V.I.S.: [estado]
+5. Asigne energía aleatoria
+6. Muestre estado general según energía
+7. Pregunte si quiere "iniciar sistema" (s/n)
+8. Si s, muestra mensaje de éxito y guarda log
+9. Si n, muestra mensaje de reintentar
+
+Usa colores con ANSI escape codes para hacerlo visualmente atractivo.
+```
+
+#### **Código Esperado (aproximado)**
+```python
+# demo.py
+"""
+Demo principal - Iron Man Evolution Nivel 1
+Simulación del Mark I en la cueva
+"""
+
+import time
+import sys
+from stark_tools import (
+    limpiar_pantalla, mostrar_logo, energia_aleatoria,
+    mensaje_motivacional, guardar_log
+)
+
+# Colores ANSI
+ROJO = "\033[91m"
+VERDE = "\033[92m"
+AMARILLO = "\033[93m"
+AZUL = "\033[94m"
+RESET = "\033[0m"
+
+def diagnóstico_sistemas():
+    """Simula diagnóstico de sistemas del Mark I."""
+    print(f"\n{AZUL}🔧 INICIANDO DIAGNÓSTICO...{RESET}\n")
+    
+    sistemas = [
+        ("Reactor Arc", "⚠️  Básico - 3.arc"),
+        ("Armadura Mark I", "⚠️  Prototipo limitado"),
+        ("Sensores", "✅ Operacionales"),
+        ("Sistema de Propulsión", "⚠️  2 minutos de vuelo"),
+        ("IA J.A.R.V.I.S.", "✅ Conectado - Versión 0.1"),
+    ]
+    
+    for nombre, estado in sistemas:
+        print(f"  {nombre:<25} {estado}")
+        time.sleep(0.5)  # Simular carga
+    
+    return True
+
+def main():
+    """Función principal."""
+    limpiar_pantalla()
+    mostrar_logo()
+    
+    # Diagnóstico
+    diagnóstico_sistemas()
+    
+    # Energía
+    energia = energia_aleatoria()
+    print(f"\n{AMARILLO}⚡ NIVEL DE ENERGÍA: {energia}/100{RESET}")
+    print(mensaje_motivacional(energia))
+    
+    # Interacción
+    print(f"\n{AZUL}🤖 J.A.R.V.I.S.: ¿Desea iniciar el sistema? (s/n): {RESET}")
+    respuesta = input().lower()
+    
+    if respuesta == 's':
+        print(f"\n{VERDE}🦾 SISTEMA INICIADO - MARK I OPERACIONAL{RESET}")
+        print(f"{VERDE}💪 ¡Vamos a salir de esta cueva!{RESET}")
+        guardar_log("Demo ejecutado - Sistema iniciado")
+    else:
+        print(f"\n{ROJO}⏳ SISTEMA EN ESPERA - Reintentar cuando esté listo{RESET}")
+        guardar_log("Demo ejecutado - Sistema en espera")
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+## 🏆 **Logro Desbloqueado: "Survivor"**
+
+### **Requisitos para Desbloquear**
+- [ ] Ejecutar `reactor-arc.py` exitosamente
+- [ ] Crear `stark_tools.py` con todas las funciones
+- [ ] Ejecutar `demo.py` completo
+- [ ] Guardar al menos 3 logs en `logs/session.log`
+- [ ] Entender qué es un token y la ventana de contexto
+
+### **Recompensa**
+- **50 XP** por cada ejercicio completado
+- **Logro "Survivor"** en tu perfil
+- **Acceso** al Nivel 2: El Mark I
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Documentación**
+- [Python para Principiantes](https://docs.python.org/3/tutorial/)
+- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [Tokens Explicados](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them)
+
+### **Herramientas**
+- [Claude](https://claude.ai)
+- [ChatGPT](https://chat.openai.com)
+- [Gemini](https://gemini.google.com)
+- [VS Code](https://code.visualstudio.com/)
+
+### **Videos Recomendados**
+- 🎬 [Cómo ser Tony Stark con IA](https://www.youtube.com/watch?v=SOxuW5K2FFY)
+- 🎬 [Building AI Agents that actually work](https://www.youtube.com/watch?v=eA9Zf2-qYYM)
+
+---
+
+## 🔗 **Siguiente Nivel**
+
+**¿Completaste todos los ejercicios?**  
+[→ **Nivel 2: El Mark I**](nivel2.qmd)
+
+**¿Necesitas más práctica?**  
+[→ **Lab Detallado Nivel 1**](../labs/lab-nivel1.md)
+
+---
+
+*"Un reactor arc no es solo una máquina. Es una promesa. Una promesa de que incluso en la oscuridad más profunda, hay luz."*
+— Tony Stark, Iron Man (2008)

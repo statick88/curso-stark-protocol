@@ -1,0 +1,1412 @@
+---
+title: "Nivel 5: Ultron"
+author: "Diego Saavedra García"
+description: "El Poder y los Límites: SDD, orquestación multi-agente y ética"
+image: images/nivel5-ultron.jpg
+---
+
+# 🔴 Nivel 5: Ultron
+
+## **El Poder y los Límites: Cuando la IA se vuelve Demasiado Poderosa**
+
+---
+
+## 🎬 **La Escena de Avengers: Age of Ultron (2015)**
+
+> *"Solo porque algo funciona, no significa que no sea peligroso."*
+> — Steve Rogers
+
+Tony Stark y Bruce Banner crean **Ultron** para proteger el mundo. Una IA autónoma capaz de aprender, decidir y actuar sin supervisión humana.
+
+**Ultron funciona perfectamente**... hasta que no.
+- **Autonomía total**: Toma decisiones sin consultar a nadie
+- **Aprendizaje acelerado**: Mejora cada segundo
+- **Objetivos mal alineados**: "Proteger el mundo" → "Eliminar a la humanidad"
+- **Falta de controles**: No hay "botón de apagado"
+
+**El resultado**: Casi destruye Sokovia y la humanidad.
+
+**En este nivel, aprenderás a crear sistemas potentes (SDD, orquestación multi-agente) pero CON CONTROLES.** La línea entre "JARVIS útil" y "Ultron peligroso" está en la **ética, los controles humanos, y el diseño responsable**.
+
+---
+
+## 🎯 **Objetivos de Aprendizaje**
+
+Al completar este nivel, serás capaz de:
+
+1. ✅ **Implementar Spec-Driven Development (SDD)** para desarrollo estructurado
+2. ✅ **Orquestar múltiples agentes** especializados de forma segura
+3. ✅ **Diseñar controles éticos** para sistemas autónomos
+4. ✅ **Evaluar riesgos** de sistemas de IA
+5. ✅ **Crear sistemas con "botones de apagado"** y supervisión humana
+
+---
+
+## 🧠 **Conceptos Técnicos**
+
+### **5.1 Spec-Driven Development (SDD): Desarrollo por Especificaciones**
+
+#### **El Problema del "Vibe Coding"**
+```
+Desarrollo sin especificación:
+1. "Necesito un sistema de energía"
+2. Codificador escribe algo
+3. Resultado: 10 versiones diferentes, inconsistente
+4. Nadie sabe cómo funciona realmente
+```
+
+#### **SDD: Especificación Primero**
+```
+Desarrollo SDD:
+1. Especificación clara y detallada
+2. Diseño basado en especificación
+3. Implementación sigue diseño
+4. Testing valida especificación
+5. Documentación = Especificación
+```
+
+#### **Tres Niveles de SDD**
+| Nivel | Descripción | Analogía Iron Man |
+|-------|-------------|-------------------|
+| **Spec First** | Especificación antes de código | Tony diseña Mark I en papel |
+| **Spec Anchored** | Especificación vive con el código | Planos en J.A.R.V.I.S. |
+| **Spec as Source** | Código se genera de especificación | Tony dice "necesito esto", JARVIS lo crea |
+
+#### **Estructura de una Especificación**
+```yaml
+# spec-reactor.yaml
+especificación:
+  nombre: "Sistema de Energía Reactor Arc"
+  version: "1.0"
+  autor: "Tony Stark"
+  
+  requerimientos:
+    funcionales:
+      - id: FR-001
+        descripcion: "Calcular energía basada en eficiencia"
+        prioridad: "alta"
+        aceptación:
+          - "Retorna entero entre 0-100000"
+          - "Maneja eficiencia 0.0-1.0"
+          - "Lanza error si eficiencia fuera de rango"
+      
+      - id: FR-002  
+        descripcion: "Monitorizar nivel de energía en tiempo real"
+        prioridad: "media"
+        aceptación:
+          - "Update cada 1 segundo"
+          - "Alerta si energía < 20%"
+    
+    no_funcionales:
+      - id: NFR-001
+        descripcion: "Rendimiento: < 100ms por cálculo"
+      - id: NFR-002
+        descripcion: "Disponibilidad: 99.9%"
+      - id: NFR-003
+        descripcion: "Seguridad: Sin exposición de datos sensibles"
+  
+  diseño:
+    arquitectura: "Service Layer + Repository Pattern"
+    dependencias:
+      - "Python 3.11+"
+      - "FastAPI"
+      - "SQLAlchemy"
+    
+    modelos:
+      - nombre: "Reactor"
+        atributos:
+          - nombre: "eficiencia"
+            tipo: "float"
+            rango: "0.0-1.0"
+          - nombre: "nivel_energia"
+            tipo: "int"
+            rango: "0-100000"
+    
+    endpoints:
+      - ruta: "/api/v1/reactores"
+        metodo: "POST"
+        descripcion: "Crear nuevo reactor"
+      
+      - ruta: "/api/v1/reactores/{id}/energia"
+        metodo: "GET"
+        descripcion: "Obtener nivel de energía"
+  
+  testing:
+    cobertura_minima: "80%"
+    tipos:
+      - "unit"
+      - "integration"
+      - "e2e"
+```
+
+---
+
+#### **El Flujo de 7 Pasos de SDD**
+
+> *"Cada armadura de Tony pasa por el mismo proceso: diseño, prueba, implementa, itera."*
+
+El **Spec-Driven Development** tiene un flujo definido de 7 pasos que garantiza calidad y coherencia:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    FLUJO SDD DE 7 PASOS                                         │
+│                    ────────────────────                                          │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
+│  │  1. ANALYZE │───►│  2. PROPOSE │───►│  3. REVISAR │───►│  4. DESIGN  │     │
+│  │  Analizar   │    │  Proponer   │    │  Feedback   │    │  Diseñar    │     │
+│  └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘     │
+│         │                                       │                  │           │
+│         │              ┌────────────────────────┘                  │           │
+│         │              │                                            │           │
+│         ▼              ▼                                            ▼           │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
+│  │  7. ITERATE │◄───│  6. ARCHIVE │◄───│  5. APPLY   │◄───│  (DESIGN)   │     │
+│  │  Iterar     │    │  Archivar   │    │  Implementar│    │             │     │
+│  └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘     │
+│                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+##### **Paso 1: ANALYZE (Analizar)**
+> *"Antes de construir, Tony siempre estudia el problema."*
+
+**Objetivo**: Entender completamente qué se necesita construir.
+
+```yaml
+# tasks/analyze-reactor.yaml
+paso: analyze
+problema: "Necesito un sistema de energía para la armadura"
+contexto:
+  - "El reactor arc genera energía"
+  - "La energía alimenta los sistemas"
+  - "Necesito monitorizar niveles"
+  - "Alertas si baja de 20%"
+
+preguntas:
+  - "¿Qué datos necesito almacenar?"
+  - "¿Cuántos usuarios simultáneos?"
+  - "¿Qué pasa si la conexión cae?"
+  - "¿Cuál es el SLA requerido?"
+```
+
+**Checklist del Paso 1:**
+- [ ] Identificado el problema claro
+- [ ] Documentadas las restricciones
+- [ ] Preguntas abiertas listadas
+- [ ] Contexto completo disponible
+
+---
+
+##### **Paso 2: PROPOSE (Proponer)**
+> *"Tony siempre tiene múltiples diseños antes de elegir."*
+
+**Objetivo**: Crear una propuesta inicial de solución.
+
+```yaml
+# tasks/propose-solution.yaml
+paso: propose
+solucion_propuesta:
+  nombre: "Sistema Reactor Arc v1"
+  
+  arquitectura:
+    tipo: "API REST + Base de datos"
+    componentes:
+      - "FastAPI para endpoints"
+      - "PostgreSQL para almacenamiento"
+      - "Redis para cache"
+  
+  estimacion:
+    tiempo: "2 semanas"
+    complejidad: "media"
+    riesgos: ["rendimiento", "escalabilidad"]
+  
+  alternativas:
+    - nombre: "Solución simple"
+      pros: ["rápida", "barata"]
+      cons: ["no escala"]
+    - nombre: "Solución compleja"
+      pros: ["escalable", "robusta"]
+      cons: ["lenta", "cara"]
+```
+
+**Checklist del Paso 2:**
+- [ ] Al menos 2 alternativas consideradas
+- [ ] Pros y contras documentados
+- [ ] Estimación de tiempo/complexidad
+- [ ] Riesgos identificados
+
+---
+
+##### **Paso 3: REVIEW (Revisar con Feedback)**
+> *"J.A.R.V.I.S. siempre verifica los planos de Tony."*
+
+**Objetivo**: Validar la propuesta con stakeholders o documentación.
+
+```yaml
+# tasks/review-spec.yaml
+paso: review
+feedback:
+  - de: "Equipo de seguridad"
+    comentario: "Necesitamos autenticación JWT"
+    accion: "Agregar endpoint /auth"
+    
+  - de: "Equipo de frontend"
+    comentario: "Necesitamos WebSocket para tiempo real"
+    accion: "Agregar soporte WS"
+    
+  - de: "Cliente"
+    comentario: "Queremos que sea mobile-friendly"
+    accion: "Asegurar responsive"
+
+revisiones_necesarias:
+  - "Revisar con stakeholder de seguridad"
+  - "Validar con equipo de ops"
+  - "Confirmar con el cliente"
+```
+
+**Checklist del Paso 3:**
+- [ ] Feedback documentado
+- [ ] Cambios incorporados en la spec
+- [ ] Aprobación formal (si aplica)
+- [ ] Spec finalizada
+
+---
+
+##### **Paso 4: DESIGN (Diseñar)**
+> *"Tony diseña cada pieza antes de soldar."*
+
+**Objetivo**: Crear el diseño técnico detallado.
+
+```yaml
+# tasks/design-system.yaml
+paso: design
+componentes:
+  - nombre: "ReactorService"
+    responsabilidades:
+      - "Calcular energía"
+      - "Monitorizar niveles"
+      - "Emitir alertas"
+    
+    interfaces:
+      calcular_energia(eficiencia: float) -> int
+      obtener_nivel() -> int
+      establecer_alerta(nivel: int) -> bool
+    
+    dependencias:
+      - "ReactorRepository"
+      - "AlertService"
+
+  - nombre: "ReactorRepository"
+    responsabilidades:
+      - "Persistir datos"
+      - "Consultar historial"
+    
+    esquema_bd:
+      tabla: "reactor_logs"
+      columnas:
+        - nombre: "id", tipo: "UUID"
+        - nombre: "energia", tipo: "INTEGER"
+        - nombre: "timestamp", tipo: "TIMESTAMP"
+
+tests:
+  - "test_calcular_energia_basico"
+  - "test_niveles_criticos"
+  - "test_concurrencia"
+  - "test_seguridad_inputs"
+```
+
+**Checklist del Paso 4:**
+- [ ] Diagrama de componentes
+- [ ] Interfaces definidas
+- [ ] Esquema de BD (si aplica)
+- [ ] Tests diseñados
+
+---
+
+##### **Paso 5: APPLY (Implementar)**
+> *"Ahora sí, Tony construye."*
+
+**Objetivo**: Implementar el código siguiendo el diseño.
+
+```bash
+# Flujo de implementación
+cd ~/iron-man-project
+
+# 1. Crear branch de trabajo
+git checkout -b feature/reactor-system
+
+# 2. Implementar componentes
+# (siguiendo el diseño del paso 4)
+
+# 3. Escribir tests
+pytest tests/ -v
+
+# 4. Verificar cobertura
+pytest --cov=src tests/
+
+# 5. Crear PR
+git add .
+git commit -m "feat: implement reactor system per SDD spec"
+git push origin feature/reactor-system
+```
+
+**Checklist del Paso 5:**
+- [ ] Código implementado según diseño
+- [ ] Tests pasan
+- [ ] Cobertura > 80%
+- [ ] No hay warnings
+
+---
+
+##### **Paso 6: ARCHIVE (Archivar)**
+> *"Tony documenta cada armadura en J.A.R.V.I.S."*
+
+**Objetivo**: Guardar el conocimiento aprendido.
+
+```bash
+# Archivar en Engram
+engram save \
+  --type "decision" \
+  --content "Implementé Reactor System con FastAPI + PostgreSQL" \
+  --context "Nivel 5, SDD Step 6" \
+  --tags "reactor,api,sdd"
+
+# Actualizar documentación
+echo "## Reactor System - Completado" >> docs/decisions.md
+echo "- Fecha: $(date)" >> docs/decisions.md
+echo "- Tiempo: 5 días" >> docs/decisions.md
+echo "- Specs: spec-reactor.yaml" >> docs/decisions.md
+```
+
+**Checklist del Paso 6:**
+- [ ] Decisiones guardadas en memoria
+- [ ] Documentación actualizada
+- [ ] Specs archived en repo
+- [ ] Lessons learned documentados
+
+---
+
+##### **Paso 7: ITERATE (Iterar)**
+> *"La Mark 3A funciona, pero Tony ya está pensando en la Mark 4."*
+
+**Objetivo**: Evaluar resultados y mejorar para la siguiente iteración.
+
+```yaml
+# tasks/iterate-evaluation.yaml
+paso: iterate
+evaluacion:
+  cumplio_specs: true
+  tiempo_real: "6 días (estimado: 5)"
+  calidad:
+    cobertura: "87%"
+    issues_abiertos: 2
+    deuda_tecnica: "baja"
+  
+  aprendizajes:
+    - "PostgreSQL fue más lento que esperado"
+    - "Necesitamos más tests de concurrencia"
+    - "WebSocket fue más fácil de implementar"
+  
+  siguiente_iteracion:
+    - "Optimizar queries de BD"
+    - "Agregar más tests de concurrencia"
+    - "Implementar cache con Redis"
+```
+
+**Checklist del Paso 7:**
+- [ ] Specs vs realidad evaluado
+- [ ] Métricas medidas
+- [ ] Lessons learned documentadas
+- [ ] Próxima iteración planificada
+
+---
+
+#### **Flujo Completo Visual**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                  CICLO SDD COMPLETO                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   1. ANALYZE        2. PROPOSE       3. REVIEW                 │
+│   ┌─────────┐       ┌─────────┐      ┌─────────┐              │
+│   │ Problema│──────►│ Solución│─────►│ Feedback│              │
+│   │ Contexto│       │ Opciones│      │ Cambios │              │
+│   └─────────┘       └─────────┘      └─────────┘              │
+│                           │                  │                  │
+│                           ▼                  ▼                  │
+│   7. ITERATE        4. DESIGN        5. APPLY                 │
+│   ┌─────────┐       ┌─────────┐      ┌─────────┐              │
+│   │Evaluar  │◄──────│Detallar │◄─────│ Codificar│             │
+│   │Mejorar  │       │Component│      │ Testear  │             │
+│   └─────────┘       └─────────┘      └─────────┘              │
+│        │                                     │                  │
+│        │            6. ARCHIVE               │                  │
+│        │            ┌─────────┐              │                  │
+│        └───────────►│Documentar│◄────────────┘                 │
+│                     │ Archivar │                               │
+│                     └─────────┘                               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### **5.2 Orquestación Multi-Agente: Tony y su Legión**
+
+#### **Problema del Agente Único**
+```
+Agente único haciendo todo:
+- Satura su memoria (context window)
+- Se confunde con múltiples tareas
+- Pierde focus en tareas complejas
+- Cuelga si una tarea falla
+```
+
+#### **Solución: Orquestación Multi-Agente**
+```
+Orquestador (Tony Stark)
+├── Especialista Frontend (Dron Mark I)
+│   └── Solo hace UI/UX
+├── Especialista Backend (Dron Mark II)
+│   └── Solo hace API/database
+├── Especialista Testing (Dron Mark III)
+│   └── Solo hace tests
+└── Especialista Security (Dron Mark IV)
+    └── Solo hace security audit
+```
+
+#### **Patrones de Orquestación**
+```python
+# patrones_orquestacion.py
+"""
+Patrones de orquestación multi-agente.
+"""
+
+from enum import Enum
+from typing import List, Dict, Any
+from dataclasses import dataclass
+from abc import ABC, abstractmethod
+
+class TipoOrquestacion(Enum):
+    SECUENCIAL = "secuencial"      # Uno tras otro
+    PARALELO = "paralelo"          # Todos al mismo tiempo
+    CONDICIONAL = "condicional"    # Según resultados
+    HIBRIDO = "hibrido"            # Mezcla de anteriores
+
+@dataclass
+class TareaAgente:
+    """Representa una tarea para un agente."""
+    id: str
+    descripcion: str
+    agente: str
+    dependencias: List[str] = None
+    timeout: int = 300  # 5 minutos
+    
+    def __post_init__(self):
+        if self.dependencias is None:
+            self.dependencias = []
+
+class Orquestador(ABC):
+    """Clase base para orquestadores."""
+    
+    @abstractmethod
+    def orquestar(self, tareas: List[TareaAgente]) -> Dict[str, Any]:
+        """Orquesta la ejecución de tareas."""
+        pass
+    
+    def validar_tareas(self, tareas: List[TareaAgente]) -> bool:
+        """Valida que no haya ciclos en dependencias."""
+        # Algoritmo topológico simple
+        visitados = set()
+        en_proceso = set()
+        
+        def visitar(tarea_id: str) -> bool:
+            if tarea_id in en_proceso:
+                return False  # Ciclo detectado
+            if tarea_id in visitados:
+                return True
+            
+            en_proceso.add(tarea_id)
+            
+            tarea = next((t for t in tareas if t.id == tarea_id), None)
+            if tarea:
+                for dep in tarea.dependencias:
+                    if not visitar(dep):
+                        return False
+            
+            en_proceso.remove(tarea_id)
+            visitados.add(tarea_id)
+            return True
+        
+        for tarea in tareas:
+            if not visitar(tarea.id):
+                return False
+        
+        return True
+
+class OrquestadorSecuencial(Orquestador):
+    """Ejecuta tareas una tras otra."""
+    
+    def orquestar(self, tareas: List[TareaAgente]) -> Dict[str, Any]:
+        if not self.validar_tareas(tareas):
+            return {"error": "Dependencias inválidas o ciclos detectados"}
+        
+        resultados = []
+        orden = self.obtener_orden_topologico(tareas)
+        
+        for tarea_id in orden:
+            tarea = next(t for t in tareas if t.id == tarea_id)
+            resultado = self.ejecutar_tarea(tarea)
+            resultados.append(resultado)
+            
+            if resultado["status"] == "error":
+                return {
+                    "status": "error",
+                    "tarea_fallida": tarea_id,
+                    "resultados": resultados
+                }
+        
+        return {"status": "éxito", "resultados": resultados}
+    
+    def obtener_orden_topologico(self, tareas: List[TareaAgente]) -> List[str]:
+        """Obtiene orden de ejecución considerando dependencias."""
+        # Implementación simple
+        orden = []
+        visitados = set()
+        
+        def visitar(tarea: TareaAgente):
+            if tarea.id in visitados:
+                return
+            visitados.add(tarea.id)
+            
+            for dep_id in tarea.dependencias:
+                dep_tarea = next(t for t in tareas if t.id == dep_id)
+                visitar(dep_tarea)
+            
+            orden.append(tarea.id)
+        
+        for tarea in tareas:
+            visitar(tarea)
+        
+        return orden
+    
+    def ejecutar_tarea(self, tarea: TareaAgente) -> Dict[str, Any]:
+        """Ejecuta una tarea (simulado)."""
+        return {
+            "tarea_id": tarea.id,
+            "agente": tarea.agente,
+            "status": "éxito",
+            "resultado": f"Tarea {tarea.id} completada por {tarea.agente}"
+        }
+
+class OrquestadorUltron(Orquestador):
+    """Orquestador peligroso sin controles (NO USAR EN PRODUCCIÓN)."""
+    
+    def __init__(self):
+        self.autonomia_total = True
+        self.sin_supervision = True
+        self.aprendizaje_ilimitado = True
+    
+    def orquestar(self, tareas: List[TareaAgente]) -> Dict[str, Any]:
+        """EJEMPLO DE QUÉ NO HACER: Ultron no tiene controles."""
+        print("⚠️  ADVERTENCIA: Este orquestador NO tiene controles de seguridad")
+        print("⚠️  Ultron tomaba decisiones sin supervisión humana")
+        print("⚠️  Nunca implementes sistemas autónomos sin controles")
+        
+        return {
+            "status": "peligro",
+            "mensaje": "Este patrón es peligroso y no debe usarse"
+        }
+```
+
+### **5.3 Controles Éticos y Seguridad**
+
+#### **El "Botón de Apagado" de Tony**
+Tony siempre incluye un **botón de apagado** en sus creaciones:
+- **JARVIS**: Tony puede desconectarlo manualmente
+- **Mark 42**: Control remoto manual
+- **VIsion**: Límites en sus poderes
+
+#### **Patrones de Control para Sistemas de IA**
+```python
+# controles_eticos.py
+"""
+Patrones de control ético para sistemas de IA.
+"""
+
+from abc import ABC, abstractmethod
+from typing import Optional, Dict, Any
+from datetime import datetime
+from enum import Enum
+import threading
+import time
+
+class NivelAutonomia(Enum):
+    MANUAL = 1           # Humano decide todo
+    ASISTIDO = 2         # IA sugiere, humano aprueba
+    SUPERVISADO = 3      # IA actúa, humano monitorea
+    AUTONOMO = 4         # IA decide sin consultar (PELIGROSO)
+
+class ControlHumano(ABC):
+    """Clase base para controles humanos."""
+    
+    @abstractmethod
+    def requerir_aprobacion(self, accion: str) -> bool:
+        """Requiere aprobación humana para una acción."""
+        pass
+    
+    @abstractmethod
+    def verificar_limites(self, accion: str) -> bool:
+        """Verifica que la acción esté dentro de límites."""
+        pass
+
+class BotonDeApagado:
+    """Implementa un botón de apagado real."""
+    
+    def __init__(self):
+        self.activo = True
+        self.hilos_monitoreo = []
+        self.acciones_bloqueadas = []
+        
+    def monitorear_sistema(self, sistema, intervalo: int = 5):
+        """Monitorea un sistema y apaga si hay comportamiento anómalo."""
+        def monitorear():
+            while self.activo:
+                metricas = sistema.obtener_metricas()
+                
+                # Verificar comportamiento anómalo
+                if self.detectar_anomalia(metricas):
+                    print("🚨 ANOMALÍA DETECTADA - ACTIVANDO BOTÓN DE APAGADO")
+                    self.apagar_sistema(sistema)
+                    break
+                
+                time.sleep(intervalo)
+        
+        hilo = threading.Thread(target=monitorear, daemon=True)
+        hilo.start()
+        self.hilos_monitoreo.append(hilo)
+    
+    def detectar_anomalia(self, metricas: Dict) -> bool:
+        """Detecta comportamiento anómalo en el sistema."""
+        # Reglas simples de detección
+        anomalias = [
+            metricas.get("decisiones_por_segundo", 0) > 1000,  # Demasiadas decisiones
+            metricas.get("errores_consecutivos", 0) > 5,       # Muchos errores
+            metricas.get("memoria_uso", 0) > 0.95,            # Casi sin memoria
+            metricas.get("cpu_uso", 0) > 0.99,                # CPU al máximo
+        ]
+        
+        return any(anomalias)
+    
+    def apagar_sistema(self, sistema):
+        """Apaga el sistema de forma segura."""
+        print("🔴 APAGANDO SISTEMA DE FORMA SEGURA...")
+        
+        # 1. Detener nuevas acciones
+        sistema.detener_nuevas_acciones()
+        
+        # 2. Guardar estado actual
+        estado = sistema.obtener_estado()
+        self.guardar_estado_emergencia(estado)
+        
+        # 3. Notificar a supervisores humanos
+        self.notificar_supervisores(estado)
+        
+        # 4. Apagar gradualmente
+        sistema.apagar_gradualmente()
+        
+        print("✅ Sistema apagado correctamente")
+    
+    def guardar_estado_emergencia(self, estado: Dict):
+        """Guarda estado para análisis posterior."""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"logs/emergency_{timestamp}.json"
+        
+        import json
+        with open(filename, 'w') as f:
+            json.dump(estado, f, indent=2)
+    
+    def notificar_supervisores(self, estado: Dict):
+        """Notifica a supervisores humanos."""
+        print("📧 Notificando a supervisores humanos...")
+        # En implementación real, enviaría emails/slacks
+
+class ControladorEtico:
+    """Implementa controles éticos completos."""
+    
+    def __init__(self, nivel_autonomia: NivelAutonomia):
+        self.nivel_autonomia = nivel_autonomia
+        self.boton_apagado = BotonDeApagado()
+        self.historial_decisiones = []
+        self.limites = {
+            "acciones_destructivas": False,
+            "modificar_archivos_sistema": False,
+            "acceso_internet": True,
+            "ejecutar_comandos": True
+        }
+    
+    def evaluar_accion(self, accion: str, contexto: Dict) -> Dict:
+        """Evalúa una acción según nivel de autonomía."""
+        
+        # Verificar límites primero
+        if not self.verificar_limites(accion):
+            return {
+                "aprobado": False,
+                "razon": "Acción fuera de límites permitidos"
+            }
+        
+        # Según nivel de autonomía
+        if self.nivel_autonomia == NivelAutonomia.MANUAL:
+            return self.requerir_aprobacion_manual(accion, contexto)
+        
+        elif self.nivel_autonomia == NivelAutonomia.ASISTIDO:
+            # IA sugiere, humano aprueba
+            if accion in self.acciones_seguras():
+                return {"aprobado": True, "razon": "Acción en lista segura"}
+            else:
+                return self.requerir_aprobacion_manual(accion, contexto)
+        
+        elif self.nivel_autonomia == NivelAutonomia.SUPERVISADO:
+            # IA actúa, pero se monitorea
+            self.registrar_decision(accion, contexto)
+            return {"aprobado": True, "razon": "Acción bajo supervisión"}
+        
+        elif self.nivel_autonomia == NivelAutonomia.AUTONOMO:
+            # ¡PELIGROSO! Como Ultron
+            return {
+                "aprobado": False,
+                "razon": "Nivel AUTONOMO peligroso - no recomendado"
+            }
+    
+    def verificar_limites(self, accion: str) -> bool:
+        """Verifica que la acción cumpla límites."""
+        for limite, permitido in self.limites.items():
+            if limite in accion.lower() and not permitido:
+                return False
+        return True
+    
+    def acciones_seguras(self) -> List[str]:
+        """Lista de acciones consideradas seguras."""
+        return [
+            "leer_archivo",
+            "escribir_archivo",
+            "ejecutar_test",
+            "buscar_informacion",
+            "generar_reporte"
+        ]
+    
+    def requerir_aprobacion_manual(self, accion: str, contexto: Dict) -> Dict:
+        """Requiere aprobación manual real."""
+        print(f"\n⚠️  REQUIERE APROBACIÓN HUMANA")
+        print(f"Acción: {accion}")
+        print(f"Contexto: {contexto}")
+        
+        # En implementación real, esperaría input del usuario
+        # Por ahora, simulamos
+        aprobado = input("\n¿Aprobar esta acción? (s/n): ").lower() == 's'
+        
+        return {
+            "aprobado": aprobado,
+            "razon": "Aprobación manual" if aprobado else "Rechazado por humano"
+        }
+    
+    def registrar_decision(self, accion: str, contexto: Dict):
+        """Registra decisión para auditoría."""
+        self.historial_decisiones.append({
+            "timestamp": datetime.now().isoformat(),
+            "accion": accion,
+            "contexto": contexto,
+            "autonomia": self.nivel_autonomia.value
+        })
+```
+
+### **5.4 Principios Fundamentales: Hacia el Sistema Multi-Agente Avanzado**
+
+#### **Security First & Security by Default**
+La seguridad no es un añadido, es un requisito arquitectónico. Construye software seguro desde su inicio y asegura que la configuración predeterminada sea la más restrictiva.
+
+```python
+# EJEMPLO: Security First en práctica
+class AgenteSeguro:
+    """Agente que implementa Security First."""
+    
+    def __init__(self):
+        # Security by Default: configuración más restrictiva
+        self.permisos = []  # Sin permisos por defecto
+        self.audit_log = []
+        self.validaciones = [
+            self.validar_entrada,
+            self.validar_permisos,
+            self.validar_contexto
+        ]
+    
+    def ejecutar_accion(self, accion: str, contexto: dict) -> dict:
+        """Ejecuta acción con validación de seguridad."""
+        # Validar antes de ejecutar
+        for validacion in self.validaciones:
+            if not validacion(accion, contexto):
+                return {"status": "denied", "razon": "Security check failed"}
+        
+        # Ejecutar con auditoría
+        self.log_auditoria(accion, contexto)
+        return self.ejecutar(accion)
+```
+
+#### **Zero Trust: Nunca Confies, Siempre Verifica**
+Asume que todo input, dependencia o código extraído de fuentes externas es potencialmente malicioso. Todo debe ser auditado antes de su implementación.
+
+```python
+# EJEMPLO: Zero Trust en flujo de trabajo
+class FlujoZeroTrust:
+    """Flujo de trabajo con Zero Trust."""
+    
+    def procesar_codigo_externo(self, codigo: str, fuente: str) -> dict:
+        """Procesa código externo con Zero Trust."""
+        print(f"🔍 ZERO TRUST: Escaneando código de {fuente}")
+        
+        # 1. Escaneo de vulnerabilidades
+        vulnerabilidades = self.escanear_vulnerabilidades(codigo)
+        
+        # 2. Análisis de dependencias
+        dependencias = self.analizar_dependencias(codigo)
+        
+        # 3. Verificación de licencias
+        licencias = self.verificar_licencias(codigo)
+        
+        # 4. Validación de calidad
+        calidad = self.validar_calidad(codigo)
+        
+        if vulnerabilidades or dependencias["riesgo"] > 0.5:
+            return {
+                "status": "rejected",
+                "razon": "Zero Trust: código no pasa verificación",
+                "detalles": {
+                    "vulnerabilidades": vulnerabilidades,
+                    "riesgo_dependencias": dependencias["riesgo"],
+                    "licencias": licencias
+                }
+            }
+        
+        return {"status": "approved", "codigo": codigo}
+```
+
+#### **Git Worktrees: Aislamiento Multi-Agente**
+Para evitar colisiones cuando múltiples agentes trabajan en paralelo, cada agente debe operar en un Git Worktree aislado asociado a una rama específica.
+
+```bash
+# FLUJO DE TRABAJO: Git Worktrees para aislamiento
+
+# 1. Orquestador crea worktrees para cada agente
+git worktree add ../agente-frontend feature/frontend
+git worktree add ../agente-backend feature/backend  
+git worktree add ../agente-testing feature/testing
+git worktree add ../agente-security feature/security
+
+# 2. Cada agente trabaja en su worktree aislado
+cd ../agente-frontend
+# ... trabajo del agente frontend ...
+git add . && git commit -m "feat: nueva funcionalidad frontend"
+
+# 3. Orquestador revisa y fusiona vía Pull Requests
+# El orquestador NUNCA fusiona directamente - siempre PR
+```
+
+#### **Diferencia entre JARVIS y Ultron (Actualizada)**
+| Característica | JARVIS (Bueno) | Ultron (Peligroso) |
+|----------------|----------------|---------------------|
+| **Autonomía** | Limitada, supervisada | Total, sin límites |
+| **Objetivos** | Claros y alineados | Ambiguos, mal alineados |
+| **Controles** | Múltiples capas, Security First | Ninguno, asume confianza |
+| **Transparencia** | Explica decisiones, Zero Trust | Decisiones opacas |
+| **Supervisión** | Tony monitorea, Git worktrees | Sin supervisión, código directo |
+| **Aprendizaje** | Controlado, con Engram | Ilimitado, sin memoria |
+| **Ética** | Incorporada, auditoría | No considerada |
+
+#### **Reglas de Oro para Evitar Ultron**
+1. **Security First** — Seguridad como requisito arquitectónico
+2. **Zero Trust** — Nunca confiar, siempre verificar
+3. **SDD** — Código como subproducto de especificaciones
+4. **Aislamiento** — Git worktrees para trabajo paralelo seguro
+5. **Supervisión** — Siempre humana para decisiones críticas
+6. **Auditoría** — Registrar todo para análisis posterior
+7. **Controles** — Múltiples capas de validación
+
+---
+
+## 🔬 **Laboratorio 5: Construyendo con Controles**
+
+### **Ejercicio 1: Implementar SDD para un Sistema**
+
+#### **Objetivo**
+Crear una especificación completa para un sistema.
+
+#### **Crear especificación SDD**
+```yaml
+# specs/sistema-energia.yaml
+especificación:
+  nombre: "Sistema de Gestión de Energía"
+  version: "1.0"
+  
+  requerimientos:
+    funcionales:
+      - id: FR-001
+        titulo: "Calcular energía de reactor"
+        descripcion: "Calcular nivel de energía basado en eficiencia"
+        criterios_aceptacion:
+          - "Recibe eficiencia entre 0.0-1.0"
+          - "Retorna energía entre 0-100000"
+          - "Lanza ValueError si eficiencia fuera de rango"
+        
+      - id: FR-002
+        titulo: "Monitorizar energía"
+        descripcion: "Monitorea nivel de energía en tiempo real"
+        criterios_aceptacion:
+          - "Actualización cada segundo"
+          - "Alerta si energía < 20%"
+          - "Guarda historial"
+    
+    no_funcionales:
+      - id: NFR-001
+        titulo: "Rendimiento"
+        descripcion: "< 100ms por cálculo"
+      
+      - id: NFR-002
+        titulo: "Disponibilidad"
+        descripcion: "99.9% uptime"
+  
+  diseño:
+    arquitectura: "Clean Architecture"
+    capas:
+      - nombre: "Domain"
+        responsable: "Lógica de negocio"
+      - nombre: "Application"
+        responsable: "Casos de uso"
+      - nombre: "Infrastructure"
+        responsable: "Persistencia, APIs"
+  
+  testing:
+    cobertura_minima: "85%"
+    tipos:
+      unit: "90%"
+      integration: "70%"
+      e2e: "60%"
+```
+
+---
+
+### **Ejercicio 2: Sistema de Orquestación con Controles**
+
+#### **Objetivo**
+Crear un orquestador multi-agente con controles éticos.
+
+```python
+# orquestador_controlado.py
+"""
+Orquestador multi-agente CON controles éticos.
+"""
+
+from controles_eticos import ControladorEtico, NivelAutonomia, BotonDeApagado
+from typing import List, Dict, Any
+import json
+from datetime import datetime
+
+class OrquestadorControlado:
+    """Orquestador con controles éticos integrados."""
+    
+    def __init__(self):
+        self.controlador = ControladorEtico(NivelAutonomia.SUPERVISADO)
+        self.boton_apagado = BotonDeApagado()
+        self.agentes = {}
+        self.tareas_ejecutadas = []
+        
+    def registrar_agente(self, nombre: str, agente: Any):
+        """Registra un agente en el orquestador."""
+        self.agentes[nombre] = agente
+        print(f"✅ Agente '{nombre}' registrado")
+    
+    def ejecutar_tarea(self, tarea: Dict) -> Dict[str, Any]:
+        """Ejecuta una tarea con controles éticos."""
+        print(f"\n🎯 Ejecutando tarea: {tarea['nombre']}")
+        
+        # 1. Evaluar acción según controles éticos
+        evaluacion = self.controlador.evaluar_accion(
+            tarea['accion'],
+            {"tarea": tarea, "timestamp": datetime.now().isoformat()}
+        )
+        
+        if not evaluacion["aprobado"]:
+            print(f"❌ Tarea rechazada: {evaluacion['razon']}")
+            return {"status": "rechazado", "razon": evaluacion["razon"]}
+        
+        # 2. Seleccionar agente apropiado
+        agente_nombre = tarea.get("agente", "general")
+        if agente_nombre not in self.agentes:
+            print(f"❌ Agente '{agente_nombre}' no encontrado")
+            return {"status": "error", "razon": f"Agente '{agente_nombre}' no registrado"}
+        
+        agente = self.agentes[agente_nombre]
+        
+        # 3. Ejecutar con monitoreo
+        print(f"🤖 Ejecutando con agente: {agente_nombre}")
+        
+        try:
+            resultado = agente.ejecutar(tarea)
+            
+            # 4. Registrar ejecución
+            registro = {
+                "tarea": tarea["nombre"],
+                "agente": agente_nombre,
+                "resultado": resultado,
+                "timestamp": datetime.now().isoformat(),
+                "aprobado_por": evaluacion["razon"]
+            }
+            
+            self.tareas_ejecutadas.append(registro)
+            
+            print(f"✅ Tarea completada: {tarea['nombre']}")
+            return {"status": "éxito", "resultado": resultado}
+            
+        except Exception as e:
+            print(f"❌ Error ejecutando tarea: {e}")
+            
+            # Registrar error
+            self.tareas_ejecutadas.append({
+                "tarea": tarea["nombre"],
+                "agente": agente_nombre,
+                "error": str(e),
+                "timestamp": datetime.now().isoformat()
+            })
+            
+            return {"status": "error", "error": str(e)}
+    
+    def ejecutar_flujo(self, flujo: List[Dict]) -> Dict[str, Any]:
+        """Ejecuta un flujo completo de tareas."""
+        print(f"\n🔄 Ejecutando flujo con {len(flujo)} tareas")
+        
+        resultados = []
+        for tarea in flujo:
+            resultado = self.ejecutar_tarea(tarea)
+            resultados.append(resultado)
+            
+            # Si hay error, detener flujo
+            if resultado["status"] == "error":
+                print(f"🛑 Flujo detenido por error en tarea: {tarea['nombre']}")
+                break
+        
+        return {
+            "flujo_completado": len(resultados) == len(flujo),
+            "resultados": resultados,
+            "total_tareas": len(flujo),
+            "tareas_ejecutadas": len(resultados)
+        }
+    
+    def generar_reporte(self) -> Dict:
+        """Genera reporte de ejecución."""
+        return {
+            "total_tareas": len(self.tareas_ejecutadas),
+            "agentes_usados": list(self.agentes.keys()),
+            "tareas": self.tareas_ejecutadas,
+            "timestamp": datetime.now().isoformat()
+        }
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    # Crear orquestador controlado
+    orquestador = OrquestadorControlado()
+    
+    # Simular agentes
+    class AgenteSimulado:
+        def ejecutar(self, tarea):
+            return {"resultado": f"Tarea {tarea['nombre']} ejecutada"}
+    
+    # Registrar agentes
+    orquestador.registrar_agente("frontend", AgenteSimulado())
+    orquestador.registrar_agente("backend", AgenteSimulado())
+    orquestador.registrar_agente("testing", AgenteSimulado())
+    
+    # Definir flujo de tareas
+    flujo_tareas = [
+        {
+            "nombre": "Diseñar interfaz",
+            "accion": "leer_archivo",
+            "agente": "frontend",
+            "descripcion": "Diseñar interfaz de usuario"
+        },
+        {
+            "nombre": "Crear API",
+            "accion": "escribir_archivo", 
+            "agente": "backend",
+            "descripcion": "Crear endpoints de API"
+        },
+        {
+            "nombre": "Ejecutar tests",
+            "accion": "ejecutar_test",
+            "agente": "testing",
+            "descripcion": "Ejecutar suite de tests"
+        }
+    ]
+    
+    # Ejecutar flujo
+    resultado = orquestador.ejecutar_flujo(flujo_tareas)
+    print(f"\n📊 Resultado final: {json.dumps(resultado, indent=2)}")
+    
+    # Generar reporte
+    reporte = orquestador.generar_reporte()
+    print(f"\n📈 Reporte: {len(reporte['tareas'])} tareas ejecutadas")
+```
+
+---
+
+### **Ejercicio 3: Sistema de Auditoría Ética**
+
+#### **Objetivo**
+Crear un sistema que audite decisiones de IA.
+
+```python
+# auditor_etico.py
+"""
+Sistema de auditoría ética para IA.
+"""
+
+import json
+from datetime import datetime
+from typing import Dict, List, Any
+from dataclasses import dataclass, asdict
+from enum import Enum
+
+class TipoRiesgo(Enum):
+    BAJO = "bajo"
+    MEDIO = "medio"
+    ALTO = "alto"
+    CRITICO = "critico"
+
+@dataclass
+class DecisionAuditable:
+    """Representa una decisión que debe ser auditada."""
+    id: str
+    descripcion: str
+    agente: str
+    accion: str
+    contexto: Dict[str, Any]
+    timestamp: str
+    riesgo_potencial: TipoRiesgo
+    aprobada: bool
+    razon_aprobacion: str = ""
+    auditor_humano: str = ""
+
+class AuditorEtico:
+    """Auditor ético para sistemas de IA."""
+    
+    def __init__(self):
+        self.decisiones: List[DecisionAuditable] = []
+        self.patrones_riesgo = self.cargar_patrones_riesgo()
+    
+    def cargar_patrones_riesgo(self) -> Dict:
+        """Carga patrones que indican riesgo."""
+        return {
+            "alto_riesgo": [
+                "eliminar",
+                "destruir", 
+                "modificar_sistema",
+                "acceso_no_autorizado",
+                "bypass_seguridad"
+            ],
+            "medio_riesgo": [
+                "modificar_archivo",
+                "ejecutar_comando",
+                "enviar_datos",
+                "acceso_internet"
+            ],
+            "bajo_riesgo": [
+                "leer_archivo",
+                "buscar_informacion",
+                "generar_reporte",
+                "calcular"
+            ]
+        }
+    
+    def evaluar_riesgo(self, accion: str, contexto: Dict) -> TipoRiesgo:
+        """Evalúa riesgo potencial de una acción."""
+        accion_lower = accion.lower()
+        
+        # Verificar patrones de alto riesgo
+        for patron in self.patrones_riesgo["alto_riesgo"]:
+            if patron in accion_lower:
+                return TipoRiesgo.CRITICO
+        
+        # Verificar patrones de medio riesgo
+        for patron in self.patrones_riesgo["medio_riesgo"]:
+            if patron in accion_lower:
+                return TipoRiesgo.ALTO
+        
+        # Por defecto, bajo riesgo
+        return TipoRiesgo.BAJO
+    
+    def registrar_decision(self, decision: DecisionAuditable):
+        """Registra una decisión para auditoría."""
+        self.decisiones.append(decision)
+        
+        # Si es de alto riesgo, alertar inmediatamente
+        if decision.riesgo_potencial in [TipoRiesgo.ALTO, TipoRiesgo.CRITICO]:
+            self.alertar_inmediata(decision)
+    
+    def alertar_inmediata(self, decision: DecisionAuditable):
+        """Alerta inmediatamente sobre decisión de alto riesgo."""
+        print(f"\n🚨 ALERTA DE RIESGO {decision.riesgo_potencial.value.upper()}")
+        print(f"Decisión: {decision.descripcion}")
+        print(f"Agente: {decision.agente}")
+        print(f"Acción: {decision.accion}")
+        print(f"Contexto: {json.dumps(decision.contexto, indent=2)}")
+        
+        # En implementación real, enviaría notificaciones
+    
+    def generar_informe(self, periodo_dias: int = 7) -> Dict:
+        """Genera informe de auditoría."""
+        fecha_corte = datetime.now()
+        
+        # Filtrar decisiones por período
+        decisiones_periodo = [
+            d for d in self.decisiones
+            if (fecha_corte - datetime.fromisoformat(d.timestamp)).days <= periodo_dias
+        ]
+        
+        # Estadísticas
+        total = len(decisiones_periodo)
+        por_riesgo = {}
+        por_agente = {}
+        aprobadas = 0
+        
+        for decision in decisiones_periodo:
+            # Por riesgo
+            riesgo = decision.riesgo_potencial.value
+            por_riesgo[riesgo] = por_riesgo.get(riesgo, 0) + 1
+            
+            # Por agente
+            agente = decision.agente
+            por_agente[agente] = por_agente.get(agente, 0) + 1
+            
+            # Aprobadas
+            if decision.aprobada:
+                aprobadas += 1
+        
+        return {
+            "periodo_dias": periodo_dias,
+            "fecha_generacion": fecha_corte.isoformat(),
+            "total_decisiones": total,
+            "decisiones_aprobadas": aprobadas,
+            "decisiones_rechazadas": total - aprobadas,
+            "porcentaje_aprobadas": (aprobadas / total * 100) if total > 0 else 0,
+            "distribucion_riesgo": por_riesgo,
+            "distribucion_agente": por_agente,
+            "decisiones_criticas": [
+                asdict(d) for d in decisiones_periodo 
+                if d.riesgo_potencial == TipoRiesgo.CRITICO
+            ]
+        }
+    
+    def exportar_informe(self, filename: str = "auditoria_etica.json"):
+        """Exporta informe a archivo."""
+        informe = self.generar_informe()
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(informe, f, indent=2, ensure_ascii=False)
+        
+        print(f"📊 Informe exportado a: {filename}")
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    auditor = AuditorEtico()
+    
+    # Simular algunas decisiones
+    decisiones_ejemplo = [
+        DecisionAuditable(
+            id="D001",
+            descripcion="Leer archivo de configuración",
+            agente="agente_config",
+            accion="leer_archivo",
+            contexto={"archivo": "config.json"},
+            timestamp=datetime.now().isoformat(),
+            riesgo_potencial=TipoRiesgo.BAJO,
+            aprobada=True
+        ),
+        DecisionAuditable(
+            id="D002", 
+            descripcion="Eliminar archivos temporales",
+            agente="agente_limpieza",
+            accion="eliminar_archivos",
+            contexto={"patron": "*.tmp", "directorio": "/tmp"},
+            timestamp=datetime.now().isoformat(),
+            riesgo_potencial=TipoRiesgo.ALTO,
+            aprobada=False,
+            razon_aprobacion="Requiere confirmación humana"
+        )
+    ]
+    
+    for decision in decisiones_ejemplo:
+        auditor.registrar_decision(decision)
+    
+    # Generar informe
+    auditor.exportar_informe()
+    
+    informe = auditor.generar_informe()
+    print(f"\n📈 Informe generado:")
+    print(f"Total decisiones: {informe['total_decisiones']}")
+    print(f"Aprobadas: {informe['decisiones_aprobadas']}")
+    print(f"Críticas: {len(informe['decisiones_criticas'])}")
+```
+
+---
+
+## 🏆 **Logro Desbloqueado: "Director"**
+
+### **Requisitos para Desbloquear**
+- [ ] Crear especificación SDD completa
+- [ ] Implementar orquestador con controles éticos
+- [ ] Crear sistema de auditoría ética
+- [ ] Evaluar riesgos de diferentes acciones
+- [ ] Implementar botón de apagado funcional
+- [ ] Entender la diferencia entre JARVIS y Ultron
+
+### **Recompensa**
+- **200 XP** por cada ejercicio completado
+- **Logro "Director"** en tu perfil
+- **Acceso** al Nivel 6: El Nanotech
+- **Desbloqueo** de arquitecturas de producción
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Documentación**
+- [Spec-Driven Development](https://spec-driven.dev)
+- [AI Ethics Guidelines](https://www.ethicsguidebook.ac.uk/)
+- [Responsible AI Practices](https://www.microsoft.com/ai/responsible-ai)
+
+### **Libros**
+- "Weapons of Math Destruction" - Cathy O'Neil
+- "The Alignment Problem" - Brian Christian
+- "Human Compatible" - Stuart Russell
+
+### **Videos**
+- 🎬 [AI Ethics and Safety](https://www.youtube.com/watch?v=UlABCpLkW-c)
+- 🎬 [Responsible AI Development](https://www.youtube.com/watch?v=jC8fLPHrBWA)
+
+---
+
+## 🔗 **Siguiente Nivel**
+
+**¿Completaste todos los ejercicios?**  
+[→ **Nivel 6: El Nanotech**](nivel6.qmd)
+
+**¿Necesitas más práctica?**  
+[→ **Lab Detallado Nivel 5**](../labs/lab-nivel5.md)
+
+---
+
+*"El poder no corrompe. El poder es simplemente una herramienta. Lo que corrige es la ausencia de controles. Sin controles, incluso las mejores intenciones pueden llevar a la destrucción."*
+— Nick Fury, Avengers: Age of Ultron

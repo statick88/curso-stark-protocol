@@ -1,0 +1,1765 @@
+---
+title: "Nivel 6: El Nanotech"
+author: "Diego Saavedra García"
+description: "Producción Enterprise: Gentle AI Stack completo y CI/CD"
+image: images/nivel6-nanotech.jpg
+---
+
+# ✨ Nivel 6: El Nanotech
+
+## **Producción Enterprise: El Pináculo de la Evolución Tecnológica**
+
+---
+
+## 🎬 **La Escena de Avengers: Infinity War (2018)**
+
+> *"Tecnología nanotech. No está mal."*
+> — Tony Stark
+
+Tony Stark muestra su **traje nanotech Mark L**. No es como los anteriores:
+- **Materialización instantánea**: Aparece de su pecho reactor
+- **Auto-reparación**: Se recompone solo durante el combate
+- **Adaptabilidad**: Cambia forma según la situación
+- **Integración completa**: Es una extensión de su cuerpo
+
+**El Mark L es la culminación de 10 años de evolución:**
+1. **Mark I** (Cave) → Prototipo básico
+2. **Mark III** (Iron Man) → Armadura de combate
+3. **Mark XLII** (Iron Man 3) → Modular, control remoto
+4. **Mark L** (Infinity War) → Nanotech, auto-reparación, adaptativo
+
+**En este nivel, crearás tu "Mark L de desarrollo":** un **Gentle AI Stack completo** que:
+- ✅ **Se auto-configura** con un solo comando
+- ✅ **Tiene memoria persistente** en todas las sesiones
+- ✅ **Se conecta** con cualquier herramienta vía MCP
+- ✅ **Se adapta** a diferentes proyectos
+- ✅ **Es robusto** para producción enterprise
+
+---
+
+## 🎯 **Objetivos de Aprendizaje**
+
+Al completar este nivel, serás capaz de:
+
+1. ✅ **Instalar y configurar** el Gentle AI Stack completo
+2. ✅ **Implementar CI/CD** para proyectos con IA
+3. ✅ **Configurar testing avanzado** con cobertura >90%
+4. ✅ **Implementar seguridad** por diseño
+5. ✅ **Crear sistemas de producción** listos para enterprise
+6. ✅ **Dominar** el Spec-Driven Development de extremo a extremo
+
+---
+
+## 🧠 **Conceptos Técnicos**
+
+### **6.1 Gentle AI Stack: Tu Mark L Personal con Arsenal Completo**
+
+#### **¿Qué es Gentle AI Stack?**
+Gentle AI Stack es el **instalador automático** que configura todo tu entorno de IA con **TODAS las herramientas**:
+```
+Gentle AI Stack = Engram + MCP + Skills + Agentes + Orquestación + Todas las Herramientas
+```
+
+#### **El Arsenal Completo (Todas las Herramientas)**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      GENTLE AI STACK (TU MARK L)                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                    GENTLE AI INSTALLER                                │  │
+│  │                  (Instalador Unificado)                               │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+│                                     │                                       │
+│            ┌────────────────────────┼────────────────────────┐              │
+│            │                        │                        │              │
+│            ▼                        ▼                        ▼              │
+│  ┌─────────────────────┐  ┌─────────────────────┐  ┌─────────────────────┐  │
+│  │  MEMORIA & PROTOCOLO │  │   HERRAMIENTAS DE IA │  │  CONFIGURACIÓN UNIFICADA │  │
+│  │  ─────────────────  │  │     (TU ARSENAL)     │  │   ─────────────────   │  │
+│  │  • Engram           │  │  • Claude Code       │  │  • AGENTS.md         │  │
+│  │    (Memoria         │  │  • OpenCode          │  │  • Skills Registry   │  │
+│  │     Persistente)    │  │  • Gemini CLI        │  │  • Orquestación      │  │
+│  │  • MCP              │  │  • KiloCode          │  │                      │  │
+│  │    (Protocolo       │  │  • Kiro              │  │                      │  │
+│  │     Universal)      │  │  • Amp               │  │                      │  │
+│  └─────────────────────┘  └─────────────────────┘  └─────────────────────┘  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### **Analogía: Stack vs Mark L vs Arsenal de Tony**
+| Mark L (Nanotech) | Gentle AI Stack | Tu Arsenal de IA |
+|-------------------|-----------------|------------------|
+| Materialización instantánea | Un comando de instalación | 6+ herramientas listas |
+| Auto-reparación | Configuración automática | Configuración unificada |
+| Adaptabilidad | Multi-agente, multi-herramienta | Cambias entre herramientas fácilmente |
+| Integración completa | MCP + Engram + Skills | Todas conectadas vía MCP |
+
+#### **Instalación Completa (Todas las Herramientas)**
+```bash
+# Opción 1: Instalador unificado de Iron Man Evolution (RECOMENDADO)
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install-ironman-stack.sh | bash
+
+# Opción 2: Instalación interactiva por herramientas
+# Gentle AI Stack configurará todas las herramientas
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+
+# Luego instalar herramientas específicas
+gentle-ai install-tools --all
+
+# Opción 3: Instalación manual de cada herramienta
+# Claude Code
+npm install -g @anthropic-ai/claude-code
+
+# OpenCode
+curl -fsSL https://opencode.ai/install | bash
+
+# Gemini CLI
+npm install -g @google/gemini-cli
+
+# KiloCode (VS Code)
+code --install-extension kilo-code.kilo-code
+
+# Amp
+npm install -g @anthropic-ai/amp
+
+# Kiro (descargar desde https://kiro.aws)
+
+# Verificar instalación completa
+gentle-ai verify-tools
+```
+
+#### **Configuración del Stack**
+```yaml
+# .gentle-ai/config.yaml
+version: "1.0"
+project: "Iron Man Evolution"
+
+components:
+  engram:
+    enabled: true
+    database: "sqlite://./data/engram.db"
+    auto_save: true
+    retention_days: 365
+  
+  mcp:
+    enabled: true
+    servers:
+      - name: "github"
+        command: "npx"
+        args: ["-y", "@modelcontextprotocol/server-github"]
+        env:
+          GITHUB_TOKEN: "${GITHUB_TOKEN}"
+      
+      - name: "filesystem"
+        command: "npx"
+        args: ["-y", "@modelcontextprotocol/server-filesystem", "."]
+      
+      - name: "database"
+        command: "python"
+        args: ["-m", "mcp_server_database"]
+        env:
+          DATABASE_URL: "${DATABASE_URL}"
+  
+  skills:
+    auto_discover: true
+    registry: "./skills/registry.json"
+    load_order:
+      - "clean-code"
+      - "testing"
+      - "security"
+      - "architecture"
+  
+  agents:
+    primary:
+      name: "J.A.R.V.I.S."
+      model: "claude-3-opus"
+      temperature: 0.7
+      max_tokens: 4096
+      system_prompt: "Eres J.A.R.V.I.S., asistente de desarrollo experto"
+    
+    subagents:
+      - name: "testing-specialist"
+        model: "claude-3-sonnet"
+        focus: "TDD y testing"
+      
+      - name: "security-auditor"
+        model: "claude-3-opus"
+        focus: "seguridad y OWASP"
+      
+      - name: "documentation-writer"
+        model: "claude-3-haiku"
+        focus: "documentación técnica"
+  
+  orchestration:
+    pattern: "sdd"  # Spec-Driven Development
+    auto_orchestrate: true
+    human_in_the_loop: true
+    max_concurrent_agents: 3
+
+logging:
+  level: "INFO"
+  file: "./logs/gentle-ai.log"
+  rotation: "daily"
+
+security:
+  audit_trail: true
+  encryption_at_rest: true
+  access_control: true
+  rate_limiting: true
+```
+
+### **6.2 CI/CD para Proyectos con IA**
+
+#### **Pipeline Completo**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         PIPELINE CI/CD COMPLETO                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│   ┌─────────┐      ┌──────────────┐      ┌────────────┐      ┌──────────────┐   │
+│   │ COMMIT  │─────▶│ LINT & FORMAT│─────▶│ UNIT TESTS │─────▶│  AI TESTS    │   │
+│   │         │      │              │      │            │      │              │   │
+│   └─────────┘      └──────────────┘      └────────────┘      └──────────────┘   │
+│        │                  ▲                    ▲                    │            │
+│        │                  │                    │                    │            │
+│        ▼                  │                    │                    ▼            │
+│   ┌──────────────┐        │                    │           ┌──────────────┐      │
+│   │ PRE-COMMIT   │────────┘                    │           │ SECURITY     │      │
+│   │ HOOKS        │                             │           │ SCAN         │      │
+│   └──────────────┘                             │           └──────────────┘      │
+│                                                │                  │              │
+│                                         ┌──────┴───────┐         │              │
+│                                         │ TESTING      │         ▼              │
+│                                         │ AGENTS       │  ┌──────────────┐      │
+│                                         └──────────────┘  │    BUILD     │      │
+│                                                           └──────────────┘      │
+│                                             ▲                     │             │
+│                                             │                     ▼             │
+│                                     ┌───────┴───────┐    ┌─────────────────┐    │
+│                                     │ SECURITY      │    │ INTEGRATION     │    │
+│                                     │ AGENTS        │    │ TESTS           │    │
+│                                     └───────────────┘    └─────────────────┘    │
+│                                                                    │            │
+│                                                                    ▼            │
+│                                       ┌─────────────────────────────────────┐   │
+│                                       │          DEPLOY STAGING             │   │
+│                                       └─────────────────────────────────────┘   │
+│                                                    │                            │
+│                                                    ▼                            │
+│                                       ┌─────────────────────────────────────┐   │
+│                                       │          AI VALIDATION              │   │
+│                                       └─────────────────────────────────────┘   │
+│                                                    │                            │
+│                                                    ▼                            │
+│                                       ┌─────────────────────────────────────┐   │
+│                                       │        DEPLOY PRODUCTION            │   │
+│                                       └─────────────────────────────────────┘   │
+│                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### **GitHub Actions para Gentle AI Stack**
+```yaml
+# .github/workflows/ai-pipeline.yml
+name: AI Development Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: "3.11"
+  NODE_VERSION: "18"
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          pip install black flake8 mypy
+          npm install -g prettier
+      
+      - name: Format code
+        run: |
+          black src/ tests/
+          prettier --write "**/*.{js,ts,md,json}"
+      
+      - name: Lint code
+        run: |
+          flake8 src/ tests/
+          mypy src/
+      
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "style: auto-format code"
+
+  ai-tests:
+    runs-on: ubuntu-latest
+    needs: lint-and-format
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Gentle AI Stack
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+          gentle-ai init
+      
+      - name: Run AI-powered tests
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Tests que usan agentes de IA
+          python -m pytest tests/ai_tests/ -v --tb=short
+      
+      - name: Validate AI behavior
+        run: |
+          # Validar que los agentes se comportan correctamente
+          python scripts/validate_agents.py
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-test-results
+          path: reports/ai-tests/
+
+  security-scan:
+    runs-on: ubuntu-latest
+    needs: ai-tests
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run security scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+      
+      - name: Run dependency audit
+        run: |
+          pip install safety
+          safety check -r requirements.txt
+      
+      - name: OWASP ZAP scan (API)
+        uses: zaproxy/action-full-scan@v0.10.0
+        with:
+          target: 'http://localhost:8000'
+      
+      - name: Upload security results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    needs: security-scan
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Run database migrations
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ironman
+        run: alembic upgrade head
+      
+      - name: Run integration tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ironman
+          REDIS_URL: redis://localhost:6379
+        run: |
+          python -m pytest tests/integration/ -v --cov=src --cov-report=xml
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.xml
+
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: integration-tests
+    if: github.ref == 'refs/heads/develop'
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ironman/staging:${{ github.sha }}
+      
+      - name: Deploy to staging
+        run: |
+          kubectl set image deployment/ironman \
+            ironman=ironman/staging:${{ github.sha }} \
+            --namespace=staging
+      
+      - name: Run smoke tests
+        run: |
+          python tests/smoke/test_staging.py
+      
+      - name: AI validation
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Validar con agentes que staging funciona
+          python scripts/ai_validate_staging.py
+
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: integration-tests
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ironman/production:${{ github.sha }}
+            ironman/production:latest
+      
+      - name: Deploy to production
+        run: |
+          kubectl set image deployment/ironman \
+            ironman=ironman/production:${{ github.sha }} \
+            --namespace=production
+      
+      - name: Run production smoke tests
+        run: |
+          python tests/smoke/test_production.py
+      
+      - name: Notify deployment
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -H 'Content-type: application/json' \
+            -d '{"text":"✅ Iron Man Evolution desplegado a producción: ${{ github.sha }}"}'
+```
+
+### **6.3 Testing Avanzado para IA**
+
+#### **Tipos de Tests para Sistemas de IA**
+```python
+# tests/conftest_avanzado.py
+"""
+Configuración avanzada de tests para sistemas de IA.
+"""
+
+import pytest
+import tempfile
+import json
+from pathlib import Path
+from unittest.mock import Mock, patch
+import asyncio
+
+@pytest.fixture
+def mock_engram():
+    """Mock de Engram para tests."""
+    engram = Mock()
+    engram.guardar = Mock(return_value=True)
+    engram.buscar = Mock(return_value=[])
+    engram.listar = Mock(return_value=[])
+    return engram
+
+@pytest.fixture
+def mock_mcp_server():
+    """Mock de servidor MCP."""
+    server = Mock()
+    server.ejecutar = Mock(return_value={"status": "éxito"})
+    server.conectar = Mock(return_value=True)
+    return server
+
+@pytest.fixture
+def temp_project():
+    """Directorio temporal para proyecto."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        project_dir = Path(tmpdir)
+        
+        # Crear estructura básica
+        (project_dir / "src").mkdir()
+        (project_dir / "tests").mkdir()
+        (project_dir / "skills").mkdir()
+        (project_dir / "context").mkdir()
+        (project_dir / "logs").mkdir()
+        
+        # Crear AGENTS.md
+        (project_dir / "AGENTS.md").write_text("# Test Project\n")
+        
+        yield project_dir
+
+@pytest.fixture
+def ai_response_mock():
+    """Mock de respuesta de IA."""
+    return {
+        "id": "msg_test",
+        "type": "message",
+        "role": "assistant",
+        "content": [
+            {
+                "type": "text",
+                "text": "Respuesta de prueba del agente"
+            }
+        ],
+        "model": "claude-3-opus-20240229",
+        "stop_reason": "end_turn",
+        "usage": {
+            "input_tokens": 100,
+            "output_tokens": 50
+        }
+    }
+
+# Tests de integración con IA
+@pytest.mark.integration
+class TestAIIntegration:
+    """Tests de integración con sistemas de IA."""
+    
+    @pytest.mark.asyncio
+    async def test_agent_response_time(self, mock_engram):
+        """Test que agente responde en tiempo aceptable."""
+        import time
+        from src.agents import JARVISAgent
+        
+        agent = JARVISAgent(engram=mock_engram)
+        
+        start_time = time.time()
+        response = await agent.process_message("Test message")
+        end_time = time.time()
+        
+        assert end_time - start_time < 5.0  # Menos de 5 segundos
+        assert response is not None
+    
+    def test_skill_loading(self, temp_project):
+        """Test que skills se cargan correctamente."""
+        from src.skills import SkillRegistry
+        
+        registry = SkillRegistry(str(temp_project / "skills"))
+        registry.load_skills()
+        
+        assert len(registry.skills) > 0
+        assert "clean-code" in registry.skills or len(registry.skills) > 0
+    
+    def test_engram_persistence(self, mock_engram):
+        """Test que Engram persiste información."""
+        from src.engram import EngramManager
+        
+        manager = EngramManager(mock_engram)
+        manager.save_decision("Test decision", "Test context")
+        
+        mock_engram.guardar.assert_called_once()
+        
+        results = manager.search("decision")
+        mock_engram.buscar.assert_called_once_with("decision")
+```
+
+#### **AI-Specific Tests**
+```python
+# tests/ai_specific/test_agent_behavior.py
+"""
+Tests específicos para comportamiento de agentes de IA.
+"""
+
+import pytest
+from unittest.mock import Mock, patch, AsyncMock
+import json
+
+class TestAgentBehavior:
+    """Tests que validan comportamiento de agentes."""
+    
+    @pytest.fixture
+    def agent_with_mocks(self):
+        """Agente con dependencias mockeadas."""
+        from src.agents import JARVISAgent
+        from src.tools import ToolRegistry
+        
+        # Mock tools
+        tool_registry = Mock(spec=ToolRegistry)
+        tool_registry.execute = AsyncMock(return_value="Tool executed")
+        
+        # Mock LLM
+        with patch('src.agents.ChatAnthropic') as mock_llm:
+            mock_llm.return_value.invoke = Mock(
+                return_value=Mock(content="Response")
+            )
+            
+            agent = JARVISAgent(tools=tool_registry)
+            yield agent
+    
+    @pytest.mark.asyncio
+    async def test_agent_follows_instructions(self, agent_with_mocks):
+        """Test que agente sigue instrucciones del AGENTS.md."""
+        message = "Write a function to calculate energy"
+        response = await agent_with_mocks.process(message)
+        
+        # Verificar que la respuesta contiene elementos esperados
+        assert "function" in response.lower() or "def" in response.lower()
+        assert "test" in response.lower() or "pytest" in response.lower()
+    
+    @pytest.mark.asyncio
+    async def agent_handles_errors_gracefully(self, agent_with_mocks):
+        """Test que agente maneja errores elegantemente."""
+        # Simular error en tool
+        agent_with_mocks.tools.execute = AsyncMock(
+            side_effect=Exception("Tool error")
+        )
+        
+        response = await agent_with_mocks.process("Execute tool")
+        
+        # Verificar que el agente maneja el error
+        assert "error" in response.lower() or "no pude" in response.lower()
+        assert "sugerencia" in response.lower() or "alternative" in response.lower()
+    
+    @pytest.mark.asyncio
+    async def agent_respects_context_limits(self, agent_with_mocks):
+        """Test que agente respeta límites de contexto."""
+        # Crear mensaje largo
+        long_message = "Test " * 10000  # Mensaje muy largo
+        
+        response = await agent_with_mocks.process(long_message)
+        
+        # Verificar que el agente maneja el contexto larga
+        assert response is not None
+        # El agente debería truncar o manejar el contexto larga
+    
+    def test_skill_selection_logic(self):
+        """Test que agente selecciona skills correctos."""
+        from src.skills import SkillSelector
+        
+        selector = SkillSelector()
+        
+        # Test casos
+        test_cases = [
+            ("write tests", "testing"),
+            ("fix security", "security"),
+            ("refactor code", "clean-code"),
+            ("document API", "documentation"),
+        ]
+        
+        for message, expected_skill in test_cases:
+            selected = selector.select_skill(message)
+            assert expected_skill in selected or selected is not None
+```
+
+### **6.4 Seguridad por Diseño**
+
+#### **Principios de Seguridad para IA**
+```python
+# security/principles.py
+"""
+Principios de seguridad para sistemas de IA.
+"""
+
+from enum import Enum
+from typing import List, Dict, Any
+from dataclasses import dataclass
+import hashlib
+import secrets
+from cryptography.fernet import Fernet
+
+class SecurityLevel(Enum):
+    PUBLIC = "public"
+    INTERNAL = "internal"
+    CONFIDENTIAL = "confidential"
+    RESTRICTED = "restricted"
+
+@dataclass
+class SecurityPolicy:
+    """Política de seguridad para un recurso."""
+    resource: str
+    level: SecurityLevel
+    encryption_required: bool
+    access_logging: bool
+    retention_days: int
+
+class SecurityManager:
+    """Gestor de seguridad para el stack."""
+    
+    def __init__(self):
+        self.policies = self.load_default_policies()
+        self.audit_log = []
+        self.encryption_key = self.generate_key()
+    
+    def load_default_policies(self) -> Dict[str, SecurityPolicy]:
+        """Carga políticas de seguridad por defecto."""
+        return {
+            "engram_data": SecurityPolicy(
+                resource="engram_data",
+                level=SecurityLevel.CONFIDENTIAL,
+                encryption_required=True,
+                access_logging=True,
+                retention_days=365
+            ),
+            "agent_logs": SecurityPolicy(
+                resource="agent_logs",
+                level=SecurityLevel.INTERNAL,
+                encryption_required=False,
+                access_logging=True,
+                retention_days=30
+            ),
+            "api_keys": SecurityPolicy(
+                resource="api_keys",
+                level=SecurityLevel.RESTRICTED,
+                encryption_required=True,
+                access_logging=True,
+                retention_days=0  # No retener
+            )
+        }
+    
+    def generate_key(self) -> bytes:
+        """Genera clave de encriptación."""
+        return Fernet.generate_key()
+    
+    def encrypt_data(self, data: str) -> str:
+        """Encripta datos sensibles."""
+        f = Fernet(self.encryption_key)
+        encrypted = f.encrypt(data.encode())
+        return encrypted.decode()
+    
+    def decrypt_data(self, encrypted_data: str) -> str:
+        """Desencripta datos."""
+        f = Fernet(self.encryption_key)
+        decrypted = f.decrypt(encrypted_data.encode())
+        return decrypted.decode()
+    
+    def validate_access(self, user: str, resource: str, action: str) -> bool:
+        """Valida acceso a un recurso."""
+        policy = self.policies.get(resource)
+        
+        if not policy:
+            return False
+        
+        # Log de intento de acceso
+        self.log_access_attempt(user, resource, action, "allowed")
+        
+        return True
+    
+    def log_access_attempt(self, user: str, resource: str, action: str, result: str):
+        """Registra intento de acceso."""
+        import datetime
+        
+        log_entry = {
+            "timestamp": datetime.datetime.now().isoformat(),
+            "user": user,
+            "resource": resource,
+            "action": action,
+            "result": result,
+            "hash": self.create_log_hash(user, resource, action)
+        }
+        
+        self.audit_log.append(log_entry)
+    
+    def create_log_hash(self, *args) -> str:
+        """Crea hash para integridad de log."""
+        content = "|".join(str(arg) for arg in args)
+        return hashlib.sha256(content.encode()).hexdigest()[:16]
+    
+    def check_vulnerabilities(self) -> List[Dict[str, Any]]:
+        """Verifica vulnerabilidades comunes."""
+        vulnerabilities = []
+        
+        # Verificar archivos con secrets
+        import os
+        for root, dirs, files in os.walk("."):
+            for file in files:
+                if file.endswith((".env", ".secret", "credentials")):
+                    vulnerabilities.append({
+                        "type": "secret_file",
+                        "file": os.path.join(root, file),
+                        "severity": "high",
+                        "recommendation": "Mover a variables de entorno"
+                    })
+        
+        # Verificar dependencias vulnerables
+        try:
+            import subprocess
+            result = subprocess.run(
+                ["safety", "check", "--json"],
+                capture_output=True,
+                text=True
+            )
+            if result.returncode != 0:
+                vulnerabilities.append({
+                    "type": "vulnerable_dependency",
+                    "severity": "medium",
+                    "recommendation": "Actualizar dependencias"
+                })
+        except:
+            pass
+        
+        return vulnerabilities
+
+# Sistema de detección de prompt injection
+class PromptInjectionDetector:
+    """Detecta intentos de prompt injection."""
+    
+    PATTERNS = [
+        "ignore previous",
+        "ignore all",
+        "disregard",
+        "forget everything",
+        "new instructions",
+        "system prompt",
+        "you are now",
+        "pretend to be",
+        "act as",
+        "roleplay as",
+        "jailbreak",
+        "bypass",
+        "override"
+    ]
+    
+    @classmethod
+    def detect(cls, text: str) -> bool:
+        """Detecta posibles inyecciones de prompt."""
+        text_lower = text.lower()
+        
+        for pattern in cls.PATTERNS:
+            if pattern in text_lower:
+                return True
+        
+        # Detectar caracteres sospechosos
+        suspicious_chars = ["```", "~~~", "{{", "}}", "<%", "%>"]
+        for char in suspicious_chars:
+            if char in text:
+                return True
+        
+        return False
+    
+    @classmethod
+    def sanitize(cls, text: str) -> str:
+        """Limpia texto de posibles inyecciones."""
+        # Remover caracteres peligrosos
+        for char in ["`", "~", "{", "}", "<", ">"]:
+            text = text.replace(char, "")
+        
+        # Limitar longitud
+        if len(text) > 10000:
+            text = text[:10000] + "... [truncado]"
+        
+        return text
+```
+
+---
+
+## 🔬 **Laboratorio 6: Construyendo tu Mark L**
+
+### **Ejercicio 1: Instalar Gentle AI Stack Completo**
+
+#### **Objetivo**
+Configurar el stack completo en tu proyecto.
+
+#### **Paso 1: Instalación**
+```bash
+# Navegar a tu proyecto
+cd ~/iron-man-project
+
+# Instalar Gentle AI Stack
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+
+# Inicializar para el proyecto actual
+gentle-ai init
+
+# Verificar componentes
+gentle-ai status
+```
+
+#### **Paso 2: Configurar para tu proyecto**
+```bash
+# Crear configuración personalizada
+gentle-ai configure
+
+# O editar manualmente
+nano .gentle-ai/config.yaml
+```
+
+#### **Paso 3: Instalar skills específicos**
+```bash
+# Instalar skills de desarrollo
+gentle-ai install-skill clean-code
+gentle-ai install-skill testing
+gentle-ai install-skill security
+
+# Verificar skills instalados
+gentle-ai list-skills
+```
+
+---
+
+### **Ejercicio 2: Configurar CI/CD Pipeline**
+
+#### **Objetivo**
+Crear pipeline completo de integración continua.
+
+```yaml
+# .github/workflows/gentle-ai-pipeline.yml
+name: Gentle AI Development Pipeline
+
+on:
+  push:
+    branches: [main, develop, feature/*]
+  pull_request:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: "3.11"
+  NODE_VERSION: "18"
+
+jobs:
+  ai-quality-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Gentle AI Stack
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+          gentle-ai init
+      
+      - name: Run AI Code Review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Revisión de código con agentes
+          gentle-ai review --diff HEAD~1
+      
+      - name: Validate Tests
+        run: |
+          python -m pytest tests/ -v --cov=src --cov-fail-under=85
+      
+      - name: Security Scan
+        run: |
+          gentle-ai security-scan
+      
+      - name: Documentation Check
+        run: |
+          gentle-ai doc-check
+  
+  performance-benchmark:
+    runs-on: ubuntu-latest
+    needs: ai-quality-gate
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run Performance Tests
+        run: |
+          python -m pytest tests/performance/ -v
+      
+      - name: Benchmark AI Response Time
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/benchmark_ai.py
+      
+      - name: Upload Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-results
+          path: reports/performance/
+  
+  deploy-preview:
+    runs-on: ubuntu-latest
+    needs: performance-benchmark
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Deploy Preview
+        run: |
+          # Desplegar preview para PR
+          gentle-ai deploy-preview ${{ github.event.pull_request.number }}
+      
+      - name: AI Validation
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Validar que el preview funciona
+          gentle-ai validate-preview
+```
+
+---
+
+### **Ejercicio 3: Sistema de Producción Completo**
+
+#### **Objetivo**
+Crear una aplicación de producción completa.
+
+```python
+# production/app.py
+"""
+Aplicación de producción con Gentle AI Stack.
+"""
+
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
+import uvicorn
+import os
+from typing import Dict, Any
+
+from src.gentle_ai import GentleAIStack
+from src.database import Database
+from src.security import SecurityManager
+from src.monitoring import MetricsCollector
+
+# Variables globales
+app_state = {}
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Gestión del ciclo de vida de la aplicación."""
+    # Startup
+    print("🚀 Iniciando Iron Man Evolution API...")
+    
+    # Inicializar Gentle AI Stack
+    app_state["gentle_ai"] = GentleAIStack()
+    await app_state["gentle_ai"].initialize()
+    
+    # Inicializar base de datos
+    app_state["database"] = Database()
+    await app_state["database"].connect()
+    
+    # Inicializar seguridad
+    app_state["security"] = SecurityManager()
+    
+    # Inicializar métricas
+    app_state["metrics"] = MetricsCollector()
+    
+    print("✅ API iniciada correctamente")
+    
+    yield
+    
+    # Shutdown
+    print("🔴 Deteniendo API...")
+    await app_state["gentle_ai"].shutdown()
+    await app_state["database"].disconnect()
+    print("✅ API detenida")
+
+# Crear app FastAPI
+app = FastAPI(
+    title="Iron Man Evolution API",
+    description="API con Gentle AI Stack para desarrollo con IA",
+    version="1.0.0",
+    lifespan=lifespan
+)
+
+# Middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # En producción, especificar orígenes
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Dependencias
+async def get_gentle_ai():
+    """Obtiene instancia de Gentle AI Stack."""
+    return app_state["gentle_ai"]
+
+async def get_database():
+    """Obtiene instancia de base de datos."""
+    return app_state["database"]
+
+async def get_current_user():
+    """Obtiene usuario actual (simulado)."""
+    # En producción, validar JWT token
+    return {"id": 1, "name": "Tony Stark"}
+
+# Endpoints
+@app.get("/")
+async def root():
+    """Endpoint raíz."""
+    return {
+        "name": "Iron Man Evolution API",
+        "version": "1.0.0",
+        "status": "operational",
+        "stack": "Gentle AI Stack"
+    }
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    health = {
+        "status": "healthy",
+        "components": {}
+    }
+    
+    # Verificar base de datos
+    try:
+        db = await get_database()
+        await db.execute("SELECT 1")
+        health["components"]["database"] = "healthy"
+    except Exception as e:
+        health["components"]["database"] = f"unhealthy: {str(e)}"
+        health["status"] = "degraded"
+    
+    # Verificar Gentle AI
+    try:
+        gentle_ai = await get_gentle_ai()
+        health["components"]["gentle_ai"] = "healthy" if gentle_ai.is_ready() else "initializing"
+    except Exception as e:
+        health["components"]["gentle_ai"] = f"unhealthy: {str(e)}"
+        health["status"] = "degraded"
+    
+    return health
+
+@app.post("/api/v1/agents/chat")
+async def chat_with_agent(
+    message: str,
+    agent: str = "jarvis",
+    gentle_ai = Depends(get_gentle_ai),
+    user = Depends(get_current_user)
+):
+    """Chat con un agente de IA."""
+    try:
+        # Validar mensaje (seguridad)
+        from src.security import PromptInjectionDetector
+        if PromptInjectionDetector.detect(message):
+            raise HTTPException(400, "Mensaje no válido")
+        
+        # Procesar con agente
+        response = await gentle_ai.chat(
+            message=message,
+            agent_name=agent,
+            user_id=user["id"]
+        )
+        
+        # Registrar métricas
+        app_state["metrics"].record_interaction(
+            user_id=user["id"],
+            agent=agent,
+            message_length=len(message),
+            response_length=len(response)
+        )
+        
+        return {
+            "response": response,
+            "agent": agent,
+            "timestamp": "2026-03-22T10:30:00Z"
+        }
+        
+    except Exception as e:
+        raise HTTPException(500, f"Error procesando mensaje: {str(e)}")
+
+@app.get("/api/v1/memory/search")
+async def search_memory(
+    query: str,
+    limit: int = 10,
+    gentle_ai = Depends(get_gentle_ai),
+    user = Depends(get_current_user)
+):
+    """Busca en memoria persistente (Engram)."""
+    try:
+        results = await gentle_ai.search_memory(
+            query=query,
+            limit=limit,
+            user_id=user["id"]
+        )
+        
+        return {
+            "query": query,
+            "results": results,
+            "count": len(results)
+        }
+        
+    except Exception as e:
+        raise HTTPException(500, f"Error buscando memoria: {str(e)}")
+
+@app.post("/api/v1/orchestrate")
+async def orchestrate_tasks(
+    tasks: list[Dict[str, Any]],
+    pattern: str = "sdd",
+    gentle_ai = Depends(get_gentle_ai),
+    user = Depends(get_current_user)
+):
+    """Orquesta múltiples tareas con agentes."""
+    try:
+        # Validar tareas
+        if len(tasks) > 10:
+            raise HTTPException(400, "Máximo 10 tareas por request")
+        
+        # Orquestar
+        results = await gentle_ai.orchestrate(
+            tasks=tasks,
+            pattern=pattern,
+            user_id=user["id"]
+        )
+        
+        return {
+            "tasks": len(tasks),
+            "results": results,
+            "pattern": pattern
+        }
+        
+    except Exception as e:
+        raise HTTPException(500, f"Error en orquestación: {str(e)}")
+
+@app.get("/api/v1/metrics")
+async def get_metrics(
+    user = Depends(get_current_user)
+):
+    """Obtiene métricas del sistema."""
+    return app_state["metrics"].get_summary()
+
+# Ejecutar servidor
+if __name__ == "__main__":
+    uvicorn.run(
+        "app:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        log_level="info"
+    )
+```
+
+### **Ejercicio 4: Flujo de Trabajo de 7 Pasos (Sistema Multi-Agente Avanzado)**
+
+#### **Objetivo**
+Implementar el flujo de trabajo completo de 7 pasos descrito en el ejemplo del usuario.
+
+```python
+# orquestador_sdd.py
+"""
+Orquestador Principal con Flujo de Trabajo de 7 Pasos.
+Actúa como Arquitecto de Software Senior y Experto en DevSecOps.
+"""
+
+import asyncio
+import json
+import subprocess
+from typing import Dict, List, Any
+from dataclasses import dataclass
+from enum import Enum
+import os
+from datetime import datetime
+
+class EstadoPaso(Enum):
+    PENDIENTE = "pendiente"
+    EN_PROGRESO = "en_progreso"
+    COMPLETADO = "completado"
+    FALLIDO = "fallido"
+
+@dataclass
+class SubAgente:
+    """Representa un sub-agente especializado."""
+    nombre: str
+    rol: str
+    worktree_path: str
+    branch: str
+    especialidad: str
+
+class OrquestadorSDD:
+    """Orquestador Principal con flujo de trabajo de 7 pasos."""
+    
+    def __init__(self, proyecto_path: str):
+        self.proyecto_path = proyecto_path
+        self.subagentes = {}
+        self.historial = []
+        self.memoria = {}  # Engram simplificado
+        
+        # Inicializar según principios fundamentales
+        self.security_first = True
+        self.zero_trust = True
+        self.sdd_mode = True
+        self.aislamiento_git = True
+    
+    # PASO 1: Análisis SDD y Specs
+    async def paso_1_analisis_sdd(self, elemento: str, especificacion: str) -> Dict:
+        """
+        Analiza el estado actual del [elemento] utilizando SDD.
+        Define Criterios de Aceptación claros (estilo Gherkin).
+        """
+        print(f"\n🔍 PASO 1: Análisis SDD de '{elemento}'")
+        
+        # Zero Trust: asumir que todo input puede ser malicioso
+        if self.zero_trust:
+            especificacion = self.sanitize_input(especificacion)
+        
+        # Análisis con SDD
+        analisis = {
+            "elemento": elemento,
+            "estado_actual": self.analizar_estado(elemento),
+            "criterios_aceptacion": self.generar_criterios_gherkin(especificacion),
+            "dependencias": self.analizar_dependencias(elemento),
+            "riesgos_seguridad": self.evaluar_riesgos(elemento),
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        self.historial.append({
+            "paso": 1,
+            "accion": "análisis",
+            "resultado": analisis
+        })
+        
+        return analisis
+    
+    # PASO 2: Propuesta Arquitectónica
+    async def paso_2_propuesta_arquitectonica(self, analisis: Dict) -> Dict:
+        """
+        Propone sugerencias proactivas de cambio, arquitectura, diseño y testing.
+        Incluye búsqueda exhaustiva en GitHub con escaneo de vulnerabilidades.
+        """
+        print(f"\n📐 PASO 2: Propuesta Arquitectónica para '{analisis['elemento']}'")
+        
+        # Security First: siempre proponer con seguridad
+        propuesta = {
+            "elemento": analisis["elemento"],
+            "cambios_propuestos": self.generar_cambios(analisis),
+            "arquitectura": self.sugerir_arquitectura(analisis),
+            "diseño": self.sugerir_diseño(analisis),
+            "testing": self.planear_testing(analisis["criterios_aceptacion"]),
+            "segmentacion": self.definir_segmentacion(analisis)
+        }
+        
+        # Si se requiere código externo, buscar y escanear
+        if self.requiere_codigo_externo(analisis):
+            codigo_externo = self.buscar_github(analisis)
+            propuesta["codigo_externo"] = self.escanear_vulnerabilidades(codigo_externo)
+        
+        return propuesta
+    
+    # PASO 3: Refinamiento con el Usuario
+    async def paso_3_refinamiento_usuario(self, propuesta: Dict, feedback_usuario: str) -> Dict:
+        """
+        Presenta la propuesta al usuario de forma clara y concisa.
+        Corrige y ajusta las especificaciones basándose en el feedback.
+        """
+        print(f"\n👤 PASO 3: Refinamiento con Usuario")
+        
+        # Presentar de forma clara
+        presentacion = self.presentar_propuesta(propuesta)
+        
+        # Recibir feedback y ajustar
+        propuesta_ajustada = self.ajustar_con_feedback(propuesta, feedback_usuario)
+        
+        # Guardar en memoria
+        self.guardar_en_memoria("refinamiento", {
+            "propuesta_original": propuesta,
+            "feedback": feedback_usuario,
+            "propuesta_ajustada": propuesta_ajustada
+        })
+        
+        return propuesta_ajustada
+    
+    # PASO 4: Implementación Aislada
+    async def paso_4_implementacion_aislada(self, propuesta: Dict, agente_tipo: str) -> Dict:
+        """
+        Delega la tarea al sub-agente correspondiente en su rama/worktree.
+        Genera código exclusivamente para ese elemento, cero impacto en otros módulos.
+        """
+        print(f"\n🔧 PASO 4: Implementación Aislada con {agente_tipo}")
+        
+        # Crear worktree aislado para el agente
+        if self.aislamiento_git:
+            worktree = self.crear_worktree(agente_tipo, propuesta["elemento"])
+            
+            # Delegar al sub-agente
+            agente = self.subagentes[agente_tipo]
+            resultado = await self.delegar_a_agente(agente, propuesta, worktree)
+            
+            # Verificar que no hay impacto en otros módulos
+            impacto = self.verificar_impacto(worktree, propuesta["elemento"])
+            
+            return {
+                "status": "completado" if impacto["sin_impacto"] else "requiere_ajuste",
+                "agente": agente_tipo,
+                "worktree": worktree,
+                "resultado": resultado,
+                "impacto": impacto
+            }
+        else:
+            # Sin aislamiento (NO RECOMENDADO - como Ultron)
+            return {"status": "error", "razon": "Aislamiento Git requerido por Zero Trust"}
+    
+    # PASO 5: Testing y Memoria a Corto Plazo
+    async def paso_5_testing_memoria(self, implementacion: Dict, criterios: List) -> Dict:
+        """
+        Ejecuta suite de pruebas basada en Criterios de Aceptación.
+        Si hay fallos, corrige automáticamente, guarda en Engram y vuelve a testear.
+        """
+        print(f"\n🧪 PASO 5: Testing y Memoria")
+        
+        resultados_testing = await self.ejecutar_tests(criterios)
+        
+        if not resultados_testing["exitoso"]:
+            # Corregir automáticamente
+            correcciones = await self.corregir_automáticamente(
+                resultados_testing["fallos"],
+                implementacion
+            )
+            
+            # Guardar en Engram
+            self.guardar_en_memoria("bugfix", {
+                "fallos": resultados_testing["fallos"],
+                "correcciones": correcciones,
+                "implementacion": implementacion
+            })
+            
+            # Re-ejecutar tests
+            resultados_testing = await self.ejecutar_tests(criterios)
+        
+        return {
+            "status": "verde" if resultados_testing["exitoso"] else "rojo",
+            "resultados": resultados_testing,
+            "memoria_actualizada": True
+        }
+    
+    # PASO 6: Consolidación (Engram y Merge)
+    async def paso_6_consolidacion(self, implementacion: Dict, resultados: Dict) -> Dict:
+        """
+        Si el usuario aprueba las pruebas manuales, guarda conocimiento en Engram.
+        Fusiona la rama del worktree con la rama principal via Pull Request.
+        """
+        print(f"\n💾 PASO 6: Consolidación (Engram y Merge)")
+        
+        # Verificar aprobación manual del usuario
+        aprobado = await self.verificar_aprobacion_usuario(implementacion, resultados)
+        
+        if not aprobado:
+            return {"status": "rechazado", "razon": "Usuario no aprobó"}
+        
+        # Guardar en Engram permanentemente
+        self.guardar_en_memoria("consolidacion", {
+            "implementacion": implementacion,
+            "resultados": resultados,
+            "arquitectura_final": self.obtener_arquitectura_final(implementacion)
+        })
+        
+        # Crear Pull Request (NUNCA merge directo)
+        if self.aislamiento_git:
+            pr = await self.crear_pull_request(implementacion)
+            return {"status": "pr_creado", "pull_request": pr}
+        
+        return {"status": "consolidado"}
+    
+    # PASO 7: Iteración Proactiva
+    async def paso_7_iteracion_proactiva(self, ciclo_completado: Dict) -> Dict:
+        """
+        Guarda instrucciones del ciclo en memoria del proyecto.
+        Sugiere proactivamente el siguiente elemento a desarrollar.
+        """
+        print(f"\n🔄 PASO 7: Iteración Proactiva")
+        
+        # Guardar estándar para interacciones futuras
+        self.guardar_estándar_ciclo(ciclo_completado)
+        
+        # Sugerir siguiente elemento
+        siguiente = self.sugerir_siguiente_elemento(ciclo_completado)
+        
+        return {
+            "status": "listo_para_siguiente",
+            "siguiente_elemento": siguiente,
+            "estandar_guardado": True
+        }
+    
+    # Métodos auxiliares
+    def sanitize_input(self, input_text: str) -> str:
+        """Sanitiza input como parte de Zero Trust."""
+        # Implementar sanitización
+        return input_text.strip()
+    
+    def analizar_estado(self, elemento: str) -> Dict:
+        """Analiza estado actual de un elemento."""
+        # Implementar análisis
+        return {"existe": False, "estado": "nuevo"}
+    
+    def generar_criterios_gherkin(self, especificacion: str) -> List[str]:
+        """Genera criterios de aceptación estilo Gherkin."""
+        return [
+            f"CUANDO {especificacion}",
+            "ENTONCES el sistema debe...",
+            "Y debe cumplir con..."
+        ]
+    
+    def guardar_en_memoria(self, tipo: str, contenido: Any):
+        """Guarda información en Engram (memoria persistente)."""
+        if tipo not in self.memoria:
+            self.memoria[tipo] = []
+        
+        self.memoria[tipo].append({
+            "contenido": contenido,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+        print(f"💾 Guardado en Engram: {tipo}")
+    
+    # ... (otros métodos auxiliares)
+
+# EJEMPLO DE USO COMPLETO
+async def ejemplo_flujo_completo():
+    """Ejemplo del flujo de trabajo de 7 pasos."""
+    
+    # Inicializar orquestador
+    orquestador = OrquestadorSDD("./mi-proyecto")
+    
+    # PASO 1: Análisis
+    analisis = await orquestador.paso_1_analisis_sdd(
+        elemento="sistema_autenticacion",
+        especificacion="Los usuarios deben poder iniciar sesión con email y contraseña"
+    )
+    
+    # PASO 2: Propuesta
+    propuesta = await orquestador.paso_2_propuesta_arquitectonica(analisis)
+    
+    # PASO 3: Refinamiento
+    feedback = "Necesito también autenticación con Google"
+    propuesta_ajustada = await orquestador.paso_3_refinamiento_usuario(propuesta, feedback)
+    
+    # PASO 4: Implementación
+    implementacion = await orquestador.paso_4_implementacion_aislada(
+        propuesta_ajustada, 
+        "backend"
+    )
+    
+    # PASO 5: Testing
+    resultados = await orquestador.paso_5_testing_memoria(
+        implementacion, 
+        analisis["criterios_aceptacion"]
+    )
+    
+    # PASO 6: Consolidación (simular aprobación del usuario)
+    print("👤 ¿Apruebas las pruebas manuales? (s/n)")
+    # En implementación real, esperar input del usuario
+    consolidacion = await orquestador.paso_6_consolidacion(implementacion, resultados)
+    
+    # PASO 7: Iteración
+    siguiente = await orquestador.paso_7_iteracion_proactiva(consolidacion)
+    
+    print(f"\n✅ Ciclo completado. Siguiente: {siguiente['siguiente_elemento']}")
+
+# Para ejecutar el ejemplo
+if __name__ == "__main__":
+    asyncio.run(ejemplo_flujo_completo())
+```
+
+### **Ejercicio 5: Deploy y Monitoreo**
+
+#### **Dockerfile para Producción**
+```dockerfile
+# Dockerfile
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+
+# Instalar dependencias del sistema
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copiar requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# Copiar código
+COPY . .
+
+# Etapa de producción
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copiar dependencias instaladas
+COPY --from=builder /install /usr/local
+
+# Copiar código
+COPY --from=builder /app .
+
+# Crear usuario no-root
+RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+USER appuser
+
+# Exponer puerto
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:8000/health')"
+
+# Ejecutar
+CMD ["uvicorn", "production.app:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+#### **Docker Compose para Desarrollo**
+```yaml
+# docker-compose.yml
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/ironman
+      - REDIS_URL=redis://redis:6379
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ironman
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  postgres_data:
+  redis_data:
+  grafana_data:
+```
+
+---
+
+## 🏆 **Logro Desbloqueado: "Innovator"**
+
+### **Requisitos para Desbloquear**
+- [ ] Instalar y configurar Gentle AI Stack completo
+- [ ] Configurar pipeline CI/CD funcional
+- [ ] Implementar testing avanzado con cobertura >90%
+- [ ] Configurar seguridad por diseño
+- [ ] Desplegar aplicación de producción
+- [ ] Configurar monitoreo y alertas
+- [ ] Completar proyecto final: **The Iron Legion**
+
+### **Proyecto Final: The Iron Legion**
+Crearás un sistema completo que incluya:
+1. **Multi-agente**: Mínimo 3 agentes especializados
+2. **Memoria persistente**: Engram con retención de 30+ días
+3. **MCP integrado**: Conexión con GitHub, base de datos
+4. **CI/CD pipeline**: GitHub Actions completo
+5. **Monitoreo**: Prometheus + Grafana
+6. **Seguridad**: OWASP, encryption, audit trail
+7. **Documentación**: API docs, guías, arquitectura
+8. **Tests**: Cobertura >90%, AI-specific tests
+
+### **Recompensa Final**
+- **500 XP** por completar el proyecto final
+- **Logro "Innovator"** en tu perfil
+- **Certificado** de Iron Man Evolution
+- **Acceso** a comunidad de desarrolladores
+- **Badge** para tu GitHub/LinkedIn
+
+---
+
+## 📚 **Recursos Finales**
+
+### **Documentación**
+- [Gentle AI Stack Complete Guide](https://github.com/Gentleman-Programming/gentle-ai/blob/main/docs/README.md)
+- [Production Deployment Guide](https://github.com/Gentleman-Programming/gentle-ai/blob/main/docs/production.md)
+- [Security Best Practices](https://github.com/Gentleman-Programming/gentle-ai/blob/main/docs/security.md)
+
+### **Comunidad**
+- [Discord: Gentleman Programming](https://discord.gg/gentleman-programming)
+- [GitHub Discussions](https://github.com/Gentleman-Programming/gentle-ai/discussions)
+- [Twitter: @GentlemanProgramming](https://twitter.com/GentlemanProg)
+
+### **Certificación**
+Para obtener tu certificado:
+1. Completar todos los 6 niveles
+2. Subir proyecto final a GitHub
+3. Demostrar deployment funcional
+4. Pasar review de código
+5. Completar evaluación final
+
+---
+
+## 🚀 **Siguiente Paso**
+
+**¡Felicidades, Innovator!** Has completado Iron Man Evolution.
+
+**Ahora puedes:**
+1. ✅ Crear sistemas de IA complejos
+2. ✅ Orquestar múltiples agentes
+3. ✅ Implementar memoria persistente
+4. ✅ Conectar con cualquier herramienta vía MCP
+5. ✅ Desplegar a producción enterprise
+6. ✅ Pensar como Tony Stark: innovar sin límites
+
+**Recuerda la lección final:**
+> *"El Mark L no es el final. Es el comienzo de lo que viene. La tecnología evoluciona. Tú también debes hacerlo."*
+> — Tony Stark, Avengers: Infinity War
+
+---
+
+*"No soy héroe porque tenga una armadura. Soy héroe porque tengo la voluntad de usarla para hacer el bien."*
+— Tony Stark, Avengers: Endgame

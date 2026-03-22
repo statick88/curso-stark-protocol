@@ -1,0 +1,491 @@
+---
+title: "Nivel 3: El Mark III"
+author: "Diego Saavedra García"
+description: "Combate Real: Agentes, subagentes y el loop de percepción-decisión-acción"
+image: images/nivel3-mark-iii.jpg
+---
+
+# 🦾 Nivel 3: El Mark III
+
+## **Combate Real: De Prototipo a Sistema Autónomo**
+
+---
+
+## 🎬 **La Escena de Iron Man (2008)**
+
+> *"Esta vez no mevoy a contentar con algo que no sea perfecto."* — Tony Stark
+
+Tony Stark ha aprendido de sus errores.
+
+El **Mark I** lo salvó de la cueva. El **Mark II** voló, pero se congeló en la estratósfera.
+
+Ahora construye el **Mark III**: la primera armadura de **combate real**.
+
+---
+
+**El Mark III es diferente:**
+
+- ✅ **Combina lo mejor** del Mark I y Mark II
+
+- ✅ **Sistemas probados** bajo condiciones extremas
+
+- ✅ **Edge cases considerados** desde el diseño
+
+- ✅ **Feedback loop** integrado para mejorar
+
+---
+
+**Pero también:**
+
+- ⚠️ **Mayor complejidad** — más subsystems, más puntos de falla
+
+- ⚠️ **Testing exhaustivo** — cada componente debe pasar pruebas
+
+- ⚠️ **Debugging crítico** — un bug en combate puede ser fatal
+
+- ⚠️ **Optimización necesaria** — rendimiento perfecto o muerte
+
+---
+
+**En este nivel, tú eres Tony perfeccionando el Mark III para combate.**
+
+Tu código del Mark I "funciona", pero necesitas convertirlo en un **sistema robusto**: tests completos, debugging efectivo, y código que sobreviva al combate real.
+
+---
+
+## 🎯 **Objetivos de Aprendizaje**
+
+Al completar este nivel, serás capaz de:
+
+1. ✅ **Debuggear** sistemas de IA que fallan en producción
+2. ✅ **Escribir tests** que capturen edge cases
+3. ✅ **Refactorizar** código manteniendo funcionalidad
+4. ✅ **Optimizar** rendimiento del sistema
+5. ✅ **Iterar** sobre soluciones basadas en feedback real
+
+---
+
+## 🧠 **Conceptos Técnicos**
+
+### **3.1 Debugging de Sistemas de IA**
+
+#### **El Ciclo de Debugging**
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   REPRODUCE │ ──► │   ISOLATE   │ ──► │   FIX       │
+│   el Bug    │     │   la Causa  │     │   el Issue  │
+└─────────────┘     └─────────────┘     └─────────────┘
+        ▲                                       │
+        │                                       │
+        └───────────────────────────────────────┘
+                    VERIFY the Fix
+```
+
+#### **Herramientas de Debugging**
+
+```python
+# Debugging interactivo con ipdb
+import ipdb; ipdb.set_trace()
+
+# Logging estructurado
+import logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+# Tracing de llamadas
+from opentelemetry import trace
+tracer = trace.get_tracer(__name__)
+
+# Performance profiling
+import cProfile
+cProfile.run('mi_funcion()')
+```
+
+### **3.2 Testing de Edge Cases**
+
+#### **Qué son Edge Cases?**
+
+Los edge cases son situaciones extremas o inusuales que tu código debería manejar:
+
+| Tipo | Ejemplo | Por qué falla |
+|------|---------|---------------|
+| **Boundary** | `[]`, `None`, `""` | Arrays vacíos, nulos |
+| **Type** | `"123"` vs `123` | Tipos incorrectos |
+| **Scale** | `1_000_000` items | Problemas de memoria |
+| **Concurrency** | 100 requests simultáneos | Race conditions |
+| **Network** | Timeout, connection refused | Fallos externos |
+
+#### **Ejemplo de Edge Case Testing**
+
+```python
+import pytest
+
+class TestEdgeCases:
+    """Tests para edge cases del sistema de inventario."""
+    
+    def test_inventario_vacio(self):
+        """Edge case: inventario sin productos."""
+        inv = Inventario()
+        assert inv.total_productos == 0
+        assert inv.buscar("cualquiera") == []
+    
+    def test_producto_nombre_vacio(self):
+        """Edge case: nombre de producto vacío."""
+        inv = Inventario()
+        with pytest.raises(ValueError):
+            inv.crear_producto("", "categoria", 10)
+    
+    def test_cantidad_negativa(self):
+        """Edge case: cantidad negativa."""
+        inv = Inventario()
+        producto = inv.crear_producto("Mark III", "armadura", 10)
+        with pytest.raises(ValueError):
+            inv.actualizar_stock(producto.id, -5)
+    
+    def test_concurrencia_basica(self):
+        """Edge case: múltiples accesos simultáneos."""
+        import threading
+        
+        inv = Inventario()
+        errores = []
+        
+        def agregar_producto():
+            try:
+                inv.crear_producto(f"Producto-{threading.get_ident()}", "test", 1)
+            except Exception as e:
+                errores.append(e)
+        
+        threads = [threading.Thread(target=agregar_producto) for _ in range(10)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        
+        assert len(errores) == 0
+        assert inv.total_productos == 10
+```
+
+---
+
+### **3.2.5 Testing de Seguridad (Security Testing)**
+
+> *"Si no testeo la seguridad, estoy probando a ciegas."*
+> — Tony Stark (probablemente)
+
+#### **¿Por qué Security Testing?**
+
+Un bug funcional rompe tu app. Un bug de seguridad **rompe tu negocio**.
+
+#### **Tipos de Security Tests**
+
+| Tipo | Qué prueba | Ejemplo |
+|------|------------|---------|
+| **Input Validation** | ¿Rechaza inputs maliciosos? | `'; DROP TABLE users;--` |
+| **Auth Testing** | ¿Solo usuarios autorizados acceden? | Acceder sin token |
+| **SQL Injection** | ¿Los queries son parameterized? | Inyección SQL básica |
+| **XSS Prevention** | ¿Escapes el output? | `<script>alert('xss')</script>` |
+| **Rate Limiting** | ¿Limita requests por IP? | 1000 requests en 1 segundo |
+
+---
+
+#### **Ejemplo: Security Tests con pytest**
+
+```python
+import pytest
+from fastapi.testclient import TestClient
+from app.main import app
+
+client = TestClient(app)
+
+class TestSecurityValidations:
+    """Tests de seguridad para la API."""
+    
+    def test_sql_injection_attempt(self):
+        """SQL Injection en campo de búsqueda."""
+        malicious_input = "'; DROP TABLE users;--"
+        response = client.get(f"/users/search?q={malicious_input}")
+        
+        # Debe rechazar o sanitizar, NUNCA ejecutar
+        assert response.status_code in [400, 422]  # Bad Request o Validation Error
+        assert "DROP" not in response.text  # No debe contener SQL ejecutado
+    
+    def test_xss_attempt(self):
+        """XSS en campo de comentario."""
+        xss_payload = "<script>alert('hacked')</script>"
+        response = client.post("/comments", json={
+            "text": xss_payload,
+            "user_id": 1
+        })
+        
+        # El output debe estar escapado
+        if response.status_code == 200:
+            assert "<script>" not in response.json().get("text", "")
+            assert "&lt;script&gt;" in response.json().get("text", "")
+    
+    def test_unauthorized_access(self):
+        """Acceso sin token JWT."""
+        response = client.get("/admin/users")
+        
+        # Debe rechazar con 401 o 403
+        assert response.status_code in [401, 403]
+    
+    def test_rate_limiting(self):
+        """Rate limiting en endpoint sensible."""
+        # Intentar 100 requests en rápida sucesión
+        responses = []
+        for _ in range(100):
+            r = client.post("/auth/login", json={
+                "email": "test@test.com",
+                "password": "wrong"
+            })
+            responses.append(r.status_code)
+        
+        # Debe haber al menos un 429 (Too Many Requests)
+        assert 429 in responses, "Rate limiting no está funcionando"
+    
+    def test_oversized_payload(self):
+        """Payload excesivamente grande."""
+        huge_data = "x" * (10 * 1024 * 1024)  # 10MB
+        
+        response = client.post("/upload", data=huge_data)
+        
+        # Debe rechazar payloads grandes
+        assert response.status_code in [400, 413]  # Bad Request o Payload Too Large
+```
+
+---
+
+#### **El Security Checklist de Tony Stark**
+
+Antes de cada deploy, verifica:
+
+- [ ] ✅ Todos los inputs validados con Pydantic/Schema
+- [ ] ✅ Queries SQL usan parámetros, no f-strings
+- [ ] ✅ Outputs HTML están escapados
+- [ ] ✅ JWT tokens tienen expiración
+- [ ] ✅ Rate limiting activo en endpoints sensibles
+- [ ] ✅ Secrets no están hardcodeados
+- [ ] ✅ Logs no contienen passwords/tokens
+- [ ] ✅ CORS está configurado correctamente
+
+---
+
+> 💡 **Recuerda**: Testing funcional verifica que "funciona". Testing de seguridad verifica que "no puede ser atacado". Necesitas ambos.
+
+### **3.3 Refactoring Responsable**
+
+#### **Las 3 Reglas del Refactoring**
+
+1. **No rompas los tests** — Si los tests pasan antes, deben pasar después
+2. **Pequeños pasos** — Cambios incrementales, commit frecuente
+3. **Entiende el código** — No refactorices código que no entiendes
+
+#### **Antes vs Después**
+
+```python
+# ❌ ANTES: Código que funciona pero es difícil de mantener
+def process(data):
+    result = []
+    for item in data:
+        if item['type'] == 'product':
+            if item['status'] == 'active':
+                if item['quantity'] > 0:
+                    result.append({
+                        'id': item['id'],
+                        'name': item['name'],
+                        'price': item['price'] * 1.16  # IVA
+                    })
+    return result
+
+# ✅ DESPUÉS: Refactorizado con funciones pequeñas
+def calculate_price_with_tax(price: float, tax_rate: float = 0.16) -> float:
+    """Calcula precio con IVA."""
+    return price * (1 + tax_rate)
+
+def is_active_product(product: dict) -> bool:
+    """Verifica si un producto está activo."""
+    return (
+        product.get('type') == 'product' and
+        product.get('status') == 'active' and
+        product.get('quantity', 0) > 0
+    )
+
+def format_product_for_sale(product: dict) -> dict:
+    """Formatea un producto para venta con IVA incluido."""
+    return {
+        'id': product['id'],
+        'name': product['name'],
+        'price': calculate_price_with_tax(product['price'])
+    }
+
+def process(data: list[dict]) -> list[dict]:
+    """Procesa datos de inventario y retorna productos activos."""
+    return [
+        format_product_for_sale(item)
+        for item in data
+        if is_active_product(item)
+    ]
+```
+
+---
+
+## 🔬 **Laboratorio 3: El Primer Vuelo**
+
+### **Objetivo**
+
+Tomar tu sistema del Mark I (Nivel 2) y hacerlo robusto para producción:
+
+1. Encontrar y corregir bugs
+2. Agregar tests para edge cases
+3. Refactorizar código problemático
+4. Optimizar rendimiento
+
+### **Ejercicio 1: El Bug del Mark III 🐛**
+
+#### **Escenario**
+
+Tu sistema de inventario del Mark I tiene un bug crítico:
+
+```python
+# El bug: cuando se agrega un producto con cantidad 0
+# el sistema lo muestra como "out of stock" pero no
+# permite restockearlo
+
+inventario.crear_producto("Mark III", "armadura", 0)
+# Esperado: Producto creado, stock 0, permite restock
+# Real: Error o producto invisible
+```
+
+#### **Tu Tarea**
+
+1. **Reproduce** el bug
+2. **Identifica** la causa raíz
+3. **Escribe un test** que falle con el bug
+4. **Corrige** el código
+5. **Verifica** que el test pase
+
+#### **Checklist**
+
+- [ ] Bug reproducido localmente
+- [ ] Causa raíz identificada
+- [ ] Test escrito (failing)
+- [ ] Código corregido
+- [ ] Test passing
+- [ ] Commit realizado
+
+---
+
+### **Ejercicio 2: Edge Cases para Inventario 🎯**
+
+#### **Tu Tarea**
+
+Identifica y escribe tests para al menos 5 edge cases de tu sistema:
+
+```python
+# Template para tu test
+def test_edge_case_nombre_descriptivo(self):
+    """Edge case: descripción clara del caso extremo."""
+    # Arrange
+    # Tu setup aquí
+    
+    # Act
+    # Tu acción aquí
+    
+    # Assert
+    # Tu verificación aquí
+```
+
+#### **Sugerencias de Edge Cases**
+
+| # | Edge Case | ¿Qué podría fallar? |
+|---|-----------|---------------------|
+| 1 | Producto con nombre de 1000 caracteres | Buffer overflow, UI rota |
+| 2 | Precio = 0 | División por cero en descuentos |
+| 3 | Stock máximo (int overflow) | Error de cálculo |
+| 4 | Concurrent access | Race conditions |
+| 5 | Datos corruptos JSON | Parsing error |
+
+---
+
+### **Ejercicio 3: Refactoring Challenge 🔧**
+
+#### **Tu Tarea**
+
+Refactoriza esta función problemática:
+
+```python
+# Código a refactorizar
+def handle_request(data, user, action, options=None, callback=None, **kwargs):
+    """Maneja request del sistema."""
+    if user is not None:
+        if user.get('role') == 'admin':
+            if action == 'create':
+                if data.get('name'):
+                    if data.get('quantity', 0) >= 0:
+                        # Lógica de creación aquí...
+                        result = {'status': 'created', 'id': 123}
+                        if callback:
+                            callback(result)
+                        return result
+                    else:
+                        return {'error': 'Invalid quantity'}
+                else:
+                    return {'error': 'Name required'}
+            elif action == 'delete':
+                # Lógica de eliminación...
+                pass
+            # ... más elifs
+        elif user.get('role') == 'user':
+            # Lógica para usuario normal...
+            pass
+    return {'error': 'Unauthorized'}
+```
+
+#### **Requisitos**
+
+- [ ] Máximo 3 niveles de indentación
+- [ ] Cada función hace una sola cosa
+- [ ] Nombres descriptivos
+- [ ] Tests pasan después del refactor
+
+---
+
+## 🏆 **Logro Desbloqueado: "First Flight"**
+
+### **Requisitos para Desbloquear**
+
+- [ ] Bug del Mark III corregido
+- [ ] 5+ edge cases con tests
+- [ ] Código refactorizado (≤3 indentación)
+- [ ] Todos los tests pasando
+- [ ] Documentación de cambios
+
+### **Recompensa**
+- **+200 XP**
+- **Logro "First Flight"**
+- **Acceso al Nivel 4: JARVIS Avanzado**
+
+### **Siguiente Nivel**
+> *"Ahora viene la parte divertida."* — Tony Stark
+
+Con tu Mark III perfeccionado, estás listo para ampliar tu inteligencia: [→ **Nivel 4: JARVIS Avanzado**](nivel4.qmd)
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Debugging**
+- [Python Debugging with pdb](https://docs.python.org/3/library/pdb.html)
+- [ipdb - IPython Debugger](https://github.com/gotcha/ipdb)
+- [VS Code Python Debugging](https://code.visualstudio.com/docs/python/debugging)
+
+### **Testing**
+- [pytest Documentation](https://docs.pytest.org/)
+- [Real Python - Testing](https://realpython.com/python-testing/)
+- [Edge Case Testing Patterns](https://testing.googleblog.com/)
+
+### **Refactoring**
+- [Refactoring Guru](https://refactoring.guru/)
+- [Martin Fowler - Refactoring](https://martinfowler.com/books/refactoring.html)
+- [Clean Code Principles](https://clean-code-developer.com/)

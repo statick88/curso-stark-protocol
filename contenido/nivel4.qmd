@@ -1,0 +1,1068 @@
+---
+title: "Nivel 4: JARVIS Avanzado"
+author: "Diego Saavedra García"
+description: "Inteligencia Ampliada: Memoria persistente, MCP y Skills modulares"
+image: images/nivel4-jarvis.jpg
+---
+
+# 🤖 Nivel 4: JARVIS Avanzado
+
+## **Inteligencia Ampliada: De Agente a Sistema Cognitivo**
+
+---
+
+## 🎬 **La Escena de Iron Man 2 (2010)**
+
+> *"Todo funciona a la perfección. No veo la razón para cambiar nada."*
+> — Tony Stark
+
+JARVIS ha evolucionado. Ya no es solo un asistente. Es un **sistema cognitivo completo**:
+- **Memoria perfecta**: Recuerda cada conversación, cada decisión
+- **Conectividad universal**: Se conecta a cualquier sistema, base de datos, API
+- **Habilidades modulares**: Puede aprender nuevas capacidades bajo demanda
+- **Autonomía controlada**: Toma decisiones sin saturar a Tony
+
+**En Iron Man 2, JARVIS:**
+1. **Recuerda** que Tony le pidió revisar los planes de Stark Expo hace 3 meses
+2. **Conecta** con los sistemas de defensa de la mansión
+3. **Ejecuta** funciones especializadas (análisis de datos, simulaciones)
+4. **Mantiene** el contexto entre múltiples sesiones de trabajo
+
+**En este nivel, convertirás tus agentes en "JARVIS Avanzados":** con memoria persistente (Engram), conectividad universal (MCP), y habilidades modulares (Skills).
+
+---
+
+## 🎯 **Objetivos de Aprendizaje**
+
+Al completar este nivel, serás capaz de:
+
+1. ✅ **Instalar y usar Engram** para memoria persistente entre sesiones
+2. ✅ **Implementar MCP** para conectar agentes con herramientas externas
+3. ✅ **Crear y gestionar Skills** modulares para tus agentes
+4. ✅ **Diseñar sistemas cognitivos** que aprenden y recuerdan
+5. ✅ **Integrar** todo en un stack completo de desarrollo
+
+---
+
+## 🧠 **Conceptos Técnicos**
+
+### **4.1 Engram: La Memoria Perfecta de JARVIS**
+
+#### **El Problema de la Amnesia**
+Los agentes de IA tienen **amnesia entre sesiones**:
+```
+Sesión 1: "Necesito una función para calcular energía"
+Sesión 2: "¿De qué energía hablaste ayer?" → 😕 "No recuerdo"
+```
+
+**Engram** soluciona esto con **memoria persistente**.
+
+#### **Analogía: Engram vs Cerebro Humano**
+| Cerebro Humano | Engram (Go binary) |
+|----------------|---------------------|
+| Memoria a corto plazo | Ventana de contexto |
+| Memoria a largo plazo | SQLite + FTS5 |
+| Asociaciones | Búsqueda BM25 |
+| Aprendizaje | Guardar decisiones |
+| Olvido | Podemos evitarlo |
+
+#### **Instalación de Engram**
+```bash
+# Instalar Engram (binario Go)
+# Opción 1: Script de instalación (recomendado)
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install-engram.sh | bash
+
+# Opción 2: Descarga manual
+# Ir a https://github.com/Gentleman-Programming/gentle-ai/releases
+# Descargar el binario para tu OS
+
+# Verificar instalación
+engram --version
+
+# Inicializar base de datos
+engram init
+
+# Ver estado
+engram status
+```
+
+#### **Cómo Funciona Engram Internamente**
+```go
+// Simplificación del funcionamiento interno
+type Engram struct {
+    db       *sql.DB      // SQLite database
+    indexer  *fts5.FTS5   // Full-text search
+    bm25     *bm25.BM25   // Ranking algorithm
+}
+
+// Guardar un "engram" (unidad de memoria)
+func (e *Engram) Guardar(tipo, contenido string, metadatos map[string]interface{}) {
+    // 1. Guardar en SQLite
+    query := `INSERT INTO engrams (tipo, contenido, metadatos, timestamp) 
+              VALUES (?, ?, ?, datetime('now'))`
+    
+    // 2. Indexar para búsqueda
+    e.indexer.Index(contenido)
+    
+    // 3. Actualizar BM25
+    e.bm25.AddDocument(contenido)
+}
+
+// Buscar engramas
+func (e *Engram) Buscar(query string, limit int) []Engram {
+    // 1. Búsqueda FTS5
+    results := e.indexer.Search(query)
+    
+    // 2. Ranking con BM25
+    ranked := e.bm25.Rank(results)
+    
+    // 3. Retornar top results
+    return ranked[:limit]
+}
+```
+
+#### **Tipos de Engramas**
+```json
+{
+  "decision": {
+    "tipo": "decision",
+    "contenido": "Elegí usar PostgreSQL sobre MySQL por mejor soporte JSON",
+    "contexto": "Proyecto Iron Man Evolution, Nivel 4",
+    "timestamp": "2026-03-22T10:30:00Z"
+  },
+  "bugfix": {
+    "tipo": "bugfix", 
+    "contenido": "Error en cálculo de energía: faltaba normalizar a 0-100",
+    "solución": "Añadí Math.max(0, Math.min(100, energia))",
+    "archivos": ["src/reactor.py", "tests/test_reactor.py"]
+  },
+  "preference": {
+    tipo": "preference",
+    "contenido": "Siempre usar type hints en Python",
+    "scope": "global",
+    "evidencia": "Error encontrado 3 veces por falta de tipos"
+  }
+}
+```
+
+### **4.2 MCP: El Protocolo Universal de Conexión**
+
+#### **¿Qué es MCP (Model Context Protocol)?**
+MCP es el **USB-C de la IA**: un estándar para conectar agentes con **cualquier herramienta**. **TODAS** las herramientas de IA modernas soportan MCP.
+
+#### **Analogía: MCP vs Adaptadores**
+| Sin MCP | Con MCP |
+|---------|---------|
+| Cada herramienta tiene su integración | Un protocolo estándar |
+| 10 herramientas = 10 integraciones | 10 herramientas = 1 adaptador |
+| Difícil mantener | Fácil de escalar |
+| Como tener 10 enchufes diferentes | Como tener USB-C universal
+
+#### **MCP en Diferentes Herramientas**
+Todas las herramientas que estás aprendiendo soportan MCP:
+
+```bash
+# Claude Code + MCP
+claude --mcp-config mcp-config.json
+
+# OpenCode + MCP  
+opencode --mcp mcp-config.json
+
+# Gemini CLI + MCP
+gemini --mcp-config mcp-config.json
+
+# KiloCode + MCP (configuración en VS Code)
+# .vscode/settings.json
+{
+  "kilo-code.mcpServers": {
+    "github": { ... }
+  }
+}
+```
+
+#### **Arquitectura MCP**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         ARQUITECTURA MCP (MODEL CONTEXT PROTOCOL)               │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────┐   │
+│  │                    TU AGENTE (J.A.R.V.I.S.)                            │   │
+│  │                    ─────────────────────                                │   │
+│  │                        AGENTE PRINCIPAL                                 │   │
+│  └─────────────────────────────────────────────────────────────────────────┘   │
+│                                    │                                            │
+│                    ┌───────────────┼───────────────┐                           │
+│                    │               │               │                           │
+│                    ▼               ▼               ▼                           │
+│  ┌─────────────────────────────────────────────────────────────────────────┐   │
+│  │                         MCP SERVERS                                     │   │
+│  │                         ────────────                                    │   │
+│  │  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │   │
+│  │  │  GITHUB MCP  │ │ NOTION MCP   │ │ DATABASE MCP │ │  CUSTOM MCP  │   │   │
+│  │  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘   │   │
+│  └─────────────────────────────────────────────────────────────────────────┘   │
+│           │              │               │               │                    │
+│           ▼              ▼               ▼               ▼                    │
+│  ┌─────────────────────────────────────────────────────────────────────────┐   │
+│  │                      HERRAMIENTAS EXTERNAS                              │   │
+│  │                      ─────────────────────                               │   │
+│  │  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │   │
+│  │  │  GITHUB API  │ │  NOTION API  │ │  POSTGRESQL  │ │    TU API    │   │   │
+│  │  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘   │   │
+│  └─────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                 │
+│  FLUJO:                                                                         │
+│  ──────                                                                         │
+│  1. Tu agente (J.A.R.V.I.S.) solicita una acción                              │
+│  2. El agente envía la solicitud al MCP Server correspondiente                 │
+│  3. El MCP Server traduce y ejecuta la acción en la Herramienta Externa        │
+│  4. El resultado regresa al agente a través del MCP Server                     │
+│                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### **Instalar MCP Server para GitHub**
+```bash
+# Usar Gentle AI Stack para instalar MCPs
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+
+# Luego instalar GitHub MCP
+gentle-ai install-mcp github
+
+# Configurar token
+export GITHUB_TOKEN="ghp_tu_token_aqui"
+
+# Verificar
+gentle-ai list-mcp
+```
+
+#### **Configurar MCP en tu proyecto**
+Crear `mcp-config.json`:
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "filesystem": {
+      "command": "npx", 
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "~/iron-man-project"],
+      "env": {}
+    },
+    "database": {
+      "command": "python",
+      "args": ["-m", "mcp_server_database"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}"
+      }
+    }
+  }
+}
+```
+
+#### **Instalar MCP Server para GitHub**
+```bash
+# Usar Gentle AI Stack para instalar MCPs
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+
+# Luego instalar GitHub MCP
+gentle-ai install-mcp github
+
+# Configurar token
+export GITHUB_TOKEN="ghp_tu_token_aqui"
+
+# Verificar
+gentle-ai list-mcp
+```
+
+#### **Configurar MCP en tu proyecto**
+Crear `mcp-config.json`:
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "filesystem": {
+      "command": "npx", 
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "~/iron-man-project"],
+      "env": {}
+    },
+    "database": {
+      "command": "python",
+      "args": ["-m", "mcp_server_database"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}"
+      }
+    }
+  }
+}
+```
+
+### **4.3 Skills: Habilidades Modulares de JARVIS**
+
+#### **¿Qué es un Skill?**
+Un **Skill** es un **módulo de conocimiento especializado** que el agente carga bajo demanda.
+
+#### **Analogía: Skills vs Cerebro**
+| Cerebro | Skills |
+|---------|--------|
+| Todo en un solo lugar | Módulos separados |
+| Saturación por exceso de info | Carga selectiva |
+| Difícil actualizar | Fácil de actualizar |
+| Como cargar Windows completo | Como cargar solo la app que necesitas |
+
+#### **Estructura de un Skill**
+```
+skills/
+├── clean-code/
+│   ├── SKILL.md          # Instrucciones principales
+│   ├── examples/         # Ejemplos de código
+│   └── scripts/          # Scripts auxiliares
+├── testing/
+│   ├── SKILL.md
+│   ├── pytest/
+│   └── jest/
+└── security/
+    ├── SKILL.md
+    ├── OWASP/
+    └── scripts/
+```
+
+#### **Ejemplo de Skill: clean-code**
+`skills/clean-code/SKILL.md`:
+```markdown
+# Skill: Clean Code
+
+## Trigger
+Cuando el código necesita refactorización, nombres ambiguos, o funciones largas.
+
+## Reglas Principales
+1. **Nombres revelan intención** - Variables deben explicar qué son
+2. **Funciones pequeñas** - Máximo 20 líneas, una responsabilidad
+3. **Comentarios explican POR QUÉ** - No el QUÉ
+4. **DRY** - No repitas código
+5. **Single Responsibility** - Una función hace una cosa bien
+
+## Patrones
+### Mal nombre vs Buen nombre
+```python
+# Mal
+def calc(a, b, t):
+    if t == 1:
+        return a * b * 0.1
+    else:
+        return a * b * 0.2
+
+# Buen
+def calcular_precio_con_descuento(
+    precio_base: float, 
+    cantidad: int,
+    tipo_cliente: Literal["regular", "premium"]
+) -> float:
+    """Calcula precio final con descuento según tipo de cliente."""
+    descuento = 0.1 if tipo_cliente == "regular" else 0.2
+    return precio_base * cantidad * (1 - descuento)
+```
+
+### Longitud de función
+```python
+# Mal: Función larga y hace muchas cosas
+def procesar_usuario(datos):
+    # Validar datos (20 líneas)
+    # Guardar en BD (15 líneas)
+    # Enviar email (10 líneas)
+    # Loggear (5 líneas)
+    pass
+
+# Buen: Funciones pequeñas
+def procesar_usuario(datos: dict) -> bool:
+    """Procesa datos de usuario completo."""
+    if not validar_datos_usuario(datos):
+        return False
+    
+    usuario_id = guardar_usuario_en_bd(datos)
+    enviar_email_bienvenida(usuario_id)
+    log_proceso_usuario(usuario_id)
+    
+    return True
+
+def validar_datos_usuario(datos: dict) -> bool:
+    """Valida que todos los campos requeridos estén presentes."""
+    campos_requeridos = ["nombre", "email", "password"]
+    return all(campo in datos for campo in campos_requeridos)
+```
+
+## Checklist de Revisión
+- [ ] ¿Los nombres son descriptivos?
+- [ ] ¿Las funciones tienen <20 líneas?
+- [ ] ¿Hay comentarios que expliquen POR QUÉ?
+- [ ] ¿Se repite código (DRY)?
+- [ ] ¿Cada función hace una sola cosa?
+```
+
+### **4.4 Registro de Skills (Skill Registry)**
+
+#### **Inventario de Habilidades**
+
+Como Tony tiene un inventario de armas para cada situación, el Skill Registry es tu inventario de habilidades para tus agentes.
+
+```json
+{
+  "skill-registry": {
+    "version": "1.0",
+    "skills": {
+      "clean-code": {
+        "path": "skills/clean-code/SKILL.md",
+        "version": "1.0",
+        "trigger": "refactorización, nombres ambiguos",
+        "priority": 1
+      },
+      "testing": {
+        "path": "skills/testing/SKILL.md", 
+        "version": "2.1",
+        "trigger": "tests, TDD, cobertura",
+        "priority": 2
+      },
+      "security": {
+        "path": "skills/security/SKILL.md",
+        "version": "1.2",
+        "trigger": "seguridad, OWASP, autenticación",
+        "priority": 3
+      }
+    }
+  }
+}
+```
+
+**Campos clave:**
+
+- **path**: Ruta al archivo SKILL.md
+
+- **version**: Versión de la habilidad
+
+- **trigger**: Palabras que activan esta habilidad
+
+- **priority**: Orden de carga (1 = primero)
+
+---
+
+### **4.5 Aislamiento Multi-Agente con Git Worktrees**
+
+> *"Cada agente necesita su propio espacio de trabajo. Como cada armadura de Tony tiene su garage."*
+
+#### **El Problema del Agente Único**
+
+Imagina que Tony Stark usara **un solo taller** para construir todas sus armaduras simultáneamente:
+
+```
+❌ SIN AISLAMIENTO:
+Garage Stark
+├── Mark I (en construcción)
+├── Mark II (en construcción)  
+├── Mark III (en construcción)
+├── Mark IV (en construcción)
+└── ¡CAOS TOTAL! Los agentes se estorban
+```
+
+#### **La Solución: Git Worktrees**
+
+**Git Worktrees** te permite tener **múltiples ramas checkeadas simultáneamente**, cada una en su propio directorio:
+
+```
+✅ CON GIT WORKTREES:
+~/iron-man-project/
+├── main/                    # Rama principal
+│   └── AGENTS.md
+├── worktrees/
+│   ├── mark-i-agent/       # Worktree para Agente 1
+│   │   └── AGENTS.md (Mark I rules)
+│   ├── mark-ii-agent/      # Worktree para Agente 2
+│   │   └── AGENTS.md (Mark II rules)
+│   └── mark-iii-agent/     # Worktree para Agente 3
+│       └── AGENTS.md (Mark III rules)
+```
+
+---
+
+#### **Comandos de Git Worktrees**
+
+```bash
+# Crear un nuevo worktree con rama nueva
+git worktree add ../worktrees/mark-i-agent -b feature/mark-i
+
+# Crear worktree desde rama existente
+git worktree add ../worktrees/mark-ii-agent feature/mark-ii
+
+# Listar todos los worktrees
+git worktree list
+
+# Remover worktree cuando termines
+git worktree remove ../worktrees/mark-i-agent
+
+# Limpiar worktrees que ya no existen
+git worktree prune
+```
+
+---
+
+#### **Patrón: Un Agente por Worktree**
+
+Cada agente trabaja en su worktree con su propio `AGENTS.md`:
+
+```bash
+# Configurar trabajo multi-agente
+cd ~/iron-man-project
+
+# Agente 1: Desarrollo de features
+git worktree add ../worktrees/agent-feature -b feature/nueva-funcionalidad
+cd ../worktrees/agent-feature
+# Editar AGENTS.md con reglas de feature development
+
+# Agente 2: Bug fixes
+git worktree add ../worktrees/agent-bugfix -b hotfix/bug-critico
+cd ../worktrees/agent-bugfix
+# Editar AGENTS.md con reglas de bug fixing
+
+# Agente 3: Testing y seguridad
+git worktree add ../worktrees/agent-testing -b test/security-tests
+cd ../worktrees/agent-testing
+# Editar AGENTS.md con reglas de testing
+```
+
+---
+
+#### **Ventajas del Aislamiento**
+
+| Sin Worktrees | Con Worktrees |
+|---------------|---------------|
+| Un agente modifica todo | Cada agente tiene su espacio |
+| Conflictos frecuentes | Sin conflictos entre agentes |
+| Contexto compartido confuso | Contexto aislado y limpio |
+| Tests rompen features | Tests en su propia rama |
+| Merge hell | Merge controlado |
+
+---
+
+#### **Script de Setup Multi-Agente**
+
+```bash
+#!/bin/bash
+# setup-multi-agent.sh - Configurar aislamiento multi-agente
+
+PROJECT_ROOT="$HOME/iron-man-project"
+WORKTREES_DIR="$PROJECT_ROOT/worktrees"
+
+echo "🔧 Configurando trabajo multi-agente..."
+
+# Crear directorio de worktrees
+mkdir -p "$WORKTREES_DIR"
+
+# Función para crear worktree de agente
+create_agent_worktree() {
+    local AGENT_NAME=$1
+    local BRANCH_NAME=$2
+    
+    echo "🤖 Creando worktree para: $AGENT_NAME"
+    
+    git worktree add "$WORKTREES_DIR/$AGENT_NAME" -b "$BRANCH_NAME"
+    
+    # Copiar template de AGENTS.md
+    cp "$PROJECT_ROOT/templates/agents-$AGENT_NAME.md" \
+       "$WORKTREES_DIR/$AGENT_NAME/AGENTS.md"
+    
+    echo "✅ $AGENT_NAME listo en: $WORKTREES_DIR/$AGENT_NAME"
+}
+
+# Crear worktrees para cada tipo de agente
+create_agent_worktree "agent-coder" "feature/new-feature"
+create_agent_worktree "agent-tester" "test/security"
+create_agent_worktree "agent-reviewer" "review/pr-changes"
+
+echo ""
+echo "📋 Worktrees creados:"
+git worktree list
+```
+
+---
+
+> 💡 **Recuerda**: Cada agente necesita su contexto aislado. Los worktrees te dan exactamente eso: el mismo repo, diferentes espacios de trabajo. Es la **Security First** de la arquitectura multi-agente.
+
+---
+
+## 🔬 **Laboratorio 4: Construyendo tu JARVIS Avanzado**
+
+### **Ejercicio 1: Instalar y Configurar Engram**
+
+#### **Objetivo**
+Configurar memoria persistente para tus agentes.
+
+#### **Paso 1: Instalación**
+```bash
+# Usar script de instalación de Gentle AI Stack
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+
+# Verificar instalación
+engram --version
+# Debería mostrar: engram version 1.x.x
+
+# Inicializar base de datos en tu proyecto
+cd ~/iron-man-project
+engram init
+
+# Verificar que se creó la base de datos
+ls -la .engram/
+# Debería mostrar: engram.db, config.json
+```
+
+#### **Paso 2: Guardar primer engrama**
+```bash
+# Guardar una decisión
+engram save \
+  --type "decision" \
+  --content "Elegí Python 3.11+ para el proyecto Iron Man Evolution" \
+  --context "Setup inicial, Nivel 1" \
+  --tags "lenguaje,arquitectura"
+
+# Guardar un bugfix
+engram save \
+  --type "bugfix" \
+  --content "Error en cálculo de energía: dividía por cero cuando eficiencia=0" \
+  --solution "Añadí check: if eficiencia == 0: return 0" \
+  --files "src/reactor.py,tests/test_reactor.py"
+
+# Ver todos los engramas
+engram list
+```
+
+#### **Paso 3: Buscar engramas**
+```bash
+# Buscar por contenido
+engram search "energía"
+
+# Buscar por tipo
+engram search --type decision
+
+# Buscar con límite
+engram search "reactor" --limit 5
+```
+
+---
+
+### **Ejercicio 2: Configurar MCP para GitHub**
+
+#### **Objetivo**
+Conectar tu agente con GitHub vía MCP.
+
+#### **Paso 1: Configurar token de GitHub**
+```bash
+# Crear token en https://github.com/settings/tokens
+# Seleccionar scopes: repo, workflow, user
+
+# Guardar en variable de entorno
+export GITHUB_TOKEN="ghp_tu_token_aqui"
+
+# O guardar en .env
+echo "GITHUB_TOKEN=ghp_tu_token_aqui" >> .env
+```
+
+#### **Paso 2: Configurar MCP**
+Crear `mcp-config.json`:
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+#### **Paso 3: Probar conexión**
+```python
+# test_mcp_github.py
+"""
+Prueba de conexión MCP con GitHub.
+"""
+
+import json
+import subprocess
+
+def probar_mcp_github():
+    """Prueba la conexión MCP con GitHub."""
+    
+    # Comando para probar MCP (simulado)
+    resultado = {
+        "status": "conectado",
+        "servidor": "github",
+        "funciones_disponibles": [
+            "list_repos",
+            "get_repo",
+            "create_issue",
+            "list_issues",
+            "create_pr"
+        ]
+    }
+    
+    print("✅ MCP GitHub conectado")
+    print(f"📦 Funciones disponibles: {len(resultado['funciones_disponibles'])}")
+    
+    for funcion in resultado['funciones_disponibles']:
+        print(f"  - {funcion}")
+    
+    return resultado
+
+if __name__ == "__main__":
+    probar_mcp_github()
+```
+
+---
+
+### **Ejercicio 3: Crear tu primer Skill**
+
+#### **Objetivo**
+Crear un Skill modular para tu agente.
+
+#### **Crear estructura de skills**
+```bash
+mkdir -p skills/clean-code/{examples,scripts}
+mkdir -p skills/testing/{pytest,jest}
+mkdir -p skills/security/{OWASP,scripts}
+```
+
+#### **Crear Skill de testing**
+`skills/testing/SKILL.md`:
+```markdown
+# Skill: Testing Specialist
+
+## Trigger
+Cuando se necesiten tests, cobertura de código, o TDD.
+
+## Reglas Principales
+1. **Arrange-Act-Assert** - Siempre seguir este patrón
+2. **Cobertura mínima 80%** - Medir con pytest-cov
+3. **Nombres descriptivos** - test_deberia_[comportamiento_esperado]
+4. **Un test, una aserción lógica** - Foco en una cosa
+5. **Tests rápidos** - Sin I/O real, usar mocks
+
+## Flujo de Testing
+```python
+# 1. Escribir test primero (TDD)
+def test_calcular_energia_deberia_retornar_valor_entero():
+    # Arrange
+    reactor = ReactorArc(eficiencia=0.8)
+    
+    # Act
+    energia = reactor.calcular_energia()
+    
+    # Assert
+    assert isinstance(energia, int)
+    assert 0 <= energia <= 100000
+
+# 2. Implementar la función
+class ReactorArc:
+    def __init__(self, eficiencia: float):
+        self.eficiencia = eficiencia
+    
+    def calcular_energia(self) -> int:
+        """Calcula energía basada en eficiencia."""
+        energia_base = 100000
+        return int(energia_base * self.eficiencia)
+```
+
+## Comandos Útiles
+```bash
+# Ejecutar todos los tests
+pytest
+
+# Ejecutar con cobertura
+pytest --cov=src --cov-report=html
+
+# Ejecutar tests específicos
+pytest tests/test_reactor.py
+
+# Ejecutar con verbose
+pytest -v
+```
+
+## Ejemplo de Conftest (Fixtures)
+```python
+# tests/conftest.py
+import pytest
+
+@pytest.fixture
+def reactor_estandar():
+    """Fixture para reactor estándar."""
+    return ReactorArc(eficiencia=0.85)
+
+@pytest.fixture
+def reactor_alta_eficiencia():
+    """Fixture para reactor de alta eficiencia."""
+    return ReactorArc(eficiencia=0.95)
+
+# Uso en tests
+def test_reactor_estandar(reactor_estandar):
+    assert reactor_estandar.calcular_energia() == 85000
+```
+```
+
+---
+
+### **Ejercicio 4: Integrar todo (Engram + MCP + Skills)**
+
+#### **Objetivo**
+Crear un sistema JARVIS completo.
+
+```python
+# jarvis_completo.py
+"""
+JARVIS Completo: Sistema cognitivo con Engram, MCP y Skills.
+"""
+
+import json
+import os
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Any
+
+class JarvisCompleto:
+    """Sistema JARVIS avanzado con todas las capacidades."""
+    
+    def __init__(self, proyecto_dir: str = "."):
+        self.proyecto = Path(proyecto_dir)
+        self.memoria = self.inicializar_engram()
+        self.mcp_config = self.cargar_mcp()
+        self.skills = self.cargar_skills()
+        self.contexto = {}
+        
+    def inicializar_engram(self) -> Dict:
+        """Inicializa sistema de memoria (Engram)."""
+        # En implementación real, usarías: import engram
+        print("🧠 Inicializando Engram...")
+        return {
+            "activo": True,
+            "tipo": "engram",
+            "base_datos": str(self.proyecto / ".engram" / "engram.db"),
+            "ultimo_acceso": datetime.now().isoformat()
+        }
+    
+    def cargar_mcp(self) -> Dict:
+        """Carga configuración MCP."""
+        config_path = self.proyecto / "mcp-config.json"
+        
+        if config_path.exists():
+            with open(config_path, 'r') as f:
+                config = json.load(f)
+                print(f"🔌 MCP cargado: {len(config['mcpServers'])} servidores")
+                return config
+        else:
+            print("⚠️  No se encontró mcp-config.json")
+            return {"mcpServers": {}}
+    
+    def cargar_skills(self) -> Dict:
+        """Carga skills disponibles."""
+        skills_dir = self.proyecto / "skills"
+        skills_cargados = {}
+        
+        if skills_dir.exists():
+            for skill_dir in skills_dir.iterdir():
+                if skill_dir.is_dir():
+                    skill_md = skill_dir / "SKILL.md"
+                    if skill_md.exists():
+                        skills_cargados[skill_dir.name] = {
+                            "path": str(skill_md),
+                            "activo": True
+                        }
+            
+            print(f"📚 Skills cargados: {len(skills_cargados)}")
+        
+        return skills_cargados
+    
+    def guardar_memoria(self, tipo: str, contenido: str, metadatos: Dict = None):
+        """Guarda información en memoria persistente."""
+        memoria = {
+            "tipo": tipo,
+            "contenido": contenido,
+            "metadatos": metadatos or {},
+            "timestamp": datetime.now().isoformat(),
+            "proyecto": str(self.proyecto)
+        }
+        
+        # Guardar en log (en implementación real, usar Engram)
+        log_file = self.proyecto / "logs" / "memoria.log"
+        log_file.parent.mkdir(exist_ok=True)
+        
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(memoria) + '\n')
+        
+        print(f"💾 Memoria guardada: {tipo}")
+        return memoria
+    
+    def buscar_memoria(self, query: str, limite: int = 5) -> List[Dict]:
+        """Busca en memoria persistente."""
+        log_file = self.proyecto / "logs" / "memoria.log"
+        
+        if not log_file.exists():
+            return []
+        
+        resultados = []
+        with open(log_file, 'r', encoding='utf-8') as f:
+            for linea in f:
+                if query.lower() in linea.lower():
+                    resultados.append(json.loads(linea))
+                    if len(resultados) >= limite:
+                        break
+        
+        return resultados
+    
+    def ejecutar_skill(self, skill_name: str, contexto: Dict) -> Dict:
+        """Ejecuta un skill específico."""
+        if skill_name not in self.skills:
+            return {"error": f"Skill '{skill_name}' no encontrado"}
+        
+        # Simular ejecución de skill
+        resultado = {
+            "skill": skill_name,
+            "status": "ejecutado",
+            "contexto": contexto,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        # Guardar en memoria que se ejecutó este skill
+        self.guardar_memoria(
+            "skill_execution",
+            f"Ejecuté skill {skill_name}",
+            {"skill": skill_name, "contexto": contexto}
+        )
+        
+        return resultado
+    
+    def conectar_mcp(self, servidor: str, accion: str, parametros: Dict) -> Dict:
+        """Conecta con servidor MCP."""
+        if servidor not in self.mcp_config.get("mcpServers", {}):
+            return {"error": f"Servidor MCP '{servidor}' no configurado"}
+        
+        # Simular conexión MCP
+        resultado = {
+            "servidor": servidor,
+            "accion": accion,
+            "parametros": parametros,
+            "status": "conectado",
+            "resultado": f"Acción {accion} ejecutada en {servidor}"
+        }
+        
+        return resultado
+    
+    def conversar(self, mensaje: str) -> str:
+        """Interfaz principal de conversación."""
+        # 1. Buscar en memoria si hay contexto relevante
+        memoria_relevante = self.buscar_memoria(mensaje)
+        
+        # 2. Determinar qué skill usar
+        skill_a_usar = None
+        for skill_name in self.skills.keys():
+            if skill_name in mensaje.lower():
+                skill_a_usar = skill_name
+                break
+        
+        # 3. Si hay skill, ejecutarlo
+        if skill_a_usar:
+            resultado_skill = self.ejecutar_skill(skill_a_usar, {"mensaje": mensaje})
+            respuesta = f"✅ Ejecuté skill '{skill_a_usar}': {resultado_skill['status']}"
+        else:
+            respuesta = f"🤖 JARVIS: Recibí tu mensaje: '{mensaje}'"
+        
+        # 4. Guardar conversación en memoria
+        self.guardar_memoria(
+            "conversation",
+            f"Usuario: {mensaje}\nJARVIS: {respuesta}",
+            {"tipo": "conversacion"}
+        )
+        
+        # 5. Si hay memoria relevante, incluirla
+        if memoria_relevante:
+            respuesta += f"\n\n💡 Noté que antes hablamos de algo similar:"
+            for mem in memoria_relevante[:2]:
+                respuesta += f"\n- {mem.get('contenido', '')[:100]}..."
+        
+        return respuesta
+
+# Uso
+if __name__ == "__main__":
+    jarvis = JarvisCompleto("~/iron-man-project")
+    
+    # Probar conversación
+    print(jarvis.conversar("Necesito tests para mi reactor"))
+    
+    # Probar ejecución de skill
+    print(jarvis.ejecutar_skill("testing", {"archivo": "reactor.py"}))
+    
+    # Probar búsqueda de memoria
+    resultados = jarvis.buscar_memoria("reactor")
+    print(f"Encontré {len(resultados)} memorias sobre 'reactor'")
+```
+
+---
+
+## 🏆 **Logro Desbloqueado: "Genius"**
+
+### **Requisitos para Desbloquear**
+- [ ] Instalar y configurar Engram correctamente
+- [ ] Crear y ejecutar al menos 3 engramas
+- [ ] Configurar MCP para GitHub (u otra herramienta)
+- [ ] Crear 2 skills funcionales
+- [ ] Integrar todo en un sistema JARVIS completo
+- [ ] Entender la diferencia entre memoria temporal y persistente
+
+### **Recompensa**
+- **150 XP** por cada ejercicio completado
+- **Logro "Genius"** en tu perfil
+- **Acceso** al Nivel 5: Ultron
+- **Desbloqueo** de arquitecturas multi-agente
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Documentación**
+- [Engram Repository](https://github.com/Gentleman-Programming/gentle-ai/tree/main/engram)
+- [MCP Specification](https://modelcontextprotocol.io)
+- [Skills Pattern](https://github.com/Gentleman-Programming/Gentleman-Skills)
+
+### **Herramientas**
+- [Gentle AI Stack](https://github.com/Gentleman-Programming/gentle-ai)
+- [Claude Code](https://docs.anthropic.com/claude-code)
+- [Model Context Protocol](https://www.anthropic.com/mcp)
+
+### **Videos**
+- 🎬 [Cómo ser Tony Stark con IA](https://www.youtube.com/watch?v=SOxuW5K2FFY)
+- 🎬 [MCP Explained](https://www.youtube.com/watch?v=pvxNcQTcIy4)
+
+---
+
+## 🔗 **Siguiente Nivel**
+
+**¿Completaste todos los ejercicios?**  
+[→ **Nivel 5: Ultron**](nivel5.qmd)
+
+**¿Necesitas más práctica?**  
+[→ **Lab Detallado Nivel 4**](../labs/lab-nivel4.md)
+
+---
+
+*"JARVIS no es solo un programa. Es una extensión de mi mente. Puede recordar lo que yo olvido, conectarse a lo que yo no puedo, y aprender lo que yo aún no sé."*
+— Tony Stark, Iron Man 2 (2010)

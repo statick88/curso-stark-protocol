@@ -3,60 +3,71 @@ project:
   output-dir: docs
 
 book:
-  title: "Stark Protocol"
-  author: "Diego Saavedra"
-  output-file: "stark-protocol"  
+  title: "Iron Man Evolution: De la Cueva al Nanotech"
+  author: "Diego Saavedra García"
+  output-file: "iron-man-evolution"  
   date: today
   date-format: medium
-  favicon: images/stark.png
-  description: Uso Efectivo de Inteligencia Artificial
-  keyword: AI, ChatGPT, Prompt Engineering
-  url: https://github.com/statick88/curso-stark-protocol
+  favicon: images/iron-man-evolution.svg
+  description: "Curso de desarrollo con Inteligencia Artificial como Tony Stark: desde scripts básicos hasta Software Driver Development"
+  keyword: AI, Agentes, MCP, Engram, SDD, Gentle AI Stack, Iron Man
+  url: https://github.com/statick88/curso-iron-man-evolution
   page-navigation: true
   sidebar: 
-    logo: images/stark.png
+    logo: images/iron-man-evolution.svg
     search: true
     collapse-level: 1
 
   repo-subdir: book
-  sharing: [twitter, linkedin]
-  downloads: [pdf]
-  image: images/stark.png
+  sharing: [twitter, linkedin, facebook]
+  downloads: [pdf, epub]
+  image: images/iron-man-evolution.svg
 
   page-footer:
     center: 
-      - text: "About"
+      - text: "Acerca del Autor"
         href: about.qmd
-      - text: "License"
+      - text: "Licencia"
         href: license.qmd
+      - text: "Gentle AI Stack"
+        href: https://github.com/Gentleman-Programming/gentle-ai
         
   chapters:
     - index.qmd
-    - part: "Contenido Teórico"
+    - contenido/prerrequisitos.qmd
+    - part: "🎮 Niveles del Juego"
       chapters:
-        - contenido/unidad1.qmd
-        - contenido/unidad2.qmd
-        - contenido/unidad3.qmd
-        - contenido/unidad4.qmd
-        - contenido/unidad5.qmd
-        - contenido/unidad6.qmd
-    - part: "Laboratorios"
+        - contenido/nivel1.qmd
+        - contenido/nivel2.qmd
+        - contenido/nivel3.qmd
+        - contenido/nivel4.qmd
+        - contenido/nivel5.qmd
+        - contenido/nivel6.qmd
+    - part: "🔬 Laboratorios Prácticos"
       chapters:
-        - labs/lab-unidad1.md
-        - labs/lab-unidad2.md
-        - labs/lab-unidad3.md
-        - labs/lab-unidad4.md
-        - labs/lab-unidad5.md
-        - labs/lab-unidad6.md
-    - part: "Evaluación"
+        - labs/lab-nivel1.md
+        - labs/lab-nivel2.md
+        - labs/lab-nivel3.md
+        - labs/lab-nivel4.md
+        - labs/lab-nivel5.md
+        - labs/lab-nivel6.md
+    - part: "⚔️ Boss Fights (Retos Finales)"
       chapters:
-        - quizzes/unidad1.md
-        - quizzes/unidad2.md
-        - quizzes/unidad3.md
-        - quizzes/unidad4.md
-        - quizzes/unidad5.md
-        - quizzes/unidad6.md
-    - part: "Información"
+        - labs/boss-fight1.md
+        - labs/boss-fight2.md
+        - labs/boss-fight3.md
+        - labs/boss-fight4.md
+        - labs/boss-fight5.md
+        - labs/boss-fight6.md
+    - part: "📚 Referencias y Recursos"
+      chapters:
+        - recursos/gentle-ai-stack.md
+        - recursos/engram.md
+        - recursos/mcp.md
+        - recursos/skills.md
+        - recursos/sdd.md
+        - recursos/herramientas-ia.md
+    - part: "ℹ️ Información"
       chapters:
         - about.qmd
         - license.qmd
@@ -72,6 +83,10 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     css: css/styles.css
+    code-fold: show
+    code-tools: true
+    code-copy: true
+    highlight-style: github
 
   pdf:
     documentclass: scrreprt
@@ -87,3 +102,37 @@ format:
       - bottom=30mm
       - right=30mm
       - left=30mm
+    code-block: true
+    code-block-width: 0.9\textwidth
+
+  epub:
+    cover-image: images/iron-man-evolution-cover.svg
+    author: "Diego Saavedra García"
+    publisher: "Stark Industries Publishing"
+    rights: "© 2026 Diego Saavedra García. Todos los derechos reservados."
+
+# Configuración de notebooks interactivos (para labs)
+execute:
+  echo: true
+  eval: true
+  warning: false
+  message: false
+
+# Configuración de mermaid para diagramas
+mermaid:
+  theme: dark
+
+# Configuración deCallouts
+callout-appearance: simple
+callout-icon: true
+
+# Configuración de tabs
+tabs:
+  style: pills
+  contents:
+    - text: "HTML"
+      href: index.html
+    - text: "PDF"
+      href: iron-man-evolution.pdf
+    - text: "EPUB"
+      href: iron-man-evolution.epub

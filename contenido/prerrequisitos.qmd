@@ -1,0 +1,270 @@
+---
+title: "Antes de Empezar: Prerrequisitos y Warm-up"
+author: "Diego Saavedra García"
+description: "Verifica que tienes los conocimientos básicos necesarios para comenzar Iron Man Evolution"
+---
+
+# 🎓 **Antes de Empezar: Prerrequisitos y Warm-up**
+
+## **¿Estás listo para ser Tony Stark?**
+
+---
+
+## 🎯 **Objetivo de esta Sección**
+
+Antes de convertirte en el **Orquestador Principal de un sistema Multi-Agente**, necesitas verificar que tienes los conocimientos básicos. **No te preocupes si no los tienes** — te proporcionamos los recursos para aprenderlos.
+
+---
+
+## ✅ **Lista de Verificación: ¿Tienes lo Básico?**
+
+### **Nivel 0: Conocimientos de Computación Básica**
+
+Para comenzar este curso, necesitas saber:
+
+| # | Habilidad | ¿La tienes? | Recurso si no la tienes |
+|---|-----------|-------------|--------------------------|
+| 1 | Encender una computadora | ⬜ Sí ⬜ No | 🆓 [Curso Básico de Computación](https://www.gcflearnfree.org/computer-basics/) |
+| 2 | Usar un navegador web | ⬜ Sí ⬜ No | 🆓 [Internet Básico](https://www.gcflearnfree.org/internet-basics/) |
+| 3 | Crear una cuenta de email | ⬜ Sí ⬜ No | 🆓 [Gmail Tutorial](https://support.google.com/mail/answer/181694) |
+| 4 | Usar una calculadora | ⬜ Sí ⬜ No | 🆓 [Matemáticas Básicas](https://www.khanacademy.org/math/arithmetic) |
+| 5 | Leer y escribir en español | ⬜ Sí ⬜ No | 🆓 [Khan Academy Español](https://es.khanacademy.org/) |
+
+> 💡 **Si marcaste "No" en alguna**: ¡No pasa nada! Haz clic en el recurso y aprende. Tómate tu tiempo.
+
+---
+
+### **Nivel 1: Conocimientos de Programación Básica**
+
+Para este curso, necesitas saber **lo mínimo** de programación:
+
+| # | Habilidad | ¿La tienes? | Recurso si no la tienes |
+|---|-----------|-------------|--------------------------|
+| 1 | **¿Qué es un archivo?** | ⬜ Sí ⬜ No | 🆓 [Archivos y Carpetas](https://www.gcflearnfree.org/computer-basics/54/) |
+| 2 | **¿Qué es un programa?** | ⬜ Sí ⬜ No | 🆓 [¿Qué es un Software?](https://es.wikipedia.org/wiki/Software) |
+| 3 | **Copiar y pegar texto** | ⬜ Sí ⬜ No | 🆓 [Atajos de Teclado](https://www.gcflearnfree.org/computer-basics/51/) |
+| 4 | **Instalar un programa** | ⬜ Sí ⬜ No | 🆓 [Instalar Software](https://www.gcflearnfree.org/computer-basics/55/) |
+| 5 | **Abrir una terminal/consola** | ⬜ Sí ⬜ No | 🆓 [Terminal para Principiantes](#tutorial-terminal) |
+
+> 🎯 **Mínimo necesario**: Si sabes copiar/pegar e instalar programas, ¡puedes empezar!
+
+---
+
+## 🔧 **Tutorial: Tu Primera Terminal**
+
+### **¿Qué es una terminal/consola?**
+La terminal es como el **taller de Tony Stark** — un lugar donde le das órdenes directamente a la computadora.
+
+#### **En Windows**
+```
+1. Presiona la tecla Windows
+2. Escribe "cmd" o "PowerShell"
+3. Presiona Enter
+```
+
+#### **En Mac**
+```
+1. Presiona Command + Space
+2. Escribe "Terminal"
+3. Presiona Enter
+```
+
+#### **En Linux**
+```
+1. Busca "Terminal" en tu menú
+2. O presiona Ctrl + Alt + T
+```
+
+### **Primeros Comandos para Probar**
+```bash
+# Ver en qué carpeta estás
+pwd
+
+# Ver qué archivos hay
+ls   # o dir en Windows
+
+# Crear una carpeta
+mkdir mi-proyecto
+
+# Ir a una carpeta
+cd mi-proyecto
+
+# Volver atrás
+cd ..
+```
+
+**¿No funciona?** No te preocupes — **en este curso no necesitas ser experto en terminal**. Te guiaremos paso a paso.
+
+---
+
+## 🤔 **Conceptos que Aprenderás desde Cero**
+
+### **1. ¿Qué es Inteligencia Artificial (IA)?**
+**Analogía**: La IA es como un **aprendiz muy listo**. No piensa como humano, pero ha leído millones de libros y puede predecir qué palabra viene después.
+
+```
+Tú: "El cielo es..."
+IA: "azul" (porque ha leído esa frase millones de veces)
+```
+
+### **2. ¿Qué es un Prompt?**
+**Analogía**: Un prompt es como una **receta de cocina**. Le dices a la IA qué quieres hacer, con qué ingredientes, y cómo quieres que quede.
+
+```
+Prompt: "Escribe una función en Python que sume dos números"
+```
+
+### **3. ¿Qué es un Agente de IA?**
+**Analogía**: Un agente es como un **asistente personal con superpoderes**. No solo responde preguntas, sino que puede:
+- Leer archivos
+- Escribir código
+- Ejecutar programas
+- Buscar en internet
+- Tomar decisiones
+
+### **4. ¿Qué es MCP (Model Context Protocol)?**
+**Analogía**: MCP es como un **adaptador universal**. Permite que tu agente de IA se conecte con cualquier herramienta (GitHub, base de datos, Slack, etc.) usando el mismo conector.
+
+### **5. ¿Qué es Engram (Memoria Persistente)?**
+**Analogía**: Engram es como un **cuaderno de notas infinito**. La IA puede recordar lo que aprendió ayer, la semana pasada, el mes pasado.
+
+---
+
+## 📚 **Ruta de Aprendizaje Recomendada**
+
+### **Si NO sabes programar (0% experiencia)**
+1. 🆓 [Curso de Python para Principiantes](https://www.python.org/about/gettingstarted/) (3-5 días)
+2. 🆓 [Git Tutorial para Principiantes](https://learngitbranching.js.org/) (2-3 días)
+3. 👉 **Comienza Iron Man Evolution Nivel 1**
+
+### **Si SABES programar pero NO has usado IA**
+1. 👉 **Comienza directamente Iron Man Evolution Nivel 1**
+2. Tómate tu tiempo con los ejercicios básicos
+3. No saltes al Nivel 3 directamente
+
+### **Si ya has USADO IA pero NO para programar**
+1. 👉 **Comienza Iron Man Evolution Nivel 1** (para entender fundamentos)
+2. Salta al Nivel 2 después del Lab 1
+3. Considera el Nivel 3 si ya te sientes cómodo
+
+### **Si ya has USADO IA para programar**
+1. 👉 **Comienza Iron Man Evolution Nivel 2** (Context Engineering)
+2. El Nivel 1 es opcional pero recomendado para repasar fundamentos
+
+---
+
+## 🛠️ **Herramientas que Necesitarás**
+
+### **Mínimo Absoluto (Gratis)**
+| Herramienta | Para qué sirve | Enlace |
+|-------------|----------------|--------|
+| **Navegador web** | Acceder a ChatGPT, Claude, Gemini | [Chrome](https://www.google.com/chrome/) o [Firefox](https://www.mozilla.org/firefox/) |
+| **Cuenta de email** | Registrarte en las herramientas de IA | [Gmail](https://mail.google.com/) o [Outlook](https://outlook.live.com/) |
+| **Editor de texto** | Escribir código | [VS Code](https://code.visualstudio.com/) (recomendado) |
+
+### **Recomendado (A partir del Nivel 3)**
+| Herramienta | Para qué sirve | Enlace |
+|-------------|----------------|--------|
+| **Git** | Control de versiones | [Git](https://git-scm.com/) |
+| **Node.js** | Ejecutar herramientas de IA | [Node.js](https://nodejs.org/) |
+| **Python** | Lenguaje de programación | [Python](https://www.python.org/) |
+
+---
+
+## 🧪 **Ejercicio de Warm-up: Tu Primera Interacción con IA**
+
+### **Paso 1: Elige tu Herramienta de IA**
+Abre una de estas (todas son gratuitas):
+- 🤖 [ChatGPT](https://chat.openai.com/) (OpenAI)
+- 🤖 [Claude](https://claude.ai/) (Anthropic)  
+- 🤖 [Gemini](https://gemini.google.com/) (Google)
+
+### **Paso 2: Tu Primer Prompt**
+Copia y pega este texto:
+```
+Hola. Soy completamente nuevo en programación e IA. 
+Explícame qué eres tú (una IA) en 3 frases simples, 
+como si fueras un profesor explicando a un niño de 10 años.
+```
+
+### **Paso 3: Observa la Respuesta**
+Lee lo que la IA te responde. **No te preocupes si no entiendes todo** — eso es normal.
+
+### **Paso 4: Tu Segundo Prompt**
+Ahora prueba esto:
+```
+Ahora dame 3 consejos para alguien que empieza a aprender 
+programación e IA hoy.
+```
+
+### **Paso 5: ¡Felicidades!**
+Si pudiste leer las respuestas, **ya completaste tu primera interacción con IA**. Eso es literalmente lo que harás en el Nivel 1, pero con más profundidad.
+
+---
+
+## 📊 **Auto-evaluación: ¿Estás listo para Nivel 1?**
+
+### **Respuestas honestas**
+| Pregunta | Sí | No |
+|----------|----|----|
+| ¿Puedes abrir un navegador web? | ⬜ | ⬜ |
+| ¿Puedes crear una cuenta de email? | ⬜ | ⬜ |
+| ¿Puedes copiar y pegar texto? | ⬜ | ⬜ |
+| ¿Puedes instalar un programa? | ⬜ | ⬜ |
+| ¿Interactuaste con una IA en el warm-up? | ⬜ | ⬜ |
+| ¿Entendiste aproximadamente qué es un prompt? | ⬜ | ⬜ |
+
+### **Resultados**
+- **6 Sí**: ¡Listo! Comienza el **[Nivel 1](nivel1.qmd)** ahora
+- **4-5 Sí**: Casi listo. Repasa los recursos en "Si marcaste No"
+- **2-3 Sí**: Tómate 1-2 días con los recursos básicos
+- **0-1 Sí**: No te preocupes. Empieza con los recursos y vuelve cuando te sientas cómodo
+
+---
+
+## 🎯 **¿Qué vas a aprender en Iron Man Evolution?**
+
+### **De Cero a Héroe en 6 Niveles**
+
+```
+NIVEL 1: "¿Qué es esto?"
+    ↓ Primer prompt, primer script
+NIVEL 2: "¿Cómo lo hago mejor?"
+    ↓ Contexto específico, reglas
+NIVEL 3: "¿Cómo automatizo?"
+    ↓ Primer agente, delegación
+NIVEL 4: "¿Cómo me conecto?"
+    ↓ MCP, memoria, herramientas
+NIVEL 5: "¿Cómo escalo?"
+    ↓ Multi-agente, SDD, controles
+NIVEL 6: "¿Cómo lo hago profesional?"
+    ↓ Sistema completo, producción
+```
+
+### **Al finalizar, podrás:**
+1. ✅ Crear agentes de IA que trabajen por ti
+2. ✅ Conectar IA con GitHub, bases de datos, Slack
+3. ✅ Recordar todo lo que aprendiste (memoria persistente)
+4. ✅ Orquestar múltiples agentes trabajando juntos
+5. ✅ Desplegar sistemas de IA a producción
+6. ✅ Pensar como Arquitecto de Software Senior
+
+---
+
+## 🚀 **Siguiente Paso**
+
+**Si completaste el warm-up y te sientes cómodo:**
+
+👉 **[Comienza el Nivel 1: El Demo en la Cueva](nivel1.qmd)**
+
+**Si necesitas más práctica con lo básico:**
+
+📚 **Recursos recomendados:**
+- [Khan Academy - Computación Básica](https://www.khanacademy.org/computing)
+- [FreeCodeCamp - Python para Principiantes](https://www.freecodecamp.org/learn/scientific-computing-with-python/)
+- [Codecademy - Introducción a la Programación](https://www.codecademy.com/catalog)
+
+---
+
+*"No necesitas ser un genio para empezar. Solo necesitas la curiosidad de un niño y la determinación de un ingeniero."*
+— Diego Saavedra García

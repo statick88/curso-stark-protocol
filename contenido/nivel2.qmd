@@ -1,0 +1,843 @@
+---
+title: "Nivel 2: El Mark I"
+author: "Diego Saavedra García"
+description: "Prototipo: Context Engineering y reglas básicas para agentes"
+image: images/nivel2-mark-i.jpg
+---
+
+# ⚙️ Nivel 2: El Mark I
+
+## **Prototipo: De Scripts Sueltos a Sistema Organizado**
+
+---
+
+## 🎬 **La Escena de Iron Man (2008)**
+
+> *"Mark I. No es elegante. No es particularmente limpio. Pero funciona."*
+> — Tony Stark
+
+Tony Stark termina el Mark I.
+
+Es desordenado, ruidoso, limitado a 2 minutos de vuelo, y hecho con chatarra.
+
+Pero es **su primera armadura funcional**.
+
+Con ella, puede derrotar a los terroristas y escapar.
+
+---
+
+**El Mark I tiene reglas claras:**
+
+- **Límite de energía**: 2 minutos de vuelo
+
+- **Armamento**: Lanzallamas (básico pero efectivo)
+
+- **Debilidad**: Muy vulnerable a ataques
+
+- **Fuerza**: Mayor que la humana
+
+---
+
+**En este nivel, pasarás de scripts sueltos a un "Mark I" de desarrollo:**
+
+Un sistema con reglas básicas (AGENTS.md) y contexto específico.
+
+No será perfecto, pero será tu primera **arquitectura de desarrollo con IA**.
+
+---
+
+## 🎯 **Objetivos de Aprendizaje**
+
+Al completar este nivel, serás capaz de:
+
+1. ✅ **Entender** qué es Context Engineering y por qué es más importante que Prompt Engineering
+2. ✅ **Crear** tu primer `AGENTS.md` con reglas básicas
+3. ✅ **Diseñar** una estructura de proyecto para IA
+4. ✅ **Implementar** el patrón "Context Before Prompt"
+5. ✅ **Diferenciar** entre contexto estático y dinámico
+
+---
+
+## 🧠 **Conceptos Técnicos**
+
+### **2.1 Context Engineering vs Prompt Engineering**
+
+#### **La Gran Diferencia**
+| Prompt Engineering | Context Engineering |
+|-------------------|---------------------|
+| "Escribe buenos prompts" | "Crea sistemas que dan buenos resultados" |
+| Enfocado en una interacción | Enfocado en múltiples sesiones |
+| Repite contexto en cada prompt | El contexto persiste |
+| Como dar instrucciones cada vez | Como tener un manual de procedimientos |
+
+#### **Analogía del Taller**
+- **Prompt Engineering**: Le dices a cada nuevo obrero qué hacer
+- **Context Engineering**: Tienes un manual de taller que todos leen
+
+### **2.2 AGENTS.md: Tu Manual de Procedimientos**
+
+El `AGENTS.md` es el **corazón del Context Engineering**. Es un archivo que le dice a la IA **quién eres, qué haces, y cómo trabajas**.
+
+#### **Estructura Básica de AGENTS.md**
+```markdown
+# Proyecto: [Nombre]
+# Autor: [Tu nombre]
+# Stack: [Tecnologías]
+
+## Reglas Generales
+- Usa [lenguaje] como lenguaje principal
+- Sigue [estilo de código] para naming
+- Responde en [idioma]
+
+## Estructura del Proyecto
+- src/: Código fuente
+- tests/: Tests unitarios
+- docs/: Documentación
+- context/: Archivos de contexto
+
+## Convenciones de Código
+- Funciones: snake_case
+- Clases: PascalCase
+- Constantes: UPPER_SNAKE_CASE
+- Comentarios: español, explicativos
+
+## Restricciones
+- No uses dependencias sin justificación
+- Siempre incluye tests
+- Documenta funciones públicas
+```
+
+---
+
+#### **Ejemplo Avanzado: AGENTS.md con Zero Trust**
+
+```markdown
+# Proyecto: Iron Man API
+# Autor: Tony Stark
+# Stack: Python 3.11, FastAPI, PostgreSQL
+
+## Reglas Generales
+- Usa Python 3.11+ como lenguaje principal
+- Sigue PEP 8 para naming
+- Responde en español técnico
+
+## Security First (Principio Fundamental)
+⚠️ **REGLA #1**: Todo input del usuario es potencialmente malicioso.
+⚠️ **REGLA #2**: Nunca confíes, siempre valida.
+⚠️ **REGLA #3**: Los secrets NUNCA van en el código.
+
+### Validación de Input (Zero Trust)
+- Valida TODOS los inputs antes de procesar
+- Usa Pydantic para validación automática
+- Rechaza datos que no cumplan el schema
+- Loggea intentos de input inválido
+
+### Gestión de Secretos
+- API keys en variables de ambiente (.env)
+- Nunca hardcodees passwords
+- Usa python-dotenv para cargar secrets
+- Rotación de keys cada 90 días
+
+## Estructura del Proyecto
+- src/
+  - api/: Endpoints FastAPI
+  - models/: Modelos Pydantic + SQLAlchemy
+  - services/: Lógica de negocio
+  - security/: Funciones de seguridad
+- tests/: Tests unitarios + integración
+- docs/: Documentación
+- .env.example: Template de variables
+
+## Convenciones de Código
+- Funciones: snake_case
+- Clases: PascalCase
+- Constantes: UPPER_SNAKE_CASE
+- Type hints obligatorios en todas las funciones
+- Docstrings en español, explicativos
+
+## Restricciones de Seguridad
+- SIEMPRE valida inputs con Pydantic
+- SIEMPRE usa parameterized queries (SQL injection)
+- SIEMPRE escapa outputs (XSS prevention)
+- NUNCA uses eval() o exec()
+- NUNCA logs contraseñas o tokens
+- NUNCA compartas secrets en commits
+```
+
+---
+
+#### **¿Por qué Zero Trust es importante?**
+
+Tony Stark aprendió esto cuando HYDRA hackó sus armaduras:
+
+> **"No confíes ni siquiera en ti mismo. Verifica todo."**
+
+| Principio | Ejemplo en Código |
+|-----------|-------------------|
+| **Valida todo** | `if not email.match(EMAIL_REGEX): raise` |
+| **No confíes** | `user_id = get_current_user(request)` — verifica el token |
+| **Fail-safe** | `raise HTTPException(401)` por defecto, no 200 |
+| **Defense in depth** | Validación + Auth + Rate limiting + Logging |
+
+### **2.3 El Patrón "Context Before Prompt"**
+
+#### **Flujo Correcto**
+```
+1. Crear/registrar contexto (AGENTS.md, context/)
+2. Abrir sesión con IA
+3. La IA lee el contexto automáticamente
+4. Tú escribes prompts específicos
+5. La IA responde siguiendo las reglas
+```
+
+#### **Flujo Incorrecto (común)**
+```
+1. Abrir sesión con IA
+2. Escribir prompt largo explicando todo
+3. La IA responde genéricamente
+4. Repetir paso 2 con más detalles
+5. Resultado inconsistente
+```
+
+### **2.4 Contexto Estático vs Dinámico**
+
+#### **Contexto Estático**
+
+Archivos que no cambian frecuentemente:
+
+- `AGENTS.md` — Reglas del proyecto
+
+- `README.md` — Documentación general
+
+- `CONTRIBUTING.md` — Guía de contribución
+
+#### **Contexto Dinámico**
+
+Archivos que cambian con frecuencia:
+
+- `context/database-schema.sql` — Esquema de BD
+
+- `context/api-endpoints.md` — Endpoints actuales
+
+- `context/decisions.log` — Decisiones tomadas
+
+---
+
+## 🔬 **Laboratorio 2: Construyendo tu Mark I**
+
+### **Ejercicio 1: El reactor arc de contexto (Estructura básica)**
+
+#### **Objetivo**
+Crear la estructura básica de un proyecto con IA.
+
+#### **Comandos**
+```bash
+# Crear estructura de proyecto
+mkdir -p ~/iron-man-project/{src,tests,context,docs,prompts,logs}
+cd ~/iron-man-project
+
+# Crear archivos básicos
+touch AGENTS.md README.md .gitignore
+touch context/database-schema.md
+touch context/api-endpoints.md
+touch context/decisions.log
+
+# Verificar estructura
+tree .
+```
+
+#### **Resultado Esperado**
+```
+iron-man-project/
+├── AGENTS.md
+├── README.md
+├── .gitignore
+├── context/
+│   ├── database-schema.md
+│   ├── api-endpoints.md
+│   └── decisions.log
+├── docs/
+├── logs/
+├── prompts/
+├── src/
+└── tests/
+```
+
+---
+
+### **Ejercicio 2: Tu primer AGENTS.md (Reglas del Mark I)**
+
+#### **Objetivo**
+Crear un `AGENTS.md` funcional para un proyecto simple.
+
+#### **Prompt para IA**
+```
+Necesito crear un AGENTS.md para mi proyecto "Iron Man Evolution".
+
+Especificaciones:
+1. Lenguaje: Python 3.11+
+2. Estilo de código: PEP 8
+3. Testing: pytest
+4. Documentación: Docstrings en español
+5. Convenciones: snake_case para funciones, PascalCase para clases
+
+Incluye estas secciones:
+- Stack tecnológico
+- Estructura de carpetas
+- Convenciones de código
+- Reglas de testing
+- Patrones de diseño preferidos
+- Qué NO hacer (restricciones)
+
+Genera el contenido completo del archivo AGENTS.md.
+```
+
+#### **Archivo AGENTS.md Esperado**
+
+El archivo AGENTS.md debe seguir esta estructura:
+
+**Encabezado y Stack Tecnológico:**
+```markdown
+# Proyecto: Iron Man Evolution
+# Autor: Diego Saavedra García
+# Stack: Python 3.11+, FastAPI, SQLAlchemy, Pytest
+# Versión: 1.0
+
+## 📋 Stack Tecnológico
+- **Lenguaje**: Python 3.11+
+- **Framework Web**: FastAPI
+- **ORM**: SQLAlchemy
+- **Testing**: Pytest + Coverage
+- **Documentación**: MkDocs
+- **CI/CD**: GitHub Actions
+- **Containerización**: Docker + Docker Compose
+```
+
+**Estructura de Directorios:**
+```text
+iron-man-project/
+├── AGENTS.md          # Este archivo
+├── README.md          # Documentación principal
+├── pyproject.toml     # Configuración Python
+├── src/               # Código fuente
+│   ├── models/        # Modelos de datos
+│   ├── services/      # Lógica de negocio
+│   ├── api/           # Endpoints API
+│   └── utils/         # Utilidades
+├── tests/             # Tests unitarios
+│   ├── unit/          # Tests unitarios
+│   ├── integration/   # Tests de integración
+│   └── conftest.py    # Fixtures de pytest
+├── docs/              # Documentación
+├── scripts/           # Scripts auxiliares
+└── context/           # Archivos de contexto
+```
+
+**Convenciones de Código:**
+
+### **Nomenclatura**
+
+- **Funciones y variables**: `snake_case`
+
+- **Clases**: `PascalCase`
+
+- **Constantes**: `UPPER_SNAKE_CASE`
+
+- **Módulos**: `snake_case.py`
+
+- **Archivos de test**: `test_*.py`
+
+### **Estilo**
+
+- Seguir PEP 8 estrictamente
+
+- Máximo 79 caracteres por línea
+
+- Usar type hints en todas las funciones
+
+- Docstrings en español con formato Google
+
+### Ejemplo
+
+```python
+def calcular_energia_reactor(
+    nivel_base: int,
+    factor_eficiencia: float = 1.0
+) -> int:
+    """
+    Calcula la energía del reactor arc basado en el nivel base.
+
+    Args:
+        nivel_base: Nivel base de energía (1-100).
+            Valores fuera de rango lanzan ValueError.
+        factor_eficiencia: Factor de eficiencia (0.0-1.0).
+            1.0 = máxima eficiencia, 0.0 = sin energía.
+
+    Returns:
+        Energía calculada en unidades de arc (entero).
+
+    Raises:
+        ValueError: Si nivel_base no está entre 1-100.
+        ValueError: Si factor_eficiencia no está entre 0.0-1.0.
+
+    Example:
+        >>> calcular_energia_reactor(50, 0.8)
+        40000
+    """
+    # Validar nivel_base
+    if not 1 <= nivel_base <= 100:
+        raise ValueError(
+            f"nivel_base debe estar entre 1-100, recibido: {nivel_base}"
+        )
+
+    # Validar factor_eficiencia
+    if not 0.0 <= factor_eficiencia <= 1.0:
+        raise ValueError(
+            f"factor_eficiencia debe estar entre 0.0-1.0, recibido: {factor_eficiencia}"
+        )
+
+    # Calcular energía
+    energia_base = nivel_base * 1000
+    energia_ajustada = energia_base * factor_eficiencia
+
+    return int(energia_ajustada)
+```
+
+## 🧪 Reglas de Testing
+- **Cobertura mínima**: 80%
+- **Framework**: pytest
+- **Nombres de test**: `test_` + descripción del comportamiento
+- **Estructura**: Arrange-Act-Assert (AAA)
+- **Cada test**: Una sola aserción lógica
+
+### Ejemplo de Test
+```python
+import pytest
+from src.services.reactor import calcular_energia_reactor
+
+class TestCalcularEnergiaReactor:
+    """Tests para la función calcular_energia_reactor."""
+    
+    def test_deberia_calcular_energia_correcta(self):
+        """Debería calcular energía correctamente con datos normales."""
+        # Arrange
+        nivel_base = 50
+        factor = 0.8
+        
+        # Act
+        resultado = calcular_energia_reactor(nivel_base, factor)
+        
+        # Assert
+        assert resultado == 40000
+    
+    def test_deberia_lanzar_error_con_nivel_invalido(self):
+        """Debería lanzar ValueError con nivel fuera de rango."""
+        # Act & Assert
+        with pytest.raises(ValueError):
+            calcular_energia_reactor(101)
+```
+
+## 🏗️ Patrones de Diseño Preferidos
+1. **Repository Pattern**: Para acceso a datos
+2. **Service Layer**: Para lógica de negocio
+3. **Dependency Injection**: Para desacoplamiento
+4. **Factory Pattern**: Para creación de objetos complejos
+5. **Observer Pattern**: Para eventos del sistema
+
+## ❌ Restricciones (Qué NO Hacer)
+- **NO** usar `print()` para logging (usar logging module)
+- **NO** hardcoded values (usar variables de entorno o constantes)
+- **NO** imports circulares
+- **NO** funciones con más de 3 parámetros
+- **NO** clases con más de 5 métodos públicos
+- **NO** código duplicado (DRY)
+- **NO** dependencias sin justificación en pyproject.toml
+- **NO** tests que dependen de otros tests
+- **NO** datos sensibles en el código (usar .env)
+- **NO** commit sin tests pasando
+
+## 📊 Configuración de Herramientas
+### Pytest
+```ini
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src --cov-report=term-missing"
+```
+
+### Black (Formateador)
+```ini
+[tool.black]
+line-length = 79
+target-version = ['py311']
+include = '\.pyi?$'
+```
+
+## 🚀 Comandos Útiles
+```bash
+# Ejecutar tests
+pytest
+
+# Ejecutar tests con cobertura
+pytest --cov=src --cov-report=html
+
+# Formatear código
+black src/ tests/
+
+# Verificar tipos
+mypy src/
+
+# Ejecutar servidor de desarrollo
+uvicorn src.api.main:app --reload
+```
+
+## 📝 Notas para IA
+### Al leer este archivo, la IA debe:
+1. Seguir todas las convenciones de código
+2. Usar type hints en todas las funciones
+3. Crear tests para cualquier nueva función
+4. Documentar en español con docstrings
+5. Seguir el patrón AAA en tests
+6. Mantener cobertura > 80%
+7. No usar hardcoding
+8. Usar repository pattern para datos
+9. Validar inputs en las fronteras
+10. Logging apropiado (no print)
+
+### **Si encuentra código que viola estas reglas:**
+
+1. **Advertir** al desarrollador
+
+2. **Sugerir** la corrección
+
+3. **Proponer** refactorización si es grave
+
+---
+
+\*Archivo mantenido por: Iron Man Evolution Team\*
+
+\*Última actualización: 2026-03-22\*
+
+---
+
+### **Ejercicio 3: Archivos de Contexto Dinámico**
+
+#### **Objetivo**
+Crear archivos de contexto que la IA pueda leer para entender tu proyecto específico.
+
+#### **3.1 Database Schema Context**
+Crear `context/database-schema.md`:
+```markdown
+# Esquema de Base de Datos - Iron Man Evolution
+
+## Tablas Principales
+
+### 1. tabla_pilotos
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Primary key |
+| nombre | VARCHAR(100) | Nombre del piloto |
+| email | VARCHAR(255) | Email único |
+| nivel_energia | INTEGER | Energía actual (1-100) |
+| fecha_registro | TIMESTAMP | Cuándo se registró |
+| activo | BOOLEAN | Si está activo |
+
+### 2. tabla_armaduras
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Primary key |
+| nombre | VARCHAR(50) | Nombre armadura (Mark I, II, etc.) |
+| version | VARCHAR(20) | Versión específica |
+| nivel_potencia | INTEGER | 1-100 |
+| descripcion | TEXT | Características |
+| fecha_creacion | TIMESTAMP | Cuándo fue creada |
+
+### 3. tabla_misiones
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Primary key |
+| piloto_id | INTEGER | FK a tabla_pilotos |
+| armadura_id | INTEGER | FK a tabla_armaduras |
+| nombre | VARCHAR(200) | Nombre de la misión |
+| estado | ENUM | 'pendiente', 'en_progreso', 'completada', 'fallida' |
+| energia_consumida | INTEGER | Energía usada |
+| fecha_inicio | TIMESTAMP | Inicio |
+| fecha_fin | TIMESTAMP | Fin |
+
+## Relaciones
+- Un piloto puede tener múltiples misiones
+- Una armadura puede usarse en múltiples misiones
+- Cada misión tiene exactamente un piloto y una armadura
+
+## Ejemplos de Queries Útiles
+```sql
+-- Pilotos con más energía
+SELECT * FROM tabla_pilotos 
+WHERE nivel_energia > 70 
+ORDER BY nivel_energia DESC;
+
+-- Misiones recientes
+SELECT p.nombre, a.nombre, m.estado, m.fecha_inicio
+FROM tabla_misiones m
+JOIN tabla_pilotos p ON m.piloto_id = p.id
+JOIN tabla_armaduras a ON m.armadura_id = a.id
+WHERE m.fecha_inicio > DATE_SUB(NOW(), INTERVAL 7 DAY);
+```
+
+#### **3.2 API Endpoints Context**
+
+Crear `context/api-endpoints.md`:
+
+```markdown
+# API Endpoints - Iron Man Evolution
+
+## Base URL
+
+http://localhost:8000/api/v1
+
+---
+
+## Endpoints de Pilotos
+
+### GET /pilotos
+
+Obtiene lista de pilotos.
+
+**Parámetros query:**
+- `limite` (opcional): Máximo resultados, default 10
+- `offset` (opcional): Paginación, default 0
+
+**Response:**
+```json
+{
+  "pilotos": [...],
+  "total": 100
+}
+```
+
+---
+
+### POST /pilotos
+
+Crea nuevo piloto.
+
+**Body:**
+```json
+{
+  "nombre": "Tony",
+  "email": "tony@stark.com"
+}
+```
+
+**Response:** 201 Created
+
+---
+
+### GET /pilotos/{id}
+
+Obtiene piloto por ID.
+
+**Response:**
+```json
+{
+  "id": 1,
+  "nombre": "Tony",
+  "email": "tony@stark.com",
+  "nivel_energia": 75
+}
+```
+
+---
+
+### PUT /pilotos/{id}
+
+Actualiza piloto completo.
+
+**Body:**
+```json
+{
+  "nombre": "Tony Stark",
+  "nivel_energia": 85
+}
+```
+
+**Response:** Piloto actualizado
+
+---
+
+### DELETE /pilotos/{id}
+
+Elimina piloto por ID.
+
+**Response:** 204 No Content
+
+---
+
+## Endpoints de Misiones
+
+### POST /misiones
+
+Crea nueva misión.
+
+**Body:**
+```json
+{
+  "piloto_id": 1,
+  "armadura_id": 3,
+  "nombre": "Rescate"
+}
+```
+
+**Response:** 201 Created
+
+---
+
+### PATCH /misiones/{id}/estado
+
+Actualiza estado de misión.
+
+**Body:**
+```json
+{
+  "estado": "completada",
+  "energia_consumida": 45
+}
+```
+
+**Response:** Misión actualizada
+
+---
+
+## Códigos de Respuesta
+
+| Código | Significado | Descripción |
+|--------|-------------|-------------|
+| 200 | OK | Éxito |
+| 201 | Created | Recurso creado |
+| 204 | No Content | Eliminado exitosamente |
+| 400 | Bad Request | Datos inválidos |
+| 401 | Unauthorized | No autenticado |
+| 403 | Forbidden | Sin permisos |
+| 404 | Not Found | No encontrado |
+| 422 | Validation Error | Validación fallida |
+| 500 | Internal Error | Error del servidor |
+```
+
+---
+
+### **Ejercicio 4: Prueba de Context Before Prompt**
+
+#### **Objetivo**
+
+Probar que el sistema de contexto funciona.
+
+---
+
+#### **Test**
+
+**Paso 1:** Abre una nueva sesión con Claude/ChatGPT
+
+**Paso 2:** **NO** expliques nada al principio
+
+**Paso 3:** Sube los archivos:
+
+- `AGENTS.md`
+
+- `context/database-schema.md`
+
+- `context/api-endpoints.md`
+
+**Paso 4:** Escribe este prompt simple:
+
+```python
+Crea una función Python para crear un nuevo piloto en la base de datos.
+```
+
+---
+
+#### **Resultado Esperado**
+
+La IA debería:
+
+1. Usar `snake_case` para la función
+
+2. Incluir type hints
+
+3. Crear docstring en español
+
+4. Seguir el esquema de BD correcto
+
+5. Manejar errores apropiadamente
+
+6. Incluir tests unitarios
+
+---
+
+## 🏆 **Logro Desbloqueado: "Architect"**
+
+### **Requisitos para Desbloquear**
+
+- [ ] Crear estructura de proyecto completa
+
+- [ ] Escribir `AGENTS.md` funcional (>100 líneas)
+
+- [ ] Crear al menos 2 archivos de contexto dinámico
+
+- [ ] Probar el sistema "Context Before Prompt"
+
+- [ ] Entender la diferencia entre contexto estático y dinámico
+
+### **Recompensa**
+
+- **75 XP** por cada ejercicio completado
+
+- **Logro "Architect"** en tu perfil
+
+- **Acceso** al Nivel 3: El Mark III
+
+- **Desbloqueo** de patrones avanzados
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Lectura**
+
+- [Context Engineering Guide](https://www.promptingguide.ai/techniques/context)
+
+- [AGENTS.md Pattern](https://github.com/gentleman-programming/gentle-ai/blob/main/docs/agents.md)
+
+- [Clean Code Principles](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+
+### **Herramientas**
+
+- [Tree (generador de estructura)](https://linux.die.net/man/1/tree)
+
+- [Black (formateador Python)](https://github.com/psf/black)
+
+- [Mypy (verificador de tipos)](https://mypy-lang.org/)
+
+### **Videos**
+
+- 🎬 [Gentle AI Stack Installation](https://github.com/Gentleman-Programming/gentle-ai#installation)
+
+- 🎬 [AGENTS.md Tutorial](https://www.youtube.com/watch?v=SOxuW5K2FFY)
+
+---
+
+## 🔗 **Siguiente Nivel**
+
+**¿Completaste todos los ejercicios?**  
+
+[→ **Nivel 3: El Mark III**](nivel3.qmd)
+
+**¿Necesitas más práctica?**  
+
+[→ **Lab Detallado Nivel 2**](../labs/lab-nivel2.md)
+
+---
+
+*"El Mark I no era sobre la tecnología. Era sobre la idea. La idea de que incluso con chatarra, puedes crear algo que te liberará."*
+
+— Howard Stark (imaginario)
