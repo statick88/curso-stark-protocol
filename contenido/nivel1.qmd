@@ -14,6 +14,7 @@ image: images/nivel1-cueva.jpg
 ## ⚠️ **¿Eres Principiante Absoluto? ¡PERFECTO!**
 
 Si nunca has:
+
 - ✅ **Escrito una línea de código** → Estás en el lugar correcto
 - ✅ **Usado una terminal/consola** → Te guiaremos paso a paso
 - ✅ **Interactuado con IA** → Empezaremos desde lo más básico
@@ -86,30 +87,30 @@ Un **Large Language Model** (Modelo de Lenguaje Grande) es como el reactor arc q
 | **Aplicaciones** | Prompts y tareas |
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     CÓMO FUNCIONA UN LLM                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│   ┌─────────────────┐         ┌─────────────────┐               │
-│   │ 📚 DATOS DE     │         │ 🤖 LLM          │               │
-│   │ ENTRENAMIENTO   │ ──────► │ (Modelo)        │               │
-│   │                 │         │                 │               │
-│   │ • Libros        │         │ • Parámetros    │               │
-│   │ • webs          │         │ • Pesos         │               │
-│   │ • código        │         │ • Tokens        │               │
-│   └─────────────────┘         └────────┬────────┘               │
-│                                        │                        │
-│   ┌─────────────────┐                  │                        │
-│   │ 💬 TU PROMPT    │                  ▼                        │
-│   │ (Instrucción)   │ ─────────►┌─────────────────┐             │
-│   │                 │           │ 📤 RESPUESTA    │             │
-│   │ • Rol           │           │                 │             │
-│   │ • Contexto      │           │ • Código        │             │
-│   │ • Tarea         │           │ • Texto         │             │
-│   │ • Restricciones │           │ • Solución      │             │
-│   └─────────────────┘           └─────────────────┘             │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                      CÓMO FUNCIONA UN LLM                             │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│   ┌─────────────────────┐          ┌─────────────────────┐          │
+│   │  📚 DATOS DE        │          │  🤖 LLM             │          │
+│   │  ENTRENAMIENTO      │ ───────► │  (Modelo)           │          │
+│   │                      │          │                      │          │
+│   │  • Libros           │          │  • Parámetros      │          │
+│   │  • Webs             │          │  • Pesos            │          │
+│   │  • Código           │          │  • Tokens           │          │
+│   └─────────────────────┘          └──────────┬──────────┘          │
+│                                                 │                      │
+│   ┌─────────────────────┐                      │                      │
+│   │  💬 TU PROMPT       │                      ▼                      │
+│   │  (Instrucción)       │ ────────────►┌─────────────────────┐      │
+│   │                      │                │  📤 RESPUESTA       │      │
+│   │  • Rol              │                │                      │      │
+│   │  • Contexto         │                │  • Código           │      │
+│   │  • Tarea            │                │  • Texto            │      │
+│   │  • Restricciones    │                │  • Solución         │      │
+│   └─────────────────────┘                └─────────────────────┘      │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
 #### **Parámetros Clave**
