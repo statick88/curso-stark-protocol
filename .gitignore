@@ -1,6 +1,6 @@
 # Quarto build output
 _book/
-docs/
+# docs/ - habilitado para GitHub Pages
 *.html
 *.pdf
 
