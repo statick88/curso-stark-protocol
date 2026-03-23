@@ -180,6 +180,7 @@ En la cueva, probó el reactor arc **múltiples veces** antes de instalarlo en s
 #### **El Problema de la IA Generativa**
 
 La IA puede generar código que:
+
 - ❌ **Funciona mal** — bugs sutiles que pasan desapercibidos
 - ❌ **Es inseguro** — inyecciones SQL, XSS, contraseñas hardcodeadas
 - ❌ **Es ineficiente** — O(n²) cuando debería ser O(n)
