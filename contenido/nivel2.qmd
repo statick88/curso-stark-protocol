@@ -743,9 +743,7 @@ Probar que el sistema de contexto funciona.
 **Paso 3:** Sube los archivos:
 
 - `AGENTS.md`
-
 - `context/database-schema.md`
-
 - `context/api-endpoints.md`
 
 **Paso 4:** Escribe este prompt simple:
@@ -761,15 +759,10 @@ Crea una función Python para crear un nuevo piloto en la base de datos.
 La IA debería:
 
 1. Usar `snake_case` para la función
-
 2. Incluir type hints
-
 3. Crear docstring en español
-
 4. Seguir el esquema de BD correcto
-
 5. Manejar errores apropiadamente
-
 6. Incluir tests unitarios
 
 ---
